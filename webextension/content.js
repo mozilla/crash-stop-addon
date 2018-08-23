@@ -4,7 +4,7 @@
 
 "use strict";
 
-const VERSION = "0.2.7";
+const VERSION = "0.2.8";
 
 async function fetchProductDetails() {
   const url = "https://product-details.mozilla.org/1.0/firefox_versions.json";
@@ -206,8 +206,8 @@ if (container) {
       }
     });
 
-     const crashStop = "https://localhost:8001";
-   // const crashStop = "https://crash-stop-addon.herokuapp.com";
+    // const crashStop = "https://localhost:8001";
+    const crashStop = "https://crash-stop-addon.herokuapp.com";
     const sumup = crashStop + "/sumup.html";
     const hpart = hgrevs.length != 0 ? (hgrevs.join("&") + "&") : "";
     const spart = signatures.join("&") + "&";
