@@ -1,6 +1,10 @@
 language: python
 python:
   - "3.6.6"
+services:
+  - memcached
+env:
+  - DATABASE_URL=postgresql://crash:stop/crashstop_test
 before_install:
   - pip install --upgrade pip
   - pip install "setuptools>=28.6.1"
@@ -8,6 +12,9 @@ before_install:
   - pip install -r test-requirements.txt
   - pip install coveralls
   - pip install pytest-cov
+before_script:
+  - psql -c "create database crashstop_test;" -U postgres
+  - psql -c "create user crash with password 'stop';" -U postgres
 script:
   - flake8 .
   - py.test -vv tests/ --cov crashstop
