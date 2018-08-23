@@ -9,7 +9,7 @@ The WebExtension is available at https://addons.mozilla.org/firefox/addon/bugzil
 
 
 [![Build Status](https://api.travis-ci.org/mozilla/crash-stop-addon.svg?branch=master)](https://travis-ci.org/mozilla/crash-stop-addon)
-[![Coverage Status](https://coveralls.io/repos/mozilla/crash-stop-addon/badge.png)](https://coveralls.io/r/mozilla/crash-stop-addon)
+[![Coverage Status](https://coveralls.io/repos/github/mozilla/crash-stop-addon/badge.svg?branch=master)](https://coveralls.io/r/mozilla/crash-stop-addon)
 
 ## Setup
 
