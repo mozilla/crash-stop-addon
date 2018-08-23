@@ -11,7 +11,7 @@
     "icons": {
         "96": "icons/clouseau.png"
     },
-    "homepage_url": "https://github.com/mozilla/crashstop",
+    "homepage_url": "https://github.com/mozilla/crash-stop-addon",
     "content_scripts": [
         {
             "matches": ["https://bugzilla.mozilla.org/*"],
