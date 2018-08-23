@@ -1,7 +1,6 @@
 language: python
 python:
-  - "2.7"
-  - "3.5"
+  - "3.6.6"
 before_install:
   - pip install --upgrade pip
   - pip install "setuptools>=28.6.1"
@@ -11,7 +10,7 @@ before_install:
   - pip install pytest-cov
 script:
   - flake8 .
-  - py.test
+  - py.test tests/
 after_success:
   - coveralls
 cache: pip
