@@ -9,3 +9,4 @@ server.csr
 server.key
 local.json
 .pytest_cache
+venv
