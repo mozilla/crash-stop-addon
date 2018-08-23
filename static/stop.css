@@ -1,0 +1,146 @@
+/* override default styles */
+body {
+    font-family: "Fira Sans", "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #0095dd;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #00539f;
+}
+
+/* generic table styles */
+table {
+    border-collapse: collapse;
+    border: 1px solid #cbcbcb;
+}
+
+th {
+    border: 1px solid #cbcbcb;
+    background-color: #f0f0f0;
+    color: #666;
+}
+
+tr th[colspan="100"] {
+    border-spacing: 10px;
+}
+
+td, th {
+    border-right: 1px solid #cbcbcb;
+    text-align: center;
+    padding: 4px 2px;
+    padding: 4px;
+}
+
+tr:nth-child(odd) {
+    background-color: #EDF5FF;
+}
+
+td.with,
+td.without,
+td.buildid {
+    font-size: 90%;
+}
+
+th.norm {
+    font-weight: normal;
+    text-align: left;
+}
+
+/* captions and colors */
+.legend {
+    margin-bottom: 1em;
+    column-span: all;
+    column-count: 5;
+    column-gap: 0.5em;
+    color:#666;
+}
+
+.info {
+    columns: 1;
+    background-color: LightBlue;
+    margin-bottom: 1em;
+    margin-top: -0.5em;
+}
+
+caption span {
+    text-align: center;
+    display:block;
+}
+
+.with {
+    background-color: LightGreen;
+}
+
+.without {
+    background-color: LightPink;
+}
+
+.gray {
+    background-color: #f0f0f0;
+}
+
+.lavender {
+    background-color: FloralWhite;
+}
+
+.startup {
+    background-color: red;
+}
+
+span.startup {
+    color: black;
+}
+
+.windows {
+    background: url("/Windows_Logo.png");
+    background-repeat: no-repeat;
+    background-size: auto 1.3em;
+    width: 1.3em;
+    height: 1.3em;
+    float: right;
+}
+
+.linux {
+    background: url("/Linux_Logo.png");
+    background-repeat: no-repeat;
+    background-size: auto 1.3em;
+    width: 1.3em;
+    height: 1.3em;
+    float: right;
+}
+
+.osx {
+    background: url("/OSX_Logo.png");
+    background-repeat: no-repeat;
+    background-size: auto 1.3em;
+    width: 1.3em;
+    height: 1.3em;
+    float: right;
+}
+
+.android {
+    background: url("/Android_Logo.png");
+    background-repeat: no-repeat;
+    background-size: auto 1.3em;
+    width: 1.3em;
+    height: 1.3em;
+    float: right;
+}
+
+.github {
+    background: url("/GitHub-Mark-120px-plus.png");
+    background-repeat: no-repeat;
+    background-size: auto 1em;
+    width: 1em;
+    height: 1em;
+    float: left;
+    display: inline-block;
+}

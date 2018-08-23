@@ -1,0 +1,911 @@
+{
+    "data": {
+        "FennecAndroid": {
+            "beta": {
+                "android.database.CursorWindowAllocationException: Cursor window allocation of 2048 kb failed. # Open Cursors=1 (# cursors opened by this proc=1) at android.database.CursorWindow.<init>(CursorWindow.java)": {
+                    "buildids": [
+                        "20180713213322",
+                        "20180723144101",
+                        "20180730180407",
+                        "20180806191531",
+                        "20180813190114",
+                        "20180820172315"
+                    ],
+                    "installs": [
+                        101,
+                        115,
+                        108,
+                        111,
+                        84,
+                        20
+                    ],
+                    "min_date": "2018-07-13",
+                    "platforms": {
+                        "others": 100.0
+                    },
+                    "position": -2,
+                    "raw": [
+                        129,
+                        176,
+                        220,
+                        169,
+                        127,
+                        20
+                    ],
+                    "startup": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                "android.database.CursorWindowAllocationException: Cursor window allocation of 2048 kb failed. # Open Cursors=2 (# cursors opened by this proc=2) at android.database.CursorWindow.<init>(CursorWindow.java)": {
+                    "buildids": [
+                        "20180713213322",
+                        "20180723144101",
+                        "20180730180407",
+                        "20180806191531",
+                        "20180813190114",
+                        "20180820172315"
+                    ],
+                    "installs": [
+                        6,
+                        6,
+                        7,
+                        6,
+                        8,
+                        0
+                    ],
+                    "min_date": "2018-07-13",
+                    "platforms": {
+                        "others": 100.0
+                    },
+                    "position": -2,
+                    "raw": [
+                        6,
+                        6,
+                        7,
+                        6,
+                        10,
+                        0
+                    ],
+                    "startup": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                "android.database.CursorWindowAllocationException: Cursor window allocation of 2048 kb failed. at android.database.CursorWindow.<init>(CursorWindow.java)": {
+                    "buildids": [
+                        "20180713213322",
+                        "20180723144101",
+                        "20180730180407",
+                        "20180806191531",
+                        "20180813190114",
+                        "20180820172315"
+                    ],
+                    "installs": [
+                        75,
+                        84,
+                        82,
+                        72,
+                        81,
+                        8
+                    ],
+                    "min_date": "2018-07-13",
+                    "platforms": {
+                        "others": 100.0
+                    },
+                    "position": -2,
+                    "raw": [
+                        98,
+                        148,
+                        170,
+                        132,
+                        115,
+                        11
+                    ],
+                    "startup": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                "java.lang.IllegalArgumentException: context must be non-null at org.mozilla.gecko.GeckoProfile.get(GeckoProfile.java)": {
+                    "buildids": [
+                        "20180713213322",
+                        "20180723144101",
+                        "20180730180407",
+                        "20180806191531",
+                        "20180813190114",
+                        "20180820172315"
+                    ],
+                    "installs": [
+                        8,
+                        14,
+                        7,
+                        9,
+                        13,
+                        1
+                    ],
+                    "min_date": "2018-07-13",
+                    "platforms": {
+                        "others": 100.0
+                    },
+                    "position": -2,
+                    "raw": [
+                        22,
+                        47,
+                        39,
+                        33,
+                        70,
+                        8
+                    ],
+                    "startup": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                "java.lang.IllegalStateException: Can not perform this action after onSaveInstanceState at android.support.v4.app.FragmentManagerImpl.checkStateLoss(FragmentManager.java)": {
+                    "buildids": [
+                        "20180713213322",
+                        "20180723144101",
+                        "20180730180407",
+                        "20180806191531",
+                        "20180813190114",
+                        "20180820172315"
+                    ],
+                    "installs": [
+                        15,
+                        15,
+                        20,
+                        14,
+                        26,
+                        0
+                    ],
+                    "min_date": "2018-07-13",
+                    "platforms": {
+                        "others": 100.0
+                    },
+                    "position": -2,
+                    "raw": [
+                        16,
+                        16,
+                        21,
+                        15,
+                        27,
+                        0
+                    ],
+                    "startup": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                "java.lang.IllegalStateException: eglMakeCurrent failed EGL_BAD_MATCH at android.view.HardwareRenderer$GlRenderer.createSurface(HardwareRenderer.java)": {
+                    "buildids": [
+                        "20180713213322",
+                        "20180723144101",
+                        "20180730180407",
+                        "20180806191531",
+                        "20180813190114",
+                        "20180820172315"
+                    ],
+                    "installs": [
+                        17,
+                        37,
+                        27,
+                        29,
+                        25,
+                        2
+                    ],
+                    "min_date": "2018-07-13",
+                    "platforms": {
+                        "others": 100.0
+                    },
+                    "position": -2,
+                    "raw": [
+                        25,
+                        59,
+                        46,
+                        43,
+                        41,
+                        2
+                    ],
+                    "startup": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                "java.lang.NullPointerException: Attempt to invoke virtual method 'boolean org.mozilla.gecko.extensions.ExtensionPermissionsHelper.getShowUpdateIcon()' on a null object reference at org.mozilla.gecko.BrowserApp.onPrepareOptionsMenu(BrowserApp.java)": {
+                    "buildids": [
+                        "20180713213322",
+                        "20180723144101",
+                        "20180730180407",
+                        "20180806191531",
+                        "20180813190114",
+                        "20180820172315"
+                    ],
+                    "installs": [
+                        20,
+                        15,
+                        18,
+                        17,
+                        16,
+                        5
+                    ],
+                    "min_date": "2018-07-13",
+                    "platforms": {
+                        "others": 100.0
+                    },
+                    "position": -2,
+                    "raw": [
+                        53,
+                        51,
+                        48,
+                        122,
+                        47,
+                        6
+                    ],
+                    "startup": [
+                        4,
+                        0,
+                        3,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                "java.lang.NullPointerException: Attempt to invoke virtual method 'int com.google.android.gms.cast.MediaStatus.getPlayerState()' on a null object reference at org.mozilla.gecko.ChromeCastPlayer$VideoPlayCallback.onStatusUpdated(ChromeCastPlayer.java)": {
+                    "buildids": [
+                        "20180713213322",
+                        "20180723144101",
+                        "20180730180407",
+                        "20180806191531",
+                        "20180813190114",
+                        "20180820172315"
+                    ],
+                    "installs": [
+                        15,
+                        28,
+                        21,
+                        28,
+                        0,
+                        0
+                    ],
+                    "min_date": "2018-07-13",
+                    "platforms": {
+                        "others": 100.0
+                    },
+                    "position": -2,
+                    "raw": [
+                        25,
+                        35,
+                        29,
+                        36,
+                        0,
+                        0
+                    ],
+                    "startup": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                "java.lang.SecurityException: at android.os.Parcel.readException(Parcel.java)": {
+                    "buildids": [
+                        "20180713213322",
+                        "20180723144101",
+                        "20180730180407",
+                        "20180806191531",
+                        "20180813190114",
+                        "20180820172315"
+                    ],
+                    "installs": [
+                        6,
+                        10,
+                        8,
+                        8,
+                        5,
+                        1
+                    ],
+                    "min_date": "2018-07-13",
+                    "platforms": {
+                        "others": 100.0
+                    },
+                    "position": -2,
+                    "raw": [
+                        7,
+                        18,
+                        12,
+                        12,
+                        5,
+                        1
+                    ],
+                    "startup": [
+                        0,
+                        6,
+                        17,
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            },
+            "nightly": {
+                "android.database.CursorWindowAllocationException: Cursor window allocation of 2048 kb failed. # Open Cursors=1 (# cursors opened by this proc=1) at android.database.CursorWindow.<init>(CursorWindow.java)": {
+                    "buildids": [
+                        "20180814192804",
+                        "20180815100302",
+                        "20180816100030",
+                        "20180817114923",
+                        "20180818100303",
+                        "20180819100140",
+                        "20180820100132",
+                        "20180821100049",
+                        "20180822100103",
+                        "20180822221046"
+                    ],
+                    "installs": [
+                        2,
+                        1,
+                        3,
+                        1,
+                        3,
+                        2,
+                        3,
+                        3,
+                        0,
+                        0
+                    ],
+                    "min_date": "2018-08-14",
+                    "platforms": {
+                        "others": 100.0
+                    },
+                    "position": -2,
+                    "raw": [
+                        2,
+                        1,
+                        3,
+                        1,
+                        3,
+                        2,
+                        3,
+                        4,
+                        0,
+                        0
+                    ],
+                    "startup": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                "android.database.CursorWindowAllocationException: Cursor window allocation of 2048 kb failed. # Open Cursors=2 (# cursors opened by this proc=2) at android.database.CursorWindow.<init>(CursorWindow.java)": {
+                    "buildids": [
+                        "20180814192804",
+                        "20180815100302",
+                        "20180816100030",
+                        "20180817114923",
+                        "20180818100303",
+                        "20180819100140",
+                        "20180820100132",
+                        "20180821100049",
+                        "20180822100103",
+                        "20180822221046"
+                    ],
+                    "installs": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        1,
+                        0,
+                        0
+                    ],
+                    "min_date": "2018-08-14",
+                    "platforms": {
+                        "others": 100.0
+                    },
+                    "position": -2,
+                    "raw": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        1,
+                        0,
+                        0
+                    ],
+                    "startup": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                "android.database.CursorWindowAllocationException: Cursor window allocation of 2048 kb failed. at android.database.CursorWindow.<init>(CursorWindow.java)": {
+                    "buildids": [
+                        "20180814192804",
+                        "20180815100302",
+                        "20180816100030",
+                        "20180817114923",
+                        "20180818100303",
+                        "20180819100140",
+                        "20180820100132",
+                        "20180821100049",
+                        "20180822100103",
+                        "20180822221046"
+                    ],
+                    "installs": [
+                        1,
+                        3,
+                        0,
+                        2,
+                        1,
+                        2,
+                        3,
+                        3,
+                        0,
+                        0
+                    ],
+                    "min_date": "2018-08-14",
+                    "platforms": {
+                        "others": 100.0
+                    },
+                    "position": -2,
+                    "raw": [
+                        1,
+                        3,
+                        0,
+                        2,
+                        1,
+                        2,
+                        4,
+                        3,
+                        0,
+                        0
+                    ],
+                    "startup": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                "java.lang.IllegalArgumentException: context must be non-null at org.mozilla.gecko.GeckoProfile.get(GeckoProfile.java)": {
+                    "buildids": [
+                        "20180814192804",
+                        "20180815100302",
+                        "20180816100030",
+                        "20180817114923",
+                        "20180818100303",
+                        "20180819100140",
+                        "20180820100132",
+                        "20180821100049",
+                        "20180822100103",
+                        "20180822221046"
+                    ],
+                    "installs": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "min_date": "2018-08-14",
+                    "platforms": {
+                        "others": 100.0
+                    },
+                    "position": -2,
+                    "raw": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "startup": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                "java.lang.SecurityException: at android.os.Parcel.readException(Parcel.java)": {
+                    "buildids": [
+                        "20180814192804",
+                        "20180815100302",
+                        "20180816100030",
+                        "20180817114923",
+                        "20180818100303",
+                        "20180819100140",
+                        "20180820100132",
+                        "20180821100049",
+                        "20180822100103",
+                        "20180822221046"
+                    ],
+                    "installs": [
+                        0,
+                        0,
+                        1,
+                        1,
+                        0,
+                        0,
+                        1,
+                        0,
+                        0,
+                        0
+                    ],
+                    "min_date": "2018-08-14",
+                    "platforms": {
+                        "others": 100.0
+                    },
+                    "position": -2,
+                    "raw": [
+                        0,
+                        0,
+                        2,
+                        1,
+                        0,
+                        0,
+                        1,
+                        0,
+                        0,
+                        0
+                    ],
+                    "startup": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            },
+            "release": {
+                "android.database.CursorWindowAllocationException: Cursor window allocation of 2048 kb failed. # Open Cursors=1 (# cursors opened by this proc=1) at android.database.CursorWindow.<init>(CursorWindow.java)": {
+                    "buildids": [
+                        "20180605171542",
+                        "20180621125625",
+                        "20180807170231"
+                    ],
+                    "installs": [
+                        21381,
+                        33585,
+                        11558
+                    ],
+                    "min_date": "2018-06-05",
+                    "platforms": {
+                        "others": 100.0
+                    },
+                    "position": -2,
+                    "raw": [
+                        38763,
+                        63018,
+                        17236
+                    ],
+                    "startup": [
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                "android.database.CursorWindowAllocationException: Cursor window allocation of 2048 kb failed. # Open Cursors=2 (# cursors opened by this proc=2) at android.database.CursorWindow.<init>(CursorWindow.java)": {
+                    "buildids": [
+                        "20180605171542",
+                        "20180621125625",
+                        "20180807170231"
+                    ],
+                    "installs": [
+                        2003,
+                        3249,
+                        829
+                    ],
+                    "min_date": "2018-06-05",
+                    "platforms": {
+                        "others": 100.0
+                    },
+                    "position": -2,
+                    "raw": [
+                        2115,
+                        3503,
+                        917
+                    ],
+                    "startup": [
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                "android.database.CursorWindowAllocationException: Cursor window allocation of 2048 kb failed. at android.database.CursorWindow.<init>(CursorWindow.java)": {
+                    "buildids": [
+                        "20180605171542",
+                        "20180621125625",
+                        "20180807170231"
+                    ],
+                    "installs": [
+                        14160,
+                        22311,
+                        8127
+                    ],
+                    "min_date": "2018-06-05",
+                    "platforms": {
+                        "others": 100.0
+                    },
+                    "position": -2,
+                    "raw": [
+                        30960,
+                        50349,
+                        14378
+                    ],
+                    "startup": [
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                "java.lang.IllegalArgumentException: context must be non-null at org.mozilla.gecko.GeckoProfile.get(GeckoProfile.java)": {
+                    "buildids": [
+                        "20180605171542",
+                        "20180621125625",
+                        "20180807170231"
+                    ],
+                    "installs": [
+                        848,
+                        1534,
+                        491
+                    ],
+                    "min_date": "2018-06-05",
+                    "platforms": {
+                        "others": 100.0
+                    },
+                    "position": -2,
+                    "raw": [
+                        1038,
+                        1970,
+                        558
+                    ],
+                    "startup": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                "java.lang.IllegalStateException: Can not perform this action after onSaveInstanceState at android.support.v4.app.FragmentManagerImpl.checkStateLoss(FragmentManager.java)": {
+                    "buildids": [
+                        "20180605171542",
+                        "20180621125625",
+                        "20180807170231"
+                    ],
+                    "installs": [
+                        2459,
+                        3183,
+                        929
+                    ],
+                    "min_date": "2018-06-05",
+                    "platforms": {
+                        "others": 100.0
+                    },
+                    "position": -2,
+                    "raw": [
+                        2636,
+                        3512,
+                        962
+                    ],
+                    "startup": [
+                        1,
+                        0,
+                        0
+                    ]
+                },
+                "java.lang.IllegalStateException: eglMakeCurrent failed EGL_BAD_MATCH at android.view.HardwareRenderer$GlRenderer.createSurface(HardwareRenderer.java)": {
+                    "buildids": [
+                        "20180605171542",
+                        "20180621125625",
+                        "20180807170231"
+                    ],
+                    "installs": [
+                        324,
+                        1006,
+                        388
+                    ],
+                    "min_date": "2018-06-05",
+                    "platforms": {
+                        "others": 100.0
+                    },
+                    "position": -2,
+                    "raw": [
+                        518,
+                        1787,
+                        692
+                    ],
+                    "startup": [
+                        4,
+                        3,
+                        4
+                    ]
+                },
+                "java.lang.NullPointerException: Attempt to invoke virtual method 'boolean org.mozilla.gecko.extensions.ExtensionPermissionsHelper.getShowUpdateIcon()' on a null object reference at org.mozilla.gecko.BrowserApp.onPrepareOptionsMenu(BrowserApp.java)": {
+                    "buildids": [
+                        "20180605171542",
+                        "20180621125625",
+                        "20180807170231"
+                    ],
+                    "installs": [
+                        1325,
+                        2374,
+                        739
+                    ],
+                    "min_date": "2018-06-05",
+                    "platforms": {
+                        "others": 100.0
+                    },
+                    "position": -2,
+                    "raw": [
+                        3121,
+                        5745,
+                        1433
+                    ],
+                    "startup": [
+                        3,
+                        2,
+                        3
+                    ]
+                },
+                "java.lang.NullPointerException: Attempt to invoke virtual method 'int com.google.android.gms.cast.MediaStatus.getPlayerState()' on a null object reference at org.mozilla.gecko.ChromeCastPlayer$VideoPlayCallback.onStatusUpdated(ChromeCastPlayer.java)": {
+                    "buildids": [
+                        "20180605171542",
+                        "20180621125625",
+                        "20180807170231"
+                    ],
+                    "installs": [
+                        2329,
+                        3948,
+                        1242
+                    ],
+                    "min_date": "2018-06-05",
+                    "platforms": {
+                        "others": 100.0
+                    },
+                    "position": -2,
+                    "raw": [
+                        3649,
+                        6141,
+                        1891
+                    ],
+                    "startup": [
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                "java.lang.SecurityException: at android.os.Parcel.readException(Parcel.java)": {
+                    "buildids": [
+                        "20180605171542",
+                        "20180621125625",
+                        "20180807170231"
+                    ],
+                    "installs": [
+                        611,
+                        1158,
+                        431
+                    ],
+                    "min_date": "2018-06-05",
+                    "platforms": {
+                        "others": 100.0
+                    },
+                    "position": -2,
+                    "raw": [
+                        1216,
+                        2478,
+                        669
+                    ],
+                    "startup": [
+                        4,
+                        4,
+                        3
+                    ]
+                }
+            }
+        }
+    },
+    "versions": {
+        "FennecAndroid": {
+            "beta": {
+                "20180713213322": "62.0b9",
+                "20180723144101": "62.0b11",
+                "20180730180407": "62.0b13",
+                "20180806191531": "62.0b15",
+                "20180813190114": "62.0b17",
+                "20180820172315": "62.0b19"
+            },
+            "esr": {},
+            "nightly": {
+                "20180814192804": "63.0a1",
+                "20180815100302": "63.0a1",
+                "20180816100030": "63.0a1",
+                "20180817114923": "63.0a1",
+                "20180818100303": "63.0a1",
+                "20180819100140": "63.0a1",
+                "20180820100132": "63.0a1",
+                "20180821100049": "63.0a1",
+                "20180822100103": "63.0a1",
+                "20180822221046": "63.0a1"
+            },
+            "release": {
+                "20180605171542": "60.0.2",
+                "20180621125625": "61.0",
+                "20180807170231": "61.0.2"
+            }
+        }
+    }
+}

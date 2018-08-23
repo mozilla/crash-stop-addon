@@ -1,0 +1,25 @@
+{
+    "name": "Bugzilla Crash Stop",
+    "description": "This webextension inserts table with data under crash signatures to check if the patches had an effect on crash numbers.",
+    "version": "0.2.8",
+    "manifest_version": 2,
+    "applications": {
+        "gecko": {
+            "id": "bugzilla-crash-stop@calixteman"
+        }
+    },
+    "icons": {
+        "96": "icons/clouseau.png"
+    },
+    "homepage_url": "https://github.com/mozilla/crashstop",
+    "content_scripts": [
+        {
+            "matches": ["https://bugzilla.mozilla.org/*"],
+            "js": ["content.js"],
+            "run_at": "document_end"
+        }
+    ],
+    "permissions": [
+        "https://product-details.mozilla.org/*"
+    ]
+}

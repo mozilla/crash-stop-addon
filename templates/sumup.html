@@ -1,0 +1,72 @@
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+     - License, v. 2.0. If a copy of the MPL was not distributed with this file,
+     - You can obtain one at http://mozilla.org/MPL/2.0/.  -->
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <link rel="stylesheet" href="/stop.css?v=16">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Crash data</title>
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) {
+          const body = document.body;
+          const html = document.documentElement;
+          const height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight) + 25;
+          if (parent.postMessage) {
+          {% if addon_version >= '0.2.5' -%}
+              parent.postMessage({"height": height,
+                                  "affected": {{ jsonify(affected) | safe}}}, "*");
+          {% else -%}
+              parent.postMessage(height, "*");
+          {% endif -%}
+          }
+      });
+    </script>
+  </head>
+  <body style="width:100%;">
+    {% if data -%}
+    <table>
+      <caption>
+        <div class="legend">
+          <a href="https://github.com/mozilla/crashstop" target="_blank"><span><span class="github"></span>File a bug</span></a>
+          <span title="No patch information have been found in the comments" class="lavender">No patch info</span>
+          <span title="The build doesn't contain the patch" class="without">Without patch</span>
+          <span title="The build contains the patch" class="with">With patch</span>
+          <span title="More than 50% of the crashes have startup_crash flag set to true" class="startup">Startup crash</span>
+        </div>
+        {% if has_extra %}
+        <div class="info">
+          <span>Socorro queries have been filtered in using terms from URL field.</span>
+        </div>
+        {% endif %}
+      </caption>
+      {% for prod, i in data.items() -%}
+      {% for chan, j in i.items() -%}
+      {% for sgn, info in j.items() -%}
+      <tr>
+        <th colspan="100">
+          <a href="{{ info['socorro_url'] }}" target="_blank">{{ sgn|e }}</a> in {{ prod }} &mdash; {{ chan }} &nbsp; {% if prod != 'FennecAndroid' %}{% if 'Windows' in info['platforms'] -%}<span title="{{ info['platforms']['Windows'] }}%" class="windows"></span>{% endif -%}{% if 'OS X' in info['platforms'] -%}<span title="{{ info['platforms']['OS X'] }}%" class="osx"></span>{% endif -%}{% if 'Linux' in info['platforms'] -%}<span title="{{ info['platforms']['Linux'] }}%" class="linux"></span>{% endif -%}{% else -%}<span title="100%" class="android"></span>{% endif -%}
+        </th>
+      </tr>
+      <tr>
+        <th class="norm">Version</th>
+        {% for class, link, bid, version in zip(info['buildid_classes'], info['buildid_links'], info['buildids'], info['versions']) %}<td class="{{ class }}"><a title="{{ bid }}" href="{{ link }}" target="_blank">{{ version }}</a></td>{% endfor -%}
+      </tr>
+      <tr class="gray">
+        <th class="norm">Installs</th>
+        {% for n in info['installs'] %}<td class="num">{{ n }}</td>{% endfor -%}
+      </tr>
+      <tr>
+        <th class="norm">Crashes</th>
+        {% for n, s in zip(info['raw'], info['startup']) %}<td {% if s != -1 %}title="{{ s }}% of the crashes are startup ones"{% endif %} class="num{% if s > 50 %} startup{% endif -%}">{{ n }}</td>{% endfor -%}
+      </tr>
+      {% endfor -%}
+      {% endfor -%}
+      {% endfor -%}
+    </table>
+    {% else -%}
+    <p>No crash in the last builds \o/ (or something wrong happened...)</p>
+    {% endif -%}
+  </body>
+</html>

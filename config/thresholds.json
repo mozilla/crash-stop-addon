@@ -1,0 +1,77 @@
+{
+    "Firefox":
+    {
+        "nightly":
+        {
+            "min_total_crashes": 500,
+            "min_crashes": 3,
+            "versions": 14
+        },
+        "beta":
+        {
+            "min_total_crashes": 1000,
+            "min_crashes": 10,
+            "versions": 10
+        },
+        "release":
+        {
+            "min_total_crashes": 10000,
+            "min_crashes": 50,
+            "versions": 4
+        },
+        "esr":
+        {
+            "min_total_crashes": 10000,
+            "min_crashes": 50,
+            "versions": 2
+        }
+    },
+    "FennecAndroid":
+    {
+        "nightly":
+        {
+            "min_total_crashes": 100,
+            "min_crashes": 2,
+            "versions": 10
+        },
+        "beta":
+        {
+            "min_total_crashes": 1000,
+            "min_crashes": 10,
+            "versions": 6
+        },
+        "release":
+        {
+            "min_total_crashes": 10000,
+            "min_crashes": 50,
+            "versions": 3
+        },
+        "esr":
+        {
+            "min_total_crashes": 10000,
+            "min_crashes": 50,
+            "versions": 2
+        }
+    },
+    "Thunderbird":
+    {
+        "nightly":
+        {
+            "min_total_crashes": 1,
+            "min_crashes": 1,
+            "versions": 8
+        },
+        "beta":
+        {
+            "min_total_crashes": 1,
+            "min_crashes": 1,
+            "versions": 4
+        },
+        "release":
+        {
+            "min_total_crashes": 500,
+            "min_crashes": 5,
+            "versions": 4
+        }
+    }
+}

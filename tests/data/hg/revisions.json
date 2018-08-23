@@ -1,0 +1,122 @@
+{
+    "?node=0be81adef007": {
+        "backedoutby": "",
+        "bookmarks": [],
+        "branch": "default",
+        "date": [
+            1532611088.0,
+            -7200
+        ],
+        "desc": "Bug 1476605 - Fix Error rep failure when stacktrace is a longString. r=sole, a=RyanVM\n\nThe actual fix for this issue will come in a future\nreps bundle when https://github.com/devtools-html/debugger.html/pull/6705\ngets merged.\nBut, I do want this change to be uplifted to release, and it should be\neasier to only apply this simple change than the whole next release\nwhich would contain unrelated code changes.\nAlso, this patch introduces a test to make sure we don't ever regress\nthis.\n\nMozReview-Commit-ID: 3QPrx3TLln0",
+        "landingsystem": null,
+        "node": "0be81adef0075a692dab0cd707acbe0993c2a3c1",
+        "parents": [
+            "338feb0782ff509445eeed774e3ffe420b2dfcf2"
+        ],
+        "phase": "public",
+        "pushdate": [
+            1533661351,
+            0
+        ],
+        "pushid": 1751,
+        "pushuser": "ryanvm@gmail.com",
+        "tags": [],
+        "user": "Nicolas Chevobbe <nchevobbe@mozilla.com>"
+    },
+    "?node=4a5ae6a7911d": {
+        "backedoutby": "",
+        "bookmarks": [],
+        "branch": "default",
+        "date": [
+            1534217184.0,
+            0
+        ],
+        "desc": "Bug 1480934 - Saving Reader View page yields blank page fixed by removing inline style. r=jaws, r=ckerschb, a=RyanVM\n\nDifferential Revision: https://phabricator.services.mozilla.com/D2947",
+        "landingsystem": null,
+        "node": "4a5ae6a7911df036fcb8561e490f5f0a8fc2b256",
+        "parents": [
+            "bc6e295b9a0b2ec46e5dd05a0c3467a36bf3964f"
+        ],
+        "phase": "public",
+        "pushdate": [
+            1534952233,
+            0
+        ],
+        "pushid": 9707,
+        "pushuser": "ryanvm@gmail.com",
+        "tags": [],
+        "user": "vinoth <cegvinoth@gmail.com>"
+    },
+    "?node=55fc535ff4ce": {
+        "backedoutby": "",
+        "bookmarks": [],
+        "branch": "default",
+        "date": [
+            1534924410.0,
+            -7200
+        ],
+        "desc": "Bug 1447449 - [marionette] Prevent hang in pause action. r=ato, a=test-only\n\nUnder some unknown circumstances an instance of nsITimer doesn't\ncall resolve(), and as such the pause action hangs forever.\n\nInjecting a custom handler which itself calls resolve, prevents\nthis hang.\n\nThis is a workaround for older branches while bug 1484161 fixed\nit for Firefox 63.",
+        "landingsystem": null,
+        "node": "55fc535ff4ceb31c76bc66c3ef777567754a4637",
+        "parents": [
+            "dd432f7b82d6e2d29e80d20f2a1a48f89d863d19"
+        ],
+        "phase": "public",
+        "pushdate": [
+            1534946655,
+            0
+        ],
+        "pushid": 9706,
+        "pushuser": "ryanvm@gmail.com",
+        "tags": [],
+        "user": "Henrik Skupin <mail@hskupin.info>"
+    },
+    "?node=5c44264ed1fe": {
+        "backedoutby": "",
+        "bookmarks": [],
+        "branch": "default",
+        "date": [
+            1534790652.0,
+            14400
+        ],
+        "desc": "Bug 1482454 - add learn more links across accessibility panel. r=gl, flod\n\nMozReview-Commit-ID: GWrdjnzlS8b\n",
+        "landingsystem": null,
+        "node": "5c44264ed1fec9b4fad27c0c18de7d383597d847",
+        "parents": [
+            "bcb838fd92f08e167ec87877904831a408fb0120"
+        ],
+        "phase": "public",
+        "pushdate": [
+            1534955334,
+            0
+        ],
+        "pushid": 34488,
+        "pushuser": "nerli@mozilla.com",
+        "tags": [],
+        "user": "Yura Zenevich <yura.zenevich@gmail.com>"
+    },
+    "?node=9d0deb476c99": {
+        "backedoutby": "",
+        "bookmarks": [],
+        "branch": "default",
+        "date": [
+            1534902900.0,
+            -10800
+        ],
+        "desc": "Bug 1480314 - Disable browser_search_within_preferences_1.js on win for frequent failures. r=jmaher",
+        "landingsystem": null,
+        "node": "9d0deb476c99a94b865b202c58c71ed4cf82caf0",
+        "parents": [
+            "c9b2f96523b17a7da4a5827e350a11c2b049bbb7"
+        ],
+        "phase": "public",
+        "pushdate": [
+            1534955334,
+            0
+        ],
+        "pushid": 34488,
+        "pushuser": "nerli@mozilla.com",
+        "tags": [],
+        "user": "Eliza Balazs <ebalazs@mozilla.com>"
+    }
+}
