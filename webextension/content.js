@@ -206,8 +206,8 @@ if (container) {
       }
     });
 
-    // const crashStop = "https://localhost:8001";
-    const crashStop = "https://crash-stop-addon.herokuapp.com";
+     const crashStop = "https://localhost:8001";
+   // const crashStop = "https://crash-stop-addon.herokuapp.com";
     const sumup = crashStop + "/sumup.html";
     const hpart = hgrevs.length != 0 ? (hgrevs.join("&") + "&") : "";
     const spart = signatures.join("&") + "&";

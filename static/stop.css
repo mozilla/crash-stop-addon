@@ -144,3 +144,13 @@ span.startup {
     float: left;
     display: inline-block;
 }
+
+.help {
+    background: url("/question.png");
+    background-repeat: no-repeat;
+    background-size: auto 1em;
+    width: 1em;
+    height: 1em;
+    float: left;
+    display: inline-block;
+}

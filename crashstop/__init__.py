@@ -22,6 +22,11 @@ def sumup_html():
     return html.sumup()
 
 
+@app.route('/')
+def help_html():
+    return send_from_directory('../static', 'help.html')
+
+
 @app.route('/clouseau.ico')
 @app.route('/favicon.ico')
 def favicon():
