@@ -4,7 +4,7 @@ python:
 services:
   - memcached
 env:
-  - DATABASE_URL=postgresql://crash:stop/crashstop_test
+  - DATABASE_URL=postgresql://crash:stop@localhost:5432/crashstop_test
 before_install:
   - pip install --upgrade pip
   - pip install "setuptools>=28.6.1"
