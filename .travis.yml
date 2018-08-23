@@ -10,7 +10,7 @@ before_install:
   - pip install pytest-cov
 script:
   - flake8 .
-  - py.test -vv --cov tests/
+  - py.test -vv tests/ --cov crashstop
 after_success:
   - coveralls
 cache: pip
