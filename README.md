@@ -8,6 +8,8 @@ Crash data are coming from https://crash-stats.mozilla.com and patch information
 The WebExtension is available at https://addons.mozilla.org/firefox/addon/bugzilla-crash-stop/
 
 
+[![Build Status](https://api.travis-ci.org/mozilla/crash-stop-addon.svg?branch=master)](https://travis-ci.org/mozilla/crash-stop-addon)
+[![codecov.io](https://img.shields.io/codecov/c/github/mozilla/crash-stop-addon/master.svg)](https://codecov.io/github/mozilla/crash-stop-addon?branch=master)
 ## Setup
 
 Install the prerequisites via `pip`:
