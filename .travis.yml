@@ -4,10 +4,7 @@ python:
 services:
   - memcached
 env:
-  - DATABASE_URL=postgresql://crash:stop@localhost:5432/crashstop_test
-  - MEMCACHEDCLOUD_SERVERS=127.0.0.1:11211
-  - MEMCACHEDCLOUD_USERNAME=
-  - MEMCACHEDCLOUD_PASSWORD=
+  - DATABASE_URL=postgresql://crash:stop@localhost:5432/crashstop_test MEMCACHEDCLOUD_SERVERS=127.0.0.1:11211 MEMCACHEDCLOUD_USERNAME= MEMCACHEDCLOUD_PASSWORD=
 before_install:
   - pip install --upgrade pip
   - pip install "setuptools>=28.6.1"
