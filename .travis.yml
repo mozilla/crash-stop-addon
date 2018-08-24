@@ -8,7 +8,7 @@ env:
   - MEMCACHEDCLOUD_SERVERS=127.0.0.1:11211
   - MEMCACHEDCLOUD_USERNAME=
   - MEMCACHEDCLOUD_PASSWORD=
-  before_install:
+before_install:
   - pip install --upgrade pip
   - pip install "setuptools>=28.6.1"
   - pip install -r requirements.txt
