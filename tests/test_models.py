@@ -10,9 +10,9 @@ from .common import get_all_versions
 
 @pytest.fixture()
 def create_db():
-    models.clear()
     models.create()
     yield None
+    models.clear()
 
 
 @patch('crashstop.buildhub.get', get_all_versions)
@@ -28,15 +28,13 @@ def test_add_builds(create_db):
 
 
 @patch('crashstop.buildhub.get', get_all_versions)
-def test_add_builds_here():
+def test_add_builds_here(create_db):
+    signatures.update()
     data = get_all_versions()
     fa_data = data['FennecAndroid']['beta']
     del fa_data[0]
 
     models.Buildid.add_buildids(data)
-
-    # remove unicity stuff
-    fa_data = [x[:2] for x in fa_data]
 
     dbdata = models.Buildid.get_versions('FennecAndroid', 'beta')
     dbdata = dbdata['FennecAndroid']['beta']

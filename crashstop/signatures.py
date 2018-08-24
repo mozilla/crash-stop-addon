@@ -23,7 +23,7 @@ def update():
 def get_all_versions(products, channels):
     for _ in range(5):
         try:
-            return models.Buildid.get_versions(products, channels, unicity=True)
+            return models.Buildid.get_versions(products, channels)
         except OperationalError:
             time.sleep(0.1)
 

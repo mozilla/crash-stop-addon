@@ -32,7 +32,7 @@ class Buildid(db.Model):
         self.unique_prod = unique_prod
 
     @staticmethod
-    def add_buildids(data, commit=True):
+    def add_buildids(data):
         if not data:
             return
 
@@ -58,13 +58,11 @@ class Buildid(db.Model):
                         Buildid.buildid.in_(list(here_pc)),
                     )
                     q.delete(synchronize_session='fetch')
-        if commit:
-            db.session.commit()
+
+        db.session.commit()
 
     @staticmethod
-    def get_versions(
-        products=config.get_products(), channels=config.get_channels(), unicity=False
-    ):
+    def get_versions(products, channels):
         if isinstance(products, six.string_types):
             products = [products]
         if isinstance(channels, six.string_types):
@@ -79,14 +77,12 @@ class Buildid(db.Model):
         for bid in bids:
             d = res[bid.product][bid.channel]
             buildid = bid.buildid.astimezone(pytz.utc)
-            if unicity:
-                d.append([buildid, bid.version, bid.unique, bid.unique_prod])
-            else:
-                d.append([buildid, bid.version])
+            d.append([buildid, bid.version, bid.unique, bid.unique_prod])
         return res
 
 
 def clear():
+    db.session.close()
     db.drop_all()
     db.session.commit()
 
