@@ -5,54 +5,44 @@
 import json
 
 
-__THRESHOLDS = None
-__GLOBAL = None
-__LOCAL = None
+_THRESHOLDS = None
+_GLOBAL = None
+_LOCAL = None
 
 
 def _get_thresholds():
-    global __THRESHOLDS
-    if not __THRESHOLDS:
+    global _THRESHOLDS
+    if not _THRESHOLDS:
         with open('./config/thresholds.json', 'r') as In:
-            __THRESHOLDS = json.load(In)
-    return __THRESHOLDS
+            _THRESHOLDS = json.load(In)
+    return _THRESHOLDS
 
 
 def _get_global():
-    global __GLOBAL
-    if not __GLOBAL:
+    global _GLOBAL
+    if not _GLOBAL:
         with open('./config/global.json', 'r') as In:
-            __GLOBAL = json.load(In)
-    return __GLOBAL
+            _GLOBAL = json.load(In)
+    return _GLOBAL
 
 
 def _get_local():
-    global __LOCAL
-    if not __LOCAL:
+    global _LOCAL
+    if not _LOCAL:
         try:
             with open('./config/local.json', 'r') as In:
-                __LOCAL = json.load(In)
+                _LOCAL = json.load(In)
         except Exception:
-            __LOCAL = {}
-    return __LOCAL
+            _LOCAL = {}
+    return _LOCAL
 
 
 def get_min_total(prod, chan):
     return _get_thresholds()[prod][chan]['min_total_crashes']
 
 
-def get_min(prod, chan):
-    return _get_thresholds()[prod][chan]['min_crashes']
-
-
 def get_versions(prod, chan):
     return _get_thresholds()[prod][chan]['versions']
-
-
-def get_max_versions():
-    return max(
-        v2['versions'] for v1 in _get_thresholds().values() for v2 in v1.values()
-    )
 
 
 def get_channels():
@@ -61,14 +51,6 @@ def get_channels():
 
 def get_products():
     return _get_global()['products']
-
-
-def get_limit():
-    return _get_global()['days_limit']
-
-
-def get_limit_facets():
-    return _get_global()['facets_limit']
 
 
 def get_cache_time():
