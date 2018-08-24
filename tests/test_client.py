@@ -15,6 +15,19 @@ def test_root(client):
     assert b'<title>Crash-stop addon &mdash; explanations</title>' in res.data
 
 
+def test_wtf(client):
+    assert client.get('/wtf').status_code == 404
+
+
+def test_css(client):
+    res = client.get('/stop.css')
+    data = res.data.decode('utf-8')
+    with open('static/stop.css', 'r') as In:
+        css = In.read()
+
+    assert data == css
+
+
 @patch('libmozdata.socorro.SuperSearch', MySuperSearch)
 @patch('libmozdata.hgmozilla.Revision', MyRevision)
 def test_sumup(client):
