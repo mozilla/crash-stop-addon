@@ -141,6 +141,7 @@ def improve(data, buildids, buildids_per_prod):
 
 
 def get_query():
+    size = config.get_versions('Firefox', 'nightly') * 4
     return {
         'aggs': {
             'products': {
@@ -152,8 +153,7 @@ def get_query():
                             'buildids': {
                                 'terms': {
                                     'field': 'build.id',
-                                    'size': config.get_versions('Firefox', 'nightly')
-                                    * 4,
+                                    'size': size,
                                     'order': {'_term': 'desc'},
                                 },
                                 'aggs': {
