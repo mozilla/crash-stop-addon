@@ -51,9 +51,13 @@ def test_get_for_urls_sgns_patch_fx_fa(get_result):
     sgns = sgns['Firefox'][:5] + sgns['FennecAndroid'][:5]
 
     # random choices for the revs
-    revs = ['nightly|5c44264ed1fe', 'nightly|9d0deb476c99',
-            'beta|4a5ae6a7911d', 'beta|55fc535ff4ce',
-            'release|0be81adef007']
+    revs = [
+        'nightly|5c44264ed1fe',
+        'nightly|9d0deb476c99',
+        'beta|4a5ae6a7911d',
+        'beta|55fc535ff4ce',
+        'release|0be81adef007',
+    ]
 
     data = signatures.get_for_urls_sgns(revs, sgns)
 
@@ -68,14 +72,17 @@ def test_prepare_bug_for_html(get_result):
     sgns = sgns['Firefox'][:5] + sgns['FennecAndroid'][:5]
 
     # random choices for the revs
-    revs = ['nightly|5c44264ed1fe', 'nightly|9d0deb476c99',
-            'beta|4a5ae6a7911d', 'beta|55fc535ff4ce',
-            'release|0be81adef007']
+    revs = [
+        'nightly|5c44264ed1fe',
+        'nightly|9d0deb476c99',
+        'beta|4a5ae6a7911d',
+        'beta|55fc535ff4ce',
+        'release|0be81adef007',
+    ]
 
     data = signatures.get_for_urls_sgns(revs, sgns)
     data, affected, _ = signatures.prepare_bug_for_html(data)
 
-    data = {'data': data,
-            'affected': affected}
+    data = {'data': data, 'affected': affected}
 
     assert data == get_result('tests/data/crashstop/signatures_prepare.json', data)

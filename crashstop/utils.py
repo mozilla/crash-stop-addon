@@ -29,22 +29,26 @@ def analyze_hg_urls(urls):
 
 
 def get_params_for_link(query={}):
-    params = {'product': '',
-              'date': '',
-              'release_channel': '',
-              'version': '',
-              'signature': '',
-              '_facets': ['url',
-                          'user_comments',
-                          'install_time',
-                          'version',
-                          'address',
-                          'moz_crash_reason',
-                          'reason',
-                          'build_id',
-                          'platform_pretty_version',
-                          'signature',
-                          'useragent_locale']}
+    params = {
+        'product': '',
+        'date': '',
+        'release_channel': '',
+        'version': '',
+        'signature': '',
+        '_facets': [
+            'url',
+            'user_comments',
+            'install_time',
+            'version',
+            'address',
+            'moz_crash_reason',
+            'reason',
+            'build_id',
+            'platform_pretty_version',
+            'signature',
+            'useragent_locale',
+        ],
+    }
     params.update(query)
     return params
 

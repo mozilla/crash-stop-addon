@@ -30,7 +30,12 @@ class MyRevision:
         params_str = lmdutils.get_params_for_url(params)
         if params_str not in data:
             hdata = []
-            Connection(Mercurial.HG_URL, queries=Query(_Revision.get_url(channel), params, MyRevision.handler, hdata)).wait()
+            Connection(
+                Mercurial.HG_URL,
+                queries=Query(
+                    _Revision.get_url(channel), params, MyRevision.handler, hdata
+                ),
+            ).wait()
             data[params_str] = hdata[0]
             dumpjson(MyRevision.PATH, data)
 
@@ -40,10 +45,16 @@ class MyRevision:
 
     def __init__(self, *args, **kwargs):
         if 'handler' in kwargs:
-            kwargs['handler'](MyRevision.get_data(kwargs['params'], kwargs['channel']), kwargs['handlerdata'])
+            kwargs['handler'](
+                MyRevision.get_data(kwargs['params'], kwargs['channel']),
+                kwargs['handlerdata'],
+            )
         else:
             for query in kwargs['queries']:
-                query.handler(MyRevision.get_data(query.params, kwargs['channel']), query.handlerdata)
+                query.handler(
+                    MyRevision.get_data(query.params, kwargs['channel']),
+                    query.handlerdata,
+                )
 
     def wait(self):
         pass

@@ -23,9 +23,7 @@ def update():
 def get_all_versions(products, channels):
     for _ in range(5):
         try:
-            return models.Buildid.get_versions(products,
-                                               channels,
-                                               unicity=True)
+            return models.Buildid.get_versions(products, channels, unicity=True)
         except OperationalError:
             time.sleep(0.1)
 
@@ -39,8 +37,7 @@ def init_platforms(signatures, channels, products):
 def get_for_urls_sgns(hg_urls, signatures, extra={}):
     data = {}
     versions = {}
-    res = {'data': data,
-           'versions': versions}
+    res = {'data': data, 'versions': versions}
 
     if not signatures:
         return res
@@ -56,9 +53,9 @@ def get_for_urls_sgns(hg_urls, signatures, extra={}):
     channels = config.get_channels()
     all_versions = get_all_versions(products, channels)
     platforms = init_platforms(signatures, channels, products)
-    sgns_data = dc.get_sgns_data(channels, all_versions, platforms,
-                                 signatures, extra, products,
-                                 towait)
+    sgns_data = dc.get_sgns_data(
+        channels, all_versions, platforms, signatures, extra, products, towait
+    )
 
     for product in products:
         all_versions_prod = all_versions[product]
@@ -68,7 +65,9 @@ def get_for_urls_sgns(hg_urls, signatures, extra={}):
             # all_versions_pc is a list: [bid, version, unique, unique_prod] * N
             all_versions_pc = all_versions_prod[chan]
             dates_prod[chan] = [b[0] for b in all_versions_pc]
-            versions_prod[chan] = {utils.get_buildid(b): ver for b, ver, _, _ in all_versions_pc}
+            versions_prod[chan] = {
+                utils.get_buildid(b): ver for b, ver, _, _ in all_versions_pc
+            }
 
     for tw in towait:
         tw.wait()
@@ -98,13 +97,15 @@ def get_for_urls_sgns(hg_urls, signatures, extra={}):
                     continue
 
                 hasData = True
-                data_pc[sgn] = {'position': position,
-                                'buildids': buildids,
-                                'min_date': min_date,
-                                'raw': numbers[0],
-                                'installs': numbers[1],
-                                'startup': numbers[2],
-                                'platforms': utils.percentage_platforms(platforms_pc[sgn])}
+                data_pc[sgn] = {
+                    'position': position,
+                    'buildids': buildids,
+                    'min_date': min_date,
+                    'raw': numbers[0],
+                    'installs': numbers[1],
+                    'startup': numbers[2],
+                    'platforms': utils.percentage_platforms(platforms_pc[sgn]),
+                }
 
     return res if hasData else {}
 
@@ -157,7 +158,9 @@ def prepare_bug_for_html(data, extra={}):
                 params['date'] = '>=' + info['min_date']
                 params['version'] = vers
                 params['signature'] = utils.get_esearch_sgn(sgn)
-                info['socorro_url'] = socorro.SuperSearch.get_link(params) + '#facet-build_id'
+                info['socorro_url'] = (
+                    socorro.SuperSearch.get_link(params) + '#facet-build_id'
+                )
                 info['buildid_links'] = links = []
                 info['versions'] = versions = []
 
@@ -165,13 +168,17 @@ def prepare_bug_for_html(data, extra={}):
                 if pos == -2:
                     info['buildid_classes'] = ['lavender buildid'] * len(buildids)
                 else:
-                    info['buildid_classes'] = ['without'] * (pos + 1) + ['with'] * (len(buildids) - pos)
+                    info['buildid_classes'] = ['without'] * (pos + 1) + ['with'] * (
+                        len(buildids) - pos
+                    )
 
                 for bid in buildids:
                     params['version'] = v = all_versions_pc[bid]
                     versions.append(v)
                     params['build_id'] = '=' + bid
-                    links.append(socorro.SuperSearch.get_link(params) + '#crash-reports')
+                    links.append(
+                        socorro.SuperSearch.get_link(params) + '#crash-reports'
+                    )
 
                 del params['build_id']
 

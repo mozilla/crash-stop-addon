@@ -9,15 +9,15 @@ from . import config, datacollector as dc, utils
 from .logger import logger
 
 
-URL = 'https://buildhub.prod.mozaws.net/v1/buckets/build-hub/collections/releases/search'
+URL = (
+    'https://buildhub.prod.mozaws.net/v1/buckets/build-hub/collections/releases/search'
+)
 VERSION_PAT = '[0-9\.]+(([ab][0-9]+)|esr)?'
 LEGAL_CHANNELS = ['nightly', 'beta', 'release', 'esr']
 CHANNELS = LEGAL_CHANNELS + ['aurora']
 PRODUCTS = ['firefox', 'devedition', 'fennec']
 SOCORRO_PRODUCTS = ['Firefox', 'FennecAndroid']
-RPRODS = {'firefox': 'Firefox',
-          'devedition': 'Firefox',
-          'fennec': 'FennecAndroid'}
+RPRODS = {'firefox': 'Firefox', 'devedition': 'Firefox', 'fennec': 'FennecAndroid'}
 
 
 def make_request(params, sleep, retry, callback):
@@ -32,7 +32,9 @@ def make_request(params, sleep, retry, callback):
             try:
                 return callback(r.json())
             except BaseException as e:
-                logger.error('Buildhub query failed with parameters: {}.'.format(params))
+                logger.error(
+                    'Buildhub query failed with parameters: {}.'.format(params)
+                )
                 logger.error(e, exc_info=True)
                 return None
 
@@ -142,40 +144,31 @@ def get_query():
     return {
         'aggs': {
             'products': {
-                'terms': {
-                    'field': 'source.product',
-                    'size': len(PRODUCTS)
-                },
+                'terms': {'field': 'source.product', 'size': len(PRODUCTS)},
                 'aggs': {
                     'channels': {
-                        'terms': {
-                            'field': 'target.channel',
-                            'size': len(CHANNELS)
-                        },
+                        'terms': {'field': 'target.channel', 'size': len(CHANNELS)},
                         'aggs': {
                             'buildids': {
                                 'terms': {
                                     'field': 'build.id',
-                                    'size': config.get_versions('Firefox', 'nightly') * 4,
-                                    'order': {
-                                        '_term': 'desc'
-                                    }
+                                    'size': config.get_versions('Firefox', 'nightly')
+                                    * 4,
+                                    'order': {'_term': 'desc'},
                                 },
                                 'aggs': {
                                     'versions': {
                                         'terms': {
                                             'field': 'target.version',
                                             'size': 1,
-                                            'order': {
-                                                '_term': 'desc'
-                                            }
+                                            'order': {'_term': 'desc'},
                                         }
                                     }
-                                }
+                                },
                             }
-                        }
+                        },
                     }
-                }
+                },
             }
         },
         'query': {
@@ -183,11 +176,12 @@ def get_query():
                 'filter': [
                     {'regexp': {'target.version': {'value': VERSION_PAT}}},
                     {'terms': {'target.channel': CHANNELS}},
-                    {'terms': {'source.product': PRODUCTS}}
+                    {'terms': {'source.product': PRODUCTS}},
                 ]
             }
         },
-        'size': 0}
+        'size': 0,
+    }
 
 
 def get(bid_as_date=True):

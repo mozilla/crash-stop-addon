@@ -52,25 +52,30 @@ class Buildid(db.Model):
 
                 if here_pc:
                     q = db.session.query(Buildid)
-                    q = q.filter(Buildid.product == prod,
-                                 Buildid.channel == chan,
-                                 Buildid.buildid.in_(list(here_pc)))
+                    q = q.filter(
+                        Buildid.product == prod,
+                        Buildid.channel == chan,
+                        Buildid.buildid.in_(list(here_pc)),
+                    )
                     q.delete(synchronize_session='fetch')
         if commit:
             db.session.commit()
 
     @staticmethod
-    def get_versions(products=config.get_products(),
-                     channels=config.get_channels(),
-                     unicity=False):
+    def get_versions(
+        products=config.get_products(), channels=config.get_channels(), unicity=False
+    ):
         if isinstance(products, six.string_types):
             products = [products]
         if isinstance(channels, six.string_types):
             channels = [channels]
 
         res = {p: {c: [] for c in channels} for p in products}
-        bids = db.session.query(Buildid).filter(Buildid.product.in_(products),
-                                                Buildid.channel.in_(channels)).order_by(Buildid.buildid.asc())
+        bids = (
+            db.session.query(Buildid)
+            .filter(Buildid.product.in_(products), Buildid.channel.in_(channels))
+            .order_by(Buildid.buildid.asc())
+        )
         for bid in bids:
             d = res[bid.product][bid.channel]
             buildid = bid.buildid.astimezone(pytz.utc)

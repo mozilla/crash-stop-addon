@@ -50,7 +50,9 @@ def get_versions(prod, chan):
 
 
 def get_max_versions():
-    return max(v2['versions'] for v1 in _get_thresholds().values() for v2 in v1.values())
+    return max(
+        v2['versions'] for v1 in _get_thresholds().values() for v2 in v1.values()
+    )
 
 
 def get_channels():

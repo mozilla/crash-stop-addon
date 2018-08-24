@@ -12,20 +12,17 @@ from .supersearch import MySuperSearch
 
 
 def test_get_useful_bids():
-    buildhub_bids = [(utils.get_build_date('19750316010203'),),
-                     (utils.get_build_date('19760316010203'),),
-                     (utils.get_build_date('19770316010203'),),
-                     (utils.get_build_date('19780316010203'),),
-                     (utils.get_build_date('19790316010203'),),
-                     (utils.get_build_date('19800316010203'),)]
-    socorro_bids = {buildhub_bids[0][0],
-                    buildhub_bids[2][0],
-                    buildhub_bids[4][0]}
+    buildhub_bids = [
+        (utils.get_build_date('19750316010203'),),
+        (utils.get_build_date('19760316010203'),),
+        (utils.get_build_date('19770316010203'),),
+        (utils.get_build_date('19780316010203'),),
+        (utils.get_build_date('19790316010203'),),
+        (utils.get_build_date('19800316010203'),),
+    ]
+    socorro_bids = {buildhub_bids[0][0], buildhub_bids[2][0], buildhub_bids[4][0]}
 
-    expected = [buildhub_bids[0],
-                buildhub_bids[2],
-                buildhub_bids[4],
-                buildhub_bids[5]]
+    expected = [buildhub_bids[0], buildhub_bids[2], buildhub_bids[4], buildhub_bids[5]]
 
     assert dc.get_useful_bids(buildhub_bids, socorro_bids) == expected
 
@@ -68,10 +65,12 @@ def test_get_unicity_stuff(get_result):
     for x in leftovers:
         x[0] = utils.get_buildid(x[0])
 
-    res = {'min_buildid': min_buildid,
-           'allbids': allbids,
-           'unique': unique,
-           'leftovers': leftovers}
+    res = {
+        'min_buildid': min_buildid,
+        'allbids': allbids,
+        'unique': unique,
+        'leftovers': leftovers,
+    }
 
     assert res == get_result('tests/data/crashstop/unicity.json', res)
 
@@ -86,7 +85,9 @@ def test_get_sgns_data(get_result):
     towait = []
     extra = {}
     platforms = signatures.init_platforms(sgns, channels, products)
-    data = dc.get_sgns_data(channels, versions, platforms, sgns, extra, products, towait)
+    data = dc.get_sgns_data(
+        channels, versions, platforms, sgns, extra, products, towait
+    )
 
     for w in towait:
         w.wait()
@@ -105,9 +106,13 @@ def test_get_sgns_data(get_result):
 
 @patch('libmozdata.hgmozilla.Revision', MyRevision)
 def test_pushdates(get_result):
-    revs = ['nightly|5c44264ed1fe', 'nightly|9d0deb476c99',
-            'beta|4a5ae6a7911d', 'beta|55fc535ff4ce',
-            'release|0be81adef007']
+    revs = [
+        'nightly|5c44264ed1fe',
+        'nightly|9d0deb476c99',
+        'beta|4a5ae6a7911d',
+        'beta|55fc535ff4ce',
+        'release|0be81adef007',
+    ]
     revs = utils.analyze_hg_urls(revs)
     res, data = dc.get_pushdates(revs)
 

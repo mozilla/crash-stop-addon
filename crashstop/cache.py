@@ -11,9 +11,13 @@ from . import config, signatures
 from .logger import logger
 
 
-__CLIENT = Client(os.environ.get('MEMCACHEDCLOUD_SERVERS', config.get_memcached('servers')).split(','),
-                  os.environ.get('MEMCACHEDCLOUD_USERNAME', config.get_memcached('username')),
-                  os.environ.get('MEMCACHEDCLOUD_PASSWORD', config.get_memcached('password')))
+__CLIENT = Client(
+    os.environ.get('MEMCACHEDCLOUD_SERVERS', config.get_memcached('servers')).split(
+        ','
+    ),
+    os.environ.get('MEMCACHEDCLOUD_USERNAME', config.get_memcached('username')),
+    os.environ.get('MEMCACHEDCLOUD_PASSWORD', config.get_memcached('password')),
+)
 
 
 def get_client():
@@ -47,9 +51,7 @@ def get_extra_as_list(extra):
 
 
 def get_sumup(hg_urls, signatures, extra):
-    key = '\n'.join(chain(signatures,
-                          hg_urls,
-                          get_extra_as_list(extra)))
+    key = '\n'.join(chain(signatures, hg_urls, get_extra_as_list(extra)))
     key = get_hash(key)
     bcache = get_client()
     for _ in [0, 1]:
@@ -59,9 +61,7 @@ def get_sumup(hg_urls, signatures, extra):
             except Exception:
                 bcache.delete(key)
                 raise
-            bcache.set(key, value,
-                       time=config.get_cache_time(),
-                       compress_level=9)
+            bcache.set(key, value, time=config.get_cache_time(), compress_level=9)
             return value
         else:
             # since add returned False, it means that the key is already here

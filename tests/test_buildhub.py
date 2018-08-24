@@ -62,9 +62,7 @@ def test_make_request(create_buildhub_data):
 def test_extract(create_buildhub_data, get_result):
     data = buildhub.get_raw()
     data, buildids, buildids_per_prod = buildhub.extract(data)
-    data = {'data': data,
-            'buildids': buildids,
-            'buildids_per_prod': buildids_per_prod}
+    data = {'data': data, 'buildids': buildids, 'buildids_per_prod': buildids_per_prod}
     x = get_result('tests/data/buildhub/extract.json', data)
 
     assert x['data'] == data['data']
@@ -102,10 +100,15 @@ def test_get(create_buildhub_data, get_result):
 
 
 def test_get_bid_as_date():
-    data = {'FennecAndroid': {'beta': [['20180709172241'],
-                                       ['20180713213322']]}}
-    x = {'FennecAndroid': {'beta': [[datetime(2018, 7, 9, 17, 22, 41, 0, pytz.utc)],
-                                    [datetime(2018, 7, 13, 21, 33, 22, 0, pytz.utc)]]}}
+    data = {'FennecAndroid': {'beta': [['20180709172241'], ['20180713213322']]}}
+    x = {
+        'FennecAndroid': {
+            'beta': [
+                [datetime(2018, 7, 9, 17, 22, 41, 0, pytz.utc)],
+                [datetime(2018, 7, 13, 21, 33, 22, 0, pytz.utc)],
+            ]
+        }
+    }
     buildhub.get_bid_as_date(data)
 
     assert x == data

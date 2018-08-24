@@ -33,7 +33,10 @@ class MySuperSearch:
         params_str = lmdutils.get_params_for_url(params)
         if params_str not in data:
             hdata = []
-            Connection(socorro.Socorro.API_URL, queries=Query(_SuperSearch.URL, params, MySuperSearch.handler, hdata)).wait()
+            Connection(
+                socorro.Socorro.API_URL,
+                queries=Query(_SuperSearch.URL, params, MySuperSearch.handler, hdata),
+            ).wait()
             data[params_str] = hdata[0]
             dumpjson(MySuperSearch.PATH, data)
 
@@ -43,7 +46,9 @@ class MySuperSearch:
 
     def __init__(self, *args, **kwargs):
         if 'handler' in kwargs:
-            kwargs['handler'](MySuperSearch.get_data(kwargs['params']), kwargs['handlerdata'])
+            kwargs['handler'](
+                MySuperSearch.get_data(kwargs['params']), kwargs['handlerdata']
+            )
         else:
             for query in kwargs['queries']:
                 query.handler(MySuperSearch.get_data(query.params), query.handlerdata)
@@ -61,7 +66,6 @@ class MySuperSearch:
 
     @staticmethod
     def get_signatures():
-
         def handler(json, data):
             for i in json['facets']['signature']:
                 data.append(i['term'])
@@ -76,20 +80,26 @@ class MySuperSearch:
         few_days_ago = date - relativedelta(days=3)
         search_date = _SuperSearch.get_search_date(few_days_ago)
 
-        params = {'date': search_date,
-                  '_results_number': 0,
-                  '_facets': 'signature',
-                  '_facets_size': 100}
+        params = {
+            'date': search_date,
+            '_results_number': 0,
+            '_facets': 'signature',
+            '_facets_size': 100,
+        }
 
         data = {'Firefox': [], 'FennecAndroid': []}
         queries = []
         for prod, hdata in data.items():
             pparams = params.copy()
             pparams['product'] = prod
-            queries.append(Query(MySuperSearch.URL,
-                                 params=pparams,
-                                 handler=handler,
-                                 handlerdata=hdata))
+            queries.append(
+                Query(
+                    MySuperSearch.URL,
+                    params=pparams,
+                    handler=handler,
+                    handlerdata=hdata,
+                )
+            )
         MySuperSearch(queries=queries).wait()
 
         return data

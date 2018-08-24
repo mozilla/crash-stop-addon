@@ -18,12 +18,14 @@ def sumup():
             del extra[x]
 
     data, affected, has_extra = cache.get_sumup(hgurls, sgns, extra)
-    return render_template('sumup.html',
-                           data=data,
-                           affected=affected,
-                           has_extra=has_extra,
-                           products=config.get_products(),
-                           addon_version=addon_version,
-                           enumerate=enumerate,
-                           zip=zip,
-                           jsonify=json.dumps)
+    return render_template(
+        'sumup.html',
+        data=data,
+        affected=affected,
+        has_extra=has_extra,
+        products=config.get_products(),
+        addon_version=addon_version,
+        enumerate=enumerate,
+        zip=zip,
+        jsonify=json.dumps,
+    )

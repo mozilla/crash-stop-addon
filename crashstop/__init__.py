@@ -10,7 +10,9 @@ from . import config
 
 
 app = Flask(__name__, template_folder='../templates')
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', config.get_database())
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
+    'DATABASE_URL', config.get_database()
+)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 log = logging.getLogger(__name__)
@@ -19,6 +21,7 @@ log = logging.getLogger(__name__)
 @app.route('/sumup.html')
 def sumup_html():
     from crashstop import html
+
     return html.sumup()
 
 
