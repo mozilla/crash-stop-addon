@@ -11,7 +11,7 @@ from . import config, signatures
 from .logger import logger
 
 
-__CLIENT = Client(
+_CLIENT = Client(
     os.environ.get('MEMCACHEDCLOUD_SERVERS', config.get_memcached('servers')).split(
         ','
     ),
@@ -21,7 +21,7 @@ __CLIENT = Client(
 
 
 def get_client():
-    return __CLIENT
+    return _CLIENT
 
 
 def get_value(hgurls, sgns, extra):
