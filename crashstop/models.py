@@ -78,6 +78,7 @@ class Buildid(db.Model):
             d = res[bid.product][bid.channel]
             buildid = bid.buildid.astimezone(pytz.utc)
             d.append([buildid, bid.version, bid.unique, bid.unique_prod])
+
         return res
 
 

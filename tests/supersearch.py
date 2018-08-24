@@ -9,7 +9,7 @@ from libmozdata import socorro
 from libmozdata.connection import Connection, Query
 from libmozdata import utils as lmdutils
 import os.path
-from .common import dumpjson
+from .common import dumpjson, get_params_query
 
 
 class MySuperSearch:
@@ -30,7 +30,11 @@ class MySuperSearch:
         else:
             data = {}
 
-        params_str = lmdutils.get_params_for_url(params)
+        for k, v in params.items():
+            if isinstance(v, list):
+                params[k] = sorted(v)
+
+        params_str = get_params_query(params)
         if params_str not in data:
             hdata = []
             Connection(

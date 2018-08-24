@@ -6,9 +6,8 @@ import json
 from libmozdata.hgmozilla import Revision as _Revision
 from libmozdata.hgmozilla import Mercurial
 from libmozdata.connection import Connection, Query
-from libmozdata import utils as lmdutils
 import os.path
-from .common import dumpjson
+from .common import dumpjson, get_params_query
 
 
 class MyRevision:
@@ -27,7 +26,7 @@ class MyRevision:
         else:
             data = {}
 
-        params_str = lmdutils.get_params_for_url(params)
+        params_str = get_params_query(params)
         if params_str not in data:
             hdata = []
             Connection(

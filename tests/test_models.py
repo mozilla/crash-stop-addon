@@ -3,16 +3,8 @@
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
 from crashstop import config, models, signatures
-import pytest
 from unittest.mock import patch
 from .common import get_all_versions
-
-
-@pytest.fixture()
-def create_db():
-    models.create()
-    yield None
-    models.clear()
 
 
 @patch('crashstop.buildhub.get', get_all_versions)

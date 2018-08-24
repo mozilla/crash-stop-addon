@@ -15,6 +15,48 @@
                                     "buckets": [
                                         {
                                             "doc_count": 520,
+                                            "key": "20180824100112",
+                                            "versions": {
+                                                "buckets": [
+                                                    {
+                                                        "doc_count": 520,
+                                                        "key": "63.0a1"
+                                                    }
+                                                ],
+                                                "doc_count_error_upper_bound": 0,
+                                                "sum_other_doc_count": 0
+                                            }
+                                        },
+                                        {
+                                            "doc_count": 520,
+                                            "key": "20180823220048",
+                                            "versions": {
+                                                "buckets": [
+                                                    {
+                                                        "doc_count": 520,
+                                                        "key": "63.0a1"
+                                                    }
+                                                ],
+                                                "doc_count_error_upper_bound": 0,
+                                                "sum_other_doc_count": 0
+                                            }
+                                        },
+                                        {
+                                            "doc_count": 520,
+                                            "key": "20180823100106",
+                                            "versions": {
+                                                "buckets": [
+                                                    {
+                                                        "doc_count": 520,
+                                                        "key": "63.0a1"
+                                                    }
+                                                ],
+                                                "doc_count_error_upper_bound": 0,
+                                                "sum_other_doc_count": 0
+                                            }
+                                        },
+                                        {
+                                            "doc_count": 520,
                                             "key": "20180822221004",
                                             "versions": {
                                                 "buckets": [
@@ -754,59 +796,31 @@
                                                 "doc_count_error_upper_bound": 0,
                                                 "sum_other_doc_count": 0
                                             }
-                                        },
-                                        {
-                                            "doc_count": 520,
-                                            "key": "20180728101501",
-                                            "versions": {
-                                                "buckets": [
-                                                    {
-                                                        "doc_count": 520,
-                                                        "key": "63.0a1"
-                                                    }
-                                                ],
-                                                "doc_count_error_upper_bound": 0,
-                                                "sum_other_doc_count": 0
-                                            }
-                                        },
-                                        {
-                                            "doc_count": 520,
-                                            "key": "20180727231224",
-                                            "versions": {
-                                                "buckets": [
-                                                    {
-                                                        "doc_count": 520,
-                                                        "key": "63.0a1"
-                                                    }
-                                                ],
-                                                "doc_count_error_upper_bound": 0,
-                                                "sum_other_doc_count": 0
-                                            }
-                                        },
-                                        {
-                                            "doc_count": 520,
-                                            "key": "20180727103347",
-                                            "versions": {
-                                                "buckets": [
-                                                    {
-                                                        "doc_count": 520,
-                                                        "key": "63.0a1"
-                                                    }
-                                                ],
-                                                "doc_count_error_upper_bound": 0,
-                                                "sum_other_doc_count": 0
-                                            }
                                         }
                                     ],
                                     "doc_count_error_upper_bound": 0,
-                                    "sum_other_doc_count": 544555
+                                    "sum_other_doc_count": 546115
                                 },
-                                "doc_count": 572905,
+                                "doc_count": 574465,
                                 "key": "nightly"
                             },
                             {
                                 "buildids": {
                                     "buckets": [
+                                        {
+                                            "doc_count": 780,
+                                            "key": "20180823143155",
+                                            "versions": {
+                                                "buckets": [
+                                                    {
+                                                        "doc_count": 780,
+                                                        "key": "62.0b20"
+                                                    }
+                                                ],
+                                                "doc_count_error_upper_bound": 0,
+                                                "sum_other_doc_count": 0
+                                            }
+                                        },
                                         {
                                             "doc_count": 780,
                                             "key": "20180820172315",
@@ -1576,26 +1590,12 @@
                                                 "doc_count_error_upper_bound": 0,
                                                 "sum_other_doc_count": 0
                                             }
-                                        },
-                                        {
-                                            "doc_count": 765,
-                                            "key": "20180111124119",
-                                            "versions": {
-                                                "buckets": [
-                                                    {
-                                                        "doc_count": 765,
-                                                        "key": "58.0b16"
-                                                    }
-                                                ],
-                                                "doc_count_error_upper_bound": 0,
-                                                "sum_other_doc_count": 0
-                                            }
                                         }
                                     ],
                                     "doc_count_error_upper_bound": 0,
-                                    "sum_other_doc_count": 89327
+                                    "sum_other_doc_count": 90092
                                 },
-                                "doc_count": 126940,
+                                "doc_count": 127720,
                                 "key": "beta"
                             },
                             {
@@ -2910,7 +2910,7 @@
                         "doc_count_error_upper_bound": 0,
                         "sum_other_doc_count": 0
                     },
-                    "doc_count": 753679,
+                    "doc_count": 756019,
                     "key": "firefox"
                 },
                 {
@@ -2919,6 +2919,34 @@
                             {
                                 "buildids": {
                                     "buckets": [
+                                        {
+                                            "doc_count": 109,
+                                            "key": "20180824100111",
+                                            "versions": {
+                                                "buckets": [
+                                                    {
+                                                        "doc_count": 109,
+                                                        "key": "63.0a1"
+                                                    }
+                                                ],
+                                                "doc_count_error_upper_bound": 0,
+                                                "sum_other_doc_count": 0
+                                            }
+                                        },
+                                        {
+                                            "doc_count": 109,
+                                            "key": "20180823100113",
+                                            "versions": {
+                                                "buckets": [
+                                                    {
+                                                        "doc_count": 109,
+                                                        "key": "63.0a1"
+                                                    }
+                                                ],
+                                                "doc_count_error_upper_bound": 0,
+                                                "sum_other_doc_count": 0
+                                            }
+                                        },
                                         {
                                             "doc_count": 109,
                                             "key": "20180822221046",
@@ -3674,40 +3702,12 @@
                                                 "doc_count_error_upper_bound": 0,
                                                 "sum_other_doc_count": 0
                                             }
-                                        },
-                                        {
-                                            "doc_count": 109,
-                                            "key": "20180703100027",
-                                            "versions": {
-                                                "buckets": [
-                                                    {
-                                                        "doc_count": 109,
-                                                        "key": "63.0a1"
-                                                    }
-                                                ],
-                                                "doc_count_error_upper_bound": 0,
-                                                "sum_other_doc_count": 0
-                                            }
-                                        },
-                                        {
-                                            "doc_count": 109,
-                                            "key": "20180702100130",
-                                            "versions": {
-                                                "buckets": [
-                                                    {
-                                                        "doc_count": 109,
-                                                        "key": "63.0a1"
-                                                    }
-                                                ],
-                                                "doc_count_error_upper_bound": 0,
-                                                "sum_other_doc_count": 0
-                                            }
                                         }
                                     ],
                                     "doc_count_error_upper_bound": 0,
-                                    "sum_other_doc_count": 90425
+                                    "sum_other_doc_count": 90643
                                 },
-                                "doc_count": 96413,
+                                "doc_count": 96631,
                                 "key": "nightly"
                             },
                             {
@@ -5036,7 +5036,7 @@
                         "doc_count_error_upper_bound": 0,
                         "sum_other_doc_count": 0
                     },
-                    "doc_count": 104341,
+                    "doc_count": 104559,
                     "key": "fennec"
                 },
                 {
@@ -5045,6 +5045,20 @@
                             {
                                 "buildids": {
                                     "buckets": [
+                                        {
+                                            "doc_count": 495,
+                                            "key": "20180823143155",
+                                            "versions": {
+                                                "buckets": [
+                                                    {
+                                                        "doc_count": 495,
+                                                        "key": "62.0b20"
+                                                    }
+                                                ],
+                                                "doc_count_error_upper_bound": 0,
+                                                "sum_other_doc_count": 0
+                                            }
+                                        },
                                         {
                                             "doc_count": 495,
                                             "key": "20180820172315",
@@ -5814,33 +5828,19 @@
                                                 "doc_count_error_upper_bound": 0,
                                                 "sum_other_doc_count": 0
                                             }
-                                        },
-                                        {
-                                            "doc_count": 485,
-                                            "key": "20180208193705",
-                                            "versions": {
-                                                "buckets": [
-                                                    {
-                                                        "doc_count": 485,
-                                                        "key": "59.0b8"
-                                                    }
-                                                ],
-                                                "doc_count_error_upper_bound": 0,
-                                                "sum_other_doc_count": 0
-                                            }
                                         }
                                     ],
                                     "doc_count_error_upper_bound": 0,
-                                    "sum_other_doc_count": 31955
+                                    "sum_other_doc_count": 32440
                                 },
-                                "doc_count": 59460,
+                                "doc_count": 59955,
                                 "key": "aurora"
                             }
                         ],
                         "doc_count_error_upper_bound": 0,
                         "sum_other_doc_count": 0
                     },
-                    "doc_count": 59460,
+                    "doc_count": 59955,
                     "key": "devedition"
                 }
             ],
@@ -5851,8 +5851,8 @@
     "hits": {
         "hits": [],
         "max_score": 0.0,
-        "total": 917480
+        "total": 920533
     },
     "timed_out": false,
-    "took": 5
+    "took": 90
 }

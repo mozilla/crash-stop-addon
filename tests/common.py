@@ -21,3 +21,13 @@ def get_all_versions():
 def dumpjson(path, data):
     with open(path, 'w') as Out:
         json.dump(data, Out, sort_keys=True, indent=4, separators=(',', ': '))
+
+
+def get_params_query(params):
+    res = []
+    for k, v in sorted(params.items()):
+        if isinstance(v, list) or isinstance(v, set):
+            res += ['{}={}'.format(k, x) for x in list(sorted(v))]
+        else:
+            res.append('{}={}'.format(k, v))
+    return '?' + '&'.join(res)

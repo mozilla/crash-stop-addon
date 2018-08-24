@@ -3,28 +3,28 @@
         "beta": {
             "EMPTY: no crashing thread identified; ERROR_NO_MINIDUMP_HEADER": [
                 [
-                    61,
+                    62,
                     83,
                     87,
                     91,
-                    44,
-                    21
+                    45,
+                    27
                 ],
                 [
-                    42,
+                    43,
                     59,
                     47,
                     51,
                     36,
-                    8
+                    12
                 ],
                 [
-                    56,
+                    57,
                     41,
                     25,
                     31,
-                    53,
-                    20
+                    52,
+                    26
                 ]
             ],
             "IPCError-browser | ShutDownKill": [],
@@ -32,18 +32,18 @@
                 [
                     148,
                     194,
-                    141,
-                    131,
-                    106,
-                    6
+                    142,
+                    149,
+                    108,
+                    20
                 ],
                 [
                     62,
                     100,
                     72,
-                    62,
-                    61,
-                    4
+                    64,
+                    63,
+                    14
                 ],
                 [
                     0,
@@ -56,20 +56,20 @@
             ],
             "OOM | small": [
                 [
-                    209,
-                    340,
-                    373,
-                    332,
-                    251,
-                    44
+                    210,
+                    348,
+                    376,
+                    339,
+                    262,
+                    71
                 ],
                 [
-                    119,
-                    195,
-                    162,
-                    172,
+                    120,
+                    196,
+                    164,
+                    173,
                     125,
-                    36
+                    56
                 ],
                 [
                     0,
@@ -83,19 +83,19 @@
             "android.database.CursorWindowAllocationException: Cursor window allocation of 2048 kb failed. # Open Cursors=1 (# cursors opened by this proc=1) at android.database.CursorWindow.<init>(CursorWindow.java)": [
                 [
                     129,
-                    176,
-                    220,
-                    169,
-                    127,
-                    20
+                    178,
+                    227,
+                    170,
+                    132,
+                    39
                 ],
                 [
                     101,
                     115,
-                    108,
+                    109,
                     111,
-                    84,
-                    20
+                    86,
+                    34
                 ],
                 [
                     0,
@@ -109,19 +109,19 @@
             "android.database.CursorWindowAllocationException: Cursor window allocation of 2048 kb failed. at android.database.CursorWindow.<init>(CursorWindow.java)": [
                 [
                     98,
-                    148,
+                    153,
                     170,
-                    132,
-                    115,
-                    11
+                    135,
+                    118,
+                    40
                 ],
                 [
                     75,
                     84,
                     82,
-                    72,
-                    81,
-                    8
+                    73,
+                    84,
+                    27
                 ],
                 [
                     0,
@@ -138,7 +138,7 @@
                     2,
                     2,
                     1,
-                    0,
+                    1,
                     1
                 ],
                 [
@@ -146,7 +146,7 @@
                     2,
                     2,
                     1,
-                    0,
+                    1,
                     1
                 ],
                 [
@@ -175,9 +175,9 @@
                 [
                     0,
                     0,
-                    0,
-                    0,
                     1,
+                    0,
+                    0,
                     0,
                     0,
                     0,
@@ -187,9 +187,9 @@
                 [
                     0,
                     0,
-                    0,
-                    0,
                     1,
+                    0,
+                    0,
                     0,
                     0,
                     0,
@@ -197,11 +197,11 @@
                     0
                 ],
                 [
-                    0,
-                    0,
                     0,
                     0,
                     100,
+                    0,
+                    0,
                     0,
                     0,
                     0,
@@ -213,8 +213,6 @@
             "OOM | large | NS_ABORT_OOM | nsTSubstring<T>::SetLength": [],
             "OOM | small": [
                 [
-                    2,
-                    1,
                     1,
                     0,
                     5,
@@ -222,17 +220,19 @@
                     2,
                     3,
                     0,
+                    2,
+                    0,
                     0
                 ],
                 [
-                    2,
-                    1,
                     1,
                     0,
                     1,
                     3,
                     2,
                     3,
+                    0,
+                    2,
                     0,
                     0
                 ],
@@ -251,26 +251,26 @@
             ],
             "android.database.CursorWindowAllocationException: Cursor window allocation of 2048 kb failed. # Open Cursors=1 (# cursors opened by this proc=1) at android.database.CursorWindow.<init>(CursorWindow.java)": [
                 [
-                    2,
-                    1,
-                    3,
-                    1,
-                    3,
-                    2,
-                    3,
                     4,
+                    1,
+                    3,
+                    2,
+                    4,
+                    4,
+                    0,
+                    0,
                     0,
                     0
                 ],
                 [
-                    2,
-                    1,
-                    3,
+                    4,
                     1,
                     3,
                     2,
+                    4,
                     3,
-                    3,
+                    0,
+                    0,
                     0,
                     0
                 ],
@@ -289,8 +289,6 @@
             ],
             "android.database.CursorWindowAllocationException: Cursor window allocation of 2048 kb failed. at android.database.CursorWindow.<init>(CursorWindow.java)": [
                 [
-                    1,
-                    3,
                     0,
                     2,
                     1,
@@ -298,17 +296,19 @@
                     4,
                     3,
                     0,
+                    0,
+                    0,
                     0
                 ],
                 [
-                    1,
-                    3,
                     0,
                     2,
                     1,
                     2,
                     3,
                     3,
+                    0,
+                    0,
                     0,
                     0
                 ],
@@ -331,14 +331,14 @@
         "release": {
             "EMPTY: no crashing thread identified; ERROR_NO_MINIDUMP_HEADER": [
                 [
-                    9234,
-                    17835,
-                    5205
+                    9257,
+                    17947,
+                    5794
                 ],
                 [
                     6382,
-                    11866,
-                    3857
+                    12153,
+                    4250
                 ],
                 [
                     28,
@@ -349,14 +349,14 @@
             "IPCError-browser | ShutDownKill": [],
             "OOM | large | NS_ABORT_OOM | nsTSubstring<T>::SetLength": [
                 [
-                    2255,
-                    19007,
-                    6505
+                    2271,
+                    19093,
+                    7119
                 ],
                 [
-                    1120,
-                    9771,
-                    3745
+                    1124,
+                    9814,
+                    4082
                 ],
                 [
                     0,
@@ -366,14 +366,14 @@
             ],
             "OOM | small": [
                 [
-                    32534,
-                    52444,
-                    14737
+                    32575,
+                    52664,
+                    16339
                 ],
                 [
-                    20384,
-                    28466,
-                    10727
+                    20392,
+                    28498,
+                    11771
                 ],
                 [
                     1,
@@ -383,14 +383,14 @@
             ],
             "android.database.CursorWindowAllocationException: Cursor window allocation of 2048 kb failed. # Open Cursors=1 (# cursors opened by this proc=1) at android.database.CursorWindow.<init>(CursorWindow.java)": [
                 [
-                    38763,
-                    63018,
-                    17236
+                    38805,
+                    63250,
+                    19091
                 ],
                 [
                     21381,
                     33585,
-                    11558
+                    12806
                 ],
                 [
                     0,
@@ -400,14 +400,14 @@
             ],
             "android.database.CursorWindowAllocationException: Cursor window allocation of 2048 kb failed. at android.database.CursorWindow.<init>(CursorWindow.java)": [
                 [
-                    30960,
-                    50349,
-                    14378
+                    31023,
+                    50555,
+                    15935
                 ],
                 [
-                    14160,
-                    22311,
-                    8127
+                    14185,
+                    22362,
+                    9061
                 ],
                 [
                     0,
@@ -417,14 +417,14 @@
             ],
             "js::ConstraintTypeSet::sweep": [
                 [
-                    133,
-                    311,
-                    82
+                    134,
+                    313,
+                    90
                 ],
                 [
-                    121,
+                    123,
                     242,
-                    70
+                    78
                 ],
                 [
                     0,
@@ -439,66 +439,66 @@
         "beta": {
             "EMPTY: no crashing thread identified; ERROR_NO_MINIDUMP_HEADER": [
                 [
-                    129,
                     135,
                     129,
-                    103,
+                    105,
                     140,
                     106,
-                    133,
-                    98,
-                    90,
-                    22
+                    134,
+                    101,
+                    96,
+                    57,
+                    0
                 ],
                 [
-                    111,
                     126,
                     132,
-                    82,
+                    84,
                     116,
                     99,
-                    114,
+                    115,
+                    92,
                     89,
-                    83,
-                    16
+                    47,
+                    0
                 ],
                 [
-                    7,
                     4,
                     5,
                     12,
                     8,
                     6,
                     14,
-                    14,
+                    13,
                     10,
-                    14
+                    9,
+                    0
                 ]
             ],
             "IPCError-browser | ShutDownKill": [
                 [
-                    1672,
-                    1387,
-                    1500,
-                    1122,
-                    1315,
-                    923,
-                    876,
-                    751,
-                    300,
-                    83
+                    1415,
+                    1543,
+                    1196,
+                    1370,
+                    968,
+                    956,
+                    900,
+                    375,
+                    260,
+                    6
                 ],
                 [
-                    442,
-                    416,
-                    403,
-                    316,
-                    322,
-                    267,
-                    255,
-                    196,
-                    85,
-                    27
+                    429,
+                    405,
+                    328,
+                    333,
+                    274,
+                    269,
+                    233,
+                    101,
+                    75,
+                    2
                 ],
                 [
                     0,
@@ -516,7 +516,6 @@
             "OOM | large | NS_ABORT_OOM | nsTSubstring<T>::SetLength": [
                 [
                     0,
-                    0,
                     1,
                     0,
                     1,
@@ -524,11 +523,11 @@
                     0,
                     2,
                     0,
-                    1
+                    2,
+                    0
                 ],
                 [
                     0,
-                    0,
                     1,
                     0,
                     1,
@@ -536,7 +535,8 @@
                     0,
                     2,
                     0,
-                    1
+                    2,
+                    0
                 ],
                 [
                     0,
@@ -553,31 +553,30 @@
             ],
             "OOM | small": [
                 [
-                    4930,
-                    4056,
-                    4874,
-                    3722,
-                    4194,
-                    3490,
-                    4214,
-                    3427,
-                    3006,
-                    722
+                    4067,
+                    4886,
+                    3731,
+                    4215,
+                    3503,
+                    4240,
+                    3511,
+                    3178,
+                    1933,
+                    2
                 ],
                 [
-                    3232,
-                    2671,
+                    2676,
                     3138,
                     2444,
                     2816,
-                    2258,
-                    2769,
-                    2288,
-                    2148,
-                    469
+                    2274,
+                    2787,
+                    2371,
+                    2273,
+                    1261,
+                    1
                 ],
                 [
-                    2,
                     2,
                     2,
                     1,
@@ -586,35 +585,36 @@
                     2,
                     2,
                     2,
-                    1
+                    1,
+                    0
                 ]
             ],
             "android.database.CursorWindowAllocationException: Cursor window allocation of 2048 kb failed. # Open Cursors=1 (# cursors opened by this proc=1) at android.database.CursorWindow.<init>(CursorWindow.java)": [],
             "android.database.CursorWindowAllocationException: Cursor window allocation of 2048 kb failed. at android.database.CursorWindow.<init>(CursorWindow.java)": [],
             "js::ConstraintTypeSet::sweep": [
                 [
-                    305,
                     269,
                     350,
                     235,
                     296,
                     226,
                     294,
-                    265,
-                    242,
-                    54
+                    269,
+                    251,
+                    141,
+                    0
                 ],
                 [
-                    245,
                     222,
                     274,
                     193,
                     254,
                     183,
                     241,
-                    228,
-                    199,
-                    48
+                    231,
+                    208,
+                    125,
+                    0
                 ],
                 [
                     0,
@@ -631,28 +631,28 @@
             ],
             "shutdownhang | ntdll.dll@0x9d7a4": [
                 [
-                    5,
-                    6,
+                    7,
                     6,
                     3,
                     9,
-                    11,
-                    37,
-                    318,
-                    266,
-                    88
+                    12,
+                    41,
+                    334,
+                    274,
+                    210,
+                    0
                 ],
                 [
-                    5,
-                    6,
+                    7,
                     6,
                     3,
                     8,
-                    9,
-                    30,
-                    296,
-                    241,
-                    81
+                    10,
+                    32,
+                    311,
+                    245,
+                    190,
+                    0
                 ],
                 [
                     0,
@@ -671,12 +671,12 @@
         "esr": {
             "EMPTY: no crashing thread identified; ERROR_NO_MINIDUMP_HEADER": [
                 [
-                    24290,
-                    184
+                    24932,
+                    190
                 ],
                 [
-                    12361,
-                    149
+                    12605,
+                    155
                 ],
                 [
                     4,
@@ -685,12 +685,12 @@
             ],
             "IPCError-browser | ShutDownKill": [
                 [
-                    614,
-                    195
+                    625,
+                    201
                 ],
                 [
-                    269,
-                    77
+                    274,
+                    83
                 ],
                 [
                     0,
@@ -713,12 +713,12 @@
             ],
             "OOM | small": [
                 [
-                    186470,
-                    6923
+                    189674,
+                    7282
                 ],
                 [
-                    72000,
-                    3305
+                    73996,
+                    3503
                 ],
                 [
                     4,
@@ -729,12 +729,12 @@
             "android.database.CursorWindowAllocationException: Cursor window allocation of 2048 kb failed. at android.database.CursorWindow.<init>(CursorWindow.java)": [],
             "js::ConstraintTypeSet::sweep": [
                 [
-                    16058,
-                    130
+                    16441,
+                    136
                 ],
                 [
-                    7973,
-                    90
+                    8253,
+                    96
                 ],
                 [
                     1,
@@ -743,12 +743,12 @@
             ],
             "shutdownhang | ntdll.dll@0x9d7a4": [
                 [
-                    26,
-                    52
+                    31,
+                    62
                 ],
                 [
-                    26,
-                    40
+                    31,
+                    49
                 ],
                 [
                     0,
@@ -759,36 +759,36 @@
         "nightly": {
             "EMPTY: no crashing thread identified; ERROR_NO_MINIDUMP_HEADER": [
                 [
-                    11,
-                    8,
-                    25,
                     7,
                     10,
                     8,
                     6,
                     14,
                     7,
-                    8,
-                    1,
-                    5,
+                    10,
                     3,
-                    1
+                    7,
+                    18,
+                    3,
+                    6,
+                    4,
+                    0
                 ],
                 [
-                    8,
-                    6,
-                    11,
                     6,
                     6,
                     6,
                     4,
                     8,
                     6,
-                    5,
-                    1,
-                    5,
+                    6,
                     2,
-                    1
+                    7,
+                    12,
+                    3,
+                    4,
+                    3,
+                    0
                 ],
                 [
                     0,
@@ -801,7 +801,7 @@
                     0,
                     0,
                     0,
-                    0,
+                    34,
                     0,
                     0,
                     0
@@ -809,36 +809,36 @@
             ],
             "IPCError-browser | ShutDownKill": [
                 [
-                    1420,
-                    1410,
-                    1532,
-                    1198,
-                    1235,
-                    1016,
-                    1285,
+                    1242,
+                    1290,
+                    1060,
+                    1345,
+                    1381,
+                    1390,
+                    1337,
+                    1350,
                     1310,
-                    1243,
                     1172,
-                    1063,
-                    911,
-                    456,
-                    88
+                    974,
+                    732,
+                    315,
+                    6
                 ],
                 [
-                    598,
-                    568,
-                    559,
-                    456,
-                    453,
-                    403,
-                    479,
-                    520,
-                    504,
                     466,
-                    405,
-                    343,
-                    207,
-                    52
+                    466,
+                    417,
+                    493,
+                    545,
+                    533,
+                    531,
+                    505,
+                    492,
+                    468,
+                    367,
+                    295,
+                    135,
+                    5
                 ],
                 [
                     0,
@@ -859,9 +859,6 @@
             ],
             "OOM | large | NS_ABORT_OOM | nsTSubstring<T>::SetLength": [
                 [
-                    2,
-                    0,
-                    6,
                     0,
                     4,
                     0,
@@ -871,74 +868,77 @@
                     1,
                     9,
                     0,
-                    1,
+                    4,
+                    0,
+                    0,
+                    0,
                     0
                 ],
                 [
+                    0,
                     1,
+                    0,
                     0,
                     1,
                     0,
                     1,
-                    0,
-                    0,
                     1,
                     0,
                     1,
-                    1,
                     0,
-                    1,
+                    0,
+                    0,
                     0
                 ],
                 [
+                    0,
                     -1,
+                    0,
                     0,
                     -1,
                     0,
                     -1,
-                    0,
-                    0,
                     -1,
                     0,
                     -1,
-                    -1,
                     0,
-                    -1,
+                    0,
+                    0,
                     0
                 ]
             ],
             "OOM | small": [
                 [
-                    26,
-                    25,
-                    27,
                     21,
+                    31,
+                    25,
+                    19,
                     30,
-                    25,
-                    17,
-                    28,
-                    18,
-                    15,
-                    14,
-                    13,
+                    24,
                     16,
-                    13
+                    19,
+                    23,
+                    30,
+                    35,
+                    23,
+                    7,
+                    0
                 ],
                 [
-                    21,
-                    17,
-                    21,
                     17,
                     20,
                     20,
-                    9,
-                    21,
-                    18,
-                    12,
-                    13,
                     10,
-                    12,
-                    3
+                    23,
+                    22,
+                    13,
+                    14,
+                    16,
+                    24,
+                    14,
+                    16,
+                    6,
+                    0
                 ],
                 [
                     0,
@@ -951,7 +951,7 @@
                     0,
                     0,
                     0,
-                    0,
+                    9,
                     0,
                     0,
                     0
@@ -961,25 +961,22 @@
             "android.database.CursorWindowAllocationException: Cursor window allocation of 2048 kb failed. at android.database.CursorWindow.<init>(CursorWindow.java)": [],
             "js::ConstraintTypeSet::sweep": [
                 [
-                    1,
                     6,
-                    2,
-                    6,
-                    3,
-                    4,
-                    4,
-                    3,
-                    0,
-                    0,
                     3,
                     4,
                     5,
-                    0
-                ],
-                [
+                    3,
+                    0,
+                    0,
+                    3,
+                    4,
+                    9,
+                    2,
+                    4,
                     1,
-                    3,
-                    2,
+                    0
+                ],
+                [
                     2,
                     2,
                     4,
@@ -989,7 +986,10 @@
                     0,
                     3,
                     3,
-                    4,
+                    8,
+                    2,
+                    3,
+                    1,
                     0
                 ],
                 [
@@ -998,49 +998,49 @@
                     -1,
                     -1,
                     -1,
-                    -1,
-                    -1,
-                    -1,
                     0,
                     0,
                     0,
                     -1,
-                    -1,
+                    0,
+                    0,
+                    0,
+                    0,
                     0
                 ]
             ],
             "shutdownhang | ntdll.dll@0x9d7a4": [
                 [
-                    7,
-                    10,
-                    11,
                     5,
                     4,
                     7,
-                    9,
+                    10,
                     7,
                     8,
                     4,
-                    7,
+                    8,
                     6,
-                    6,
-                    1
+                    10,
+                    5,
+                    2,
+                    5,
+                    0
                 ],
                 [
-                    7,
-                    9,
-                    10,
                     5,
                     3,
                     7,
-                    7,
+                    8,
                     7,
                     8,
                     4,
-                    7,
+                    8,
                     3,
-                    6,
-                    1
+                    10,
+                    5,
+                    2,
+                    5,
+                    0
                 ],
                 [
                     0,
@@ -1063,16 +1063,16 @@
         "release": {
             "EMPTY: no crashing thread identified; ERROR_NO_MINIDUMP_HEADER": [
                 [
-                    5116,
-                    1270,
-                    6647,
-                    2291
+                    5122,
+                    1272,
+                    6670,
+                    2557
                 ],
                 [
                     4630,
                     1183,
                     6085,
-                    2032
+                    2257
                 ],
                 [
                     7,
@@ -1083,16 +1083,16 @@
             ],
             "IPCError-browser | ShutDownKill": [
                 [
-                    5671,
-                    4528,
-                    7321,
-                    1896
+                    5740,
+                    4553,
+                    7458,
+                    2219
                 ],
                 [
                     3078,
-                    2124,
-                    3456,
-                    1003
+                    2130,
+                    3468,
+                    1156
                 ],
                 [
                     0,
@@ -1105,34 +1105,34 @@
                 [
                     51,
                     12,
-                    68,
-                    42
+                    69,
+                    49
                 ],
                 [
                     50,
                     10,
-                    59,
-                    40
+                    60,
+                    47
                 ],
                 [
                     0,
                     0,
                     5,
-                    5
+                    8
                 ]
             ],
             "OOM | small": [
                 [
-                    128305,
-                    39690,
-                    201971,
-                    67586
+                    128394,
+                    39728,
+                    202301,
+                    75224
                 ],
                 [
                     79213,
-                    32780,
+                    32825,
                     132100,
-                    49092
+                    53356
                 ],
                 [
                     2,
@@ -1145,16 +1145,16 @@
             "android.database.CursorWindowAllocationException: Cursor window allocation of 2048 kb failed. at android.database.CursorWindow.<init>(CursorWindow.java)": [],
             "js::ConstraintTypeSet::sweep": [
                 [
-                    8713,
+                    8717,
                     3502,
-                    16457,
-                    5965
+                    16473,
+                    6623
                 ],
                 [
                     7960,
                     2844,
                     13482,
-                    5508
+                    6003
                 ],
                 [
                     1,
@@ -1165,16 +1165,16 @@
             ],
             "shutdownhang | ntdll.dll@0x9d7a4": [
                 [
-                    74,
-                    22,
-                    215,
-                    5486
+                    80,
+                    27,
+                    240,
+                    6596
                 ],
                 [
-                    72,
-                    20,
-                    190,
-                    5194
+                    78,
+                    25,
+                    208,
+                    5922
                 ],
                 [
                     0,
