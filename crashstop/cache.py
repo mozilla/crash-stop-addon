@@ -42,8 +42,7 @@ def get_extra_as_list(extra):
     for k, v in sorted(extra.items()):
         res.append(k)
         if isinstance(v, list):
-            for i in v:
-                res.append(i)
+            res += v
         else:
             res.append(v)
 
