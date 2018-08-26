@@ -10,16 +10,23 @@ import six
 
 
 def get_major(v):
+    """Get major version as an int from a version string
+    """
     v = v.split('.')
     if len(v) >= 2:
         return int(v[0])
     return -1
 
 
-def analyze_hg_urls(urls):
+def get_channel_revision(pairs):
+    """Get a map channel->revision
+    """
     res = {}
-    for url in urls:
-        repo, rev = url.split('|')
+    for pair in pairs:
+        pair = pair.split('|')
+        if len(pair) < 2:
+            continue
+        repo, rev = pair
         if repo in res:
             res[repo].append(rev)
         else:
@@ -53,12 +60,6 @@ def get_params_for_link(query={}):
     return params
 
 
-def get_esearch_sgn(sgn):
-    if sgn.startswith('\"'):
-        return '@' + sgn
-    return '=' + sgn
-
-
 def get_build_date(bid):
     if isinstance(bid, six.string_types):
         Y = int(bid[0:4])
@@ -88,8 +89,8 @@ def get_buildid(date):
 
 def get_position(pushdate, dates):
     if pushdate:
-        pos = bisect_left(dates, pushdate)
-        return pos - 1
+        return bisect_left(dates, pushdate) - 1
+
     return -2
 
 

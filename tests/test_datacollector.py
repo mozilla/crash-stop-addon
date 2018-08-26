@@ -113,7 +113,7 @@ def test_pushdates(get_result):
         'beta|55fc535ff4ce',
         'release|0be81adef007',
     ]
-    revs = utils.analyze_hg_urls(revs)
+    revs = utils.get_channel_revision(revs)
     res, data = dc.get_pushdates(revs)
 
     for r in res:

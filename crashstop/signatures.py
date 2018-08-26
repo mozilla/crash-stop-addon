@@ -46,7 +46,7 @@ def get_for_urls_sgns(hg_urls, signatures, extra={}):
     else:
         products = config.get_products()
 
-    chan_rev = utils.analyze_hg_urls(hg_urls)
+    chan_rev = utils.get_channel_revision(hg_urls)
     towait, pushdates = dc.get_pushdates(chan_rev)
 
     dates = {}
@@ -157,7 +157,7 @@ def prepare_bug_for_html(data, extra={}):
 
                 params['date'] = '>=' + info['min_date']
                 params['version'] = vers
-                params['signature'] = utils.get_esearch_sgn(sgn)
+                params['signature'] = '=' + sgn
                 info['socorro_url'] = (
                     socorro.SuperSearch.get_link(params) + '#facet-build_id'
                 )
