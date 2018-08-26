@@ -34,7 +34,7 @@ def init_platforms(signatures, channels, products):
     return {p: {c: {s: {} for s in signatures} for c in channels} for p in products}
 
 
-def get_for_urls_sgns(hg_urls, signatures, extra={}, aggregate=False):
+def get_for_urls_sgns(hg_urls, signatures, extra={}):
     data = {}
     versions = {}
     res = {'data': data, 'versions': versions}

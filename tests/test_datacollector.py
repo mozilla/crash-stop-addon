@@ -112,6 +112,8 @@ def test_pushdates(get_result):
         'beta|4a5ae6a7911d',
         'beta|55fc535ff4ce',
         'release|0be81adef007',
+        'esr60|5c3ef4992a63',
+        'esr60|bcb4837d51e8',
     ]
     revs = utils.get_channel_revision(revs)
     res, data = dc.get_pushdates(revs)

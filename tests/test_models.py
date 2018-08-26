@@ -32,3 +32,5 @@ def test_add_builds_here(create_db):
     dbdata = dbdata['FennecAndroid']['beta']
 
     assert fa_data == dbdata
+
+    assert models.Buildid.add_buildids({}) is None

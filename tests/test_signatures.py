@@ -22,6 +22,11 @@ def get_all_versions(products, channels):
     return res
 
 
+def test_get_for_urls_sgns_empty():
+    data = signatures.get_for_urls_sgns([], [])
+    assert data == {'data': {}, 'versions': {}}
+
+
 @patch('crashstop.signatures.get_all_versions', get_all_versions)
 @patch('libmozdata.socorro.SuperSearch', MySuperSearch)
 def test_get_for_urls_sgns_no_patch_fx_fa(get_result):
@@ -86,3 +91,11 @@ def test_prepare_bug_for_html(get_result):
     data = {'data': data, 'affected': affected}
 
     assert data == get_result('tests/data/crashstop/signatures_prepare.json', data)
+
+
+def test_prepare_bug_for_html_empty():
+    data, affected, extra = signatures.prepare_bug_for_html({})
+
+    assert data == {}
+    assert affected == {}
+    assert extra is False
