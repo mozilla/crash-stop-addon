@@ -185,12 +185,11 @@ def prepare_bug_for_html(data, extra={}):
     # order the data
     results = OrderedDict()
     for prod in config.get_products():
-        if prod in data:
-            results[prod] = d = OrderedDict()
-            for chan in config.get_channels():
-                if chan in data[prod]:
-                    d[chan] = dc = OrderedDict()
-                    for k, v in sorted(data[prod][chan].items()):
-                        dc[k] = v
+        if prod not in data:
+            continue
+        results[prod] = d = OrderedDict()
+        for chan in config.get_channels():
+            if chan in data[prod]:
+                d[chan] = OrderedDict(sorted(data[prod][chan].items()))
 
     return results, affected, has_extra
