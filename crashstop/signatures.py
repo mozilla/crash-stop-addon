@@ -5,11 +5,15 @@
 from collections import OrderedDict
 import datetime
 from libmozdata import socorro
+import re
 from sqlalchemy.exc import OperationalError
 import time
 from . import datacollector as dc
 from . import buildhub, config, models, utils
 from .logger import logger
+
+
+FIRST_RELEASE_PAT = re.compile(r'^[0-9]+\.0$')
 
 
 def update():
@@ -173,12 +177,21 @@ def prepare_bug_for_html(data, extra={}):
                     )
 
                 for bid in buildids:
-                    params['version'] = v = all_versions_pc[bid]
-                    versions.append(v)
                     params['build_id'] = '=' + bid
-                    links.append(
-                        socorro.SuperSearch.get_link(params) + '#crash-reports'
-                    )
+                    v = all_versions_pc[bid]
+                    versions.append(v)
+                    if chan == 'release' and FIRST_RELEASE_PAT.match(v):
+                        params['version'] = [v, v + 'b99']
+                        params['release_channel'] = ['release', 'beta']
+                        links.append(
+                            socorro.SuperSearch.get_link(params) + '#crash-reports'
+                        )
+                        params['release_channel'] = 'release'
+                    else:
+                        params['version'] = v
+                        links.append(
+                            socorro.SuperSearch.get_link(params) + '#crash-reports'
+                        )
 
                 del params['build_id']
 
