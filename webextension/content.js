@@ -4,7 +4,7 @@
 
 "use strict";
 
-const VERSION = "0.2.8";
+const VERSION = "0.2.9";
 
 async function fetchProductDetails() {
   const url = "https://product-details.mozilla.org/1.0/firefox_versions.json";
@@ -217,11 +217,15 @@ if (container) {
     const LSName = "Crash-Stop-V1";
     const iframe = document.createElement("iframe");
     let statusFlagsSelects = null;
-    let bugid;
-    if (oldWay) {
-      bugid = document.getElementById("shorturl").getAttribute("href").slice("https://bugzil.la/".length);
-    } else {
-      bugid = document.getElementById("this-bug").innerText.split(" ")[1];
+    let bugid = "";
+    const meta = document.querySelector("meta[property='og:url']");
+    const content = meta.getAttribute("content");
+    const start = "https://bugzilla.mozilla.org/show_bug.cgi?id=";
+    if (content.startsWith(start)) {
+      bugid = content.slice(start.length);
+      if (isNaN(bugid)) {
+        bugid = "";
+      }
     }
     window.addEventListener("message", function (e) {
       if (e.origin == crashStop) {
@@ -257,22 +261,26 @@ if (container) {
     };
     function getLSData(id) {
       const s = localStorage.getItem(LSName);
-      if (typeof id === "undefined") {
+      if (id === "") {
         return s === null ? new Object() : JSON.parse(s);
       } else {
         return s === null ? false : JSON.parse(s).hasOwnProperty(id);
       }
     }
     function setLSData(id) {
-      const o = getLSData();
-      o[bugid] = 1;
-      localStorage.setItem(LSName, JSON.stringify(o));
+      if (id !== "") {
+        const o = getLSData();
+        o[id] = 1;
+        localStorage.setItem(LSName, JSON.stringify(o));
+      }
     }
     function unsetLSData(id) {
-      const o = getLSData();
-      if (o.hasOwnProperty(id)) {
-        delete o[bugid];
-        localStorage.setItem(LSName, JSON.stringify(o));
+      if (id !== "") {
+        const o = getLSData();
+        if (o.hasOwnProperty(id)) {
+          delete o[id];
+          localStorage.setItem(LSName, JSON.stringify(o));
+        }
       }
     }
     function toggle() {
