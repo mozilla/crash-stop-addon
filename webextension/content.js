@@ -4,7 +4,7 @@
 
 "use strict";
 
-const VERSION = "0.2.9";
+const VERSION = "0.3.0";
 
 async function fetchProductDetails() {
   const url = "https://product-details.mozilla.org/1.0/firefox_versions.json";
@@ -261,10 +261,10 @@ if (container) {
     };
     function getLSData(id) {
       const s = localStorage.getItem(LSName);
-      if (id === "") {
+      if (typeof id === "undefined") { // Function has no arguments 
         return s === null ? new Object() : JSON.parse(s);
       } else {
-        return s === null ? false : JSON.parse(s).hasOwnProperty(id);
+        return s !== null && s !== "" && JSON.parse(s).hasOwnProperty(id);
       }
     }
     function setLSData(id) {
