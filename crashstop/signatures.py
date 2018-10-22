@@ -121,15 +121,16 @@ def get_affected(data, versions):
         versions_prod = versions[prod]
         for chan, j in i.items():
             if chan not in affected:
-                affected[chan] = -1
+                affected[chan] = set()
             versions_pc = versions_prod[chan]
             for k in j.values():
                 non_zero = [n for n, e in enumerate(k['raw']) if e != 0]
                 if non_zero:
-                    bid = k['buildids'][max(non_zero)]
-                    version = versions_pc[bid]
-                    affected[chan] = max(affected[chan], utils.get_major(version))
+                    vers = [versions_pc[k['buildids'][n]] for n in non_zero]
+                    majors = set(utils.get_major(v) for v in vers)
+                    affected[chan] |= majors
 
+    affected = {c: list(sorted(v)) for c, v in affected.items()}
     return affected
 
 

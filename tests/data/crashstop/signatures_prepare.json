@@ -1,9 +1,19 @@
 {
     "affected": {
-        "beta": 62,
-        "esr": 60,
-        "nightly": 63,
-        "release": 61
+        "beta": [
+            62
+        ],
+        "esr": [
+            52,
+            60
+        ],
+        "nightly": [
+            63
+        ],
+        "release": [
+            60,
+            61
+        ]
     },
     "data": {
         "FennecAndroid": {

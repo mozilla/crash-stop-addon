@@ -4,7 +4,7 @@
 
 "use strict";
 
-const VERSION = "0.3.0";
+const VERSION = "0.3.1";
 
 async function fetchProductDetails() {
   const url = "https://product-details.mozilla.org/1.0/firefox_versions.json";
@@ -52,8 +52,9 @@ function statusFlags(affected, productDetails) {
     const affectedSelects = [];
     const wontfixSelects = []
     for (let chan in affected) {
-      const v = affected[chan];
-      if (productDetails[chan] === v) {
+      const majors = affected[chan];
+      const v = productDetails[chan];
+      if (majors.includes(v)) {
         const vs = v.toString();
         const flag = "cf_status_firefox" + (chan === "esr" ? ("_esr" + vs) : vs);
         const select = document.getElementById(flag);

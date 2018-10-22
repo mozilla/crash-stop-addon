@@ -18,6 +18,9 @@ def sumup():
             del extra[x]
 
     data, affected, has_extra = cache.get_sumup(hgurls, sgns, extra)
+    if addon_version <= '0.3.0':
+        affected = {k: max(v) for k, v in affected.items()}
+
     return render_template(
         'sumup.html',
         data=data,
