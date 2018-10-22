@@ -130,7 +130,7 @@ def get_affected(data, versions):
                     majors = set(utils.get_major(v) for v in vers)
                     affected[chan] |= majors
 
-    affected = {c: list(sorted(v)) for c, v in affected.items() if v}
+    affected = {c: list(sorted(v)) for c, v in affected.items()}
     return affected
 
 
