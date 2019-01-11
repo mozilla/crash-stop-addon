@@ -15,21 +15,17 @@ You can find more explanations here: https://crash-stop-addon.herokuapp.com/.
 
 ## Setup
 
-Install the prerequisites via `pip`:
+Install docker and docker-compose and then:
 ```sh
-sudo pip install -r requirements.txt
+docker-compose up --build
 ```
+Then you can test in your browser: https://localhost:8080/sumup.html?s=OOM%20|%20small.
 
 ## Running tests
 
-Install test prerequisites via `pip`:
+In using docker:
 ```sh
-sudo pip install -r test-requirements.txt
-```
-
-Run tests:
-```sh
-pytest -vv tests/
+docker-compose -f docker-compose-test.yml run tests
 ```
 
 ## Bugs

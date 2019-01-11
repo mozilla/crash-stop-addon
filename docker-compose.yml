@@ -1,0 +1,29 @@
+version: "3"
+services:
+  web:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/code
+    command: >
+      bash -c "python bin/init.py &&
+               honcho -d . -f /Procfile start"
+    depends_on:
+      - postgres
+      - memcached
+    links:
+      - postgres
+      - memcached
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_USER=crash
+      - POSTGRES_PASSWORD=stop
+      - POSTGRES_DB=crashstop
+    expose:
+      - 5432
+  memcached:
+    image: memcached
+    expose:
+      - 11211
