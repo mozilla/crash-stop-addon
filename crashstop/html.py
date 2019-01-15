@@ -17,7 +17,7 @@ def sumup():
         if x in extra:
             del extra[x]
 
-    if addon_version < '0.4.0':
+    if addon_version and addon_version < '0.4.0':
         return render_template('useless.html', addon_version=addon_version)
 
     data, affected, has_extra = cache.get_sumup(hgurls, sgns, extra)
