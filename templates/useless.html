@@ -1,0 +1,30 @@
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+     - License, v. 2.0. If a copy of the MPL was not distributed with this file,
+     - You can obtain one at http://mozilla.org/MPL/2.0/.  -->
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <link rel="stylesheet" href="/stop.css?v=2">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Deprecated addon</title>
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(event) {
+          const body = document.body;
+          const html = document.documentElement;
+          const height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight) + 25;
+          if (parent.postMessage) {
+          {% if addon_version >= '0.2.5' -%}
+              parent.postMessage({"height": height,
+                                  "affected": {}, "*");
+          {% else -%}
+              parent.postMessage(height, "*");
+          {% endif -%}
+          }
+      });
+    </script>
+  </head>
+  <body style="width:100%;">
+    <p>The crash-stop addon is now deprecated, please remove it.</p>
+  </body>
+</html>

@@ -14,12 +14,8 @@
           const html = document.documentElement;
           const height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight) + 25;
           if (parent.postMessage) {
-          {% if addon_version >= '0.2.5' -%}
               parent.postMessage({"height": height,
                                   "affected": {{ jsonify(affected) | safe}}}, "*");
-          {% else -%}
-              parent.postMessage(height, "*");
-          {% endif -%}
           }
       });
     </script>
