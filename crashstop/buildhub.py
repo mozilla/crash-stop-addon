@@ -7,9 +7,10 @@ import requests
 import time
 from . import config, datacollector as dc, utils
 from .logger import logger
-
+from pprint import pprint
 
 URL = (
+    # 'https://buildhub.moz.tools/api/search'
     'https://buildhub.prod.mozaws.net/v1/buckets/build-hub/collections/releases/search'
 )
 VERSION_PAT = r'[0-9\.]+(([ab][0-9]+)|esr)?'
