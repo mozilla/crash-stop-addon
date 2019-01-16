@@ -16,20 +16,20 @@
         <li>crash data are coming from <a href="https://crash-stats.mozilla.com">crash-stats</a></li>
         <li>patch info are coming from <a href="https://hg.mozilla.org">mercurial</a></li>
       </ul>
-      The addon gets crash signatures from the field cf_crash_signature and the patch information are guessed in parsing the comments to look for mercurial urls containing revision hash.<br>
+      The addon retrieves crash signatures from the field cf_crash_signature and the patch information are extracted by parsing the comments to retrieve the mercurial urls containing revision hash.<br>
       The only information sent to the server are signatures and pair channel/revisions.
     </p>
     <p>
-      The official builds are coming from <a href="https://mozilla-services.github.io/buildhub/">buildhub</a> and with a request on <a href="https://crash-stats.mozilla.com">crash-stats</a>, the builds are filtered to remove builds with a very low crash volume (sometimes a build is respan because errors and so the previous is almost useless/meaningless).
+      The official builds are coming from <a href="https://mozilla-services.github.io/buildhub/">buildhub</a> and with a request on <a href="https://crash-stats.mozilla.com">crash-stats</a>. Builds are filtered to remove builds with a very low crash volume (sometimes a build is retriggered because errors and so the previous is almost useless/meaningless).
     </p>
     <h1>How to read the data ?</h1>
     <p>
-      Here is an example of what you can see with the addon on Bugzilla:
+      Example of what you can see with the addon on Bugzilla:
       <img src="screenshot.png" style="display: block;margin-left: auto;margin-right: auto;"></img>
       For each signature appearing in the bug, we've data for each affected products (Firefox/FennecAndroid) and release channels (nightly/beta/release/esr).
     </p>
     <p>
-      There are several data here:
+      Several information can be found:
       <ul>
         <li>the total number of crashes (Crashes row)</li>
         <li>the total number of crashes for different installs (Installs row). This number is useful to help to see the severity of crash:
@@ -55,7 +55,7 @@
     <h1>What's the button "Update status flags" ?</h1>
     <p>
       The addon reads all the status flags to check the ones which should be updated.<br>
-      So in this case, click on the button to see the changes (in red) proposed by the addon, nothing is done automatically, you've to save the changes by yourself.
+      So in this case, click on the button to see the changes (in red) proposed by the addon, and submit the changes.
     </p>
     <h1>Something wrong or something missing ?</h1>
     <p>
