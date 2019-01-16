@@ -7,7 +7,7 @@ import requests
 import time
 from . import config, datacollector as dc, utils
 from .logger import logger
-from pprint import pprint
+
 
 URL = (
     # 'https://buildhub.moz.tools/api/search'
