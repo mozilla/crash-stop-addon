@@ -15,7 +15,7 @@ def test_get_major():
 
 def test_get_channel_revision():
     chan_rev = utils.get_channel_revision(
-        ['beta|1234', 'nightly|5678', '91011', 'beta|91011']
+        ['beta|1234', 'nightly|5678', '91012', 'beta|91011']
     )
     assert chan_rev == {'beta': ['1234', '91011'], 'nightly': ['5678']}
 
@@ -65,7 +65,7 @@ def test_update_params():
 
 
 def test_is_java():
-    sgns = ['foo (bar.java)', 'oof (rab.java)']
+    sgns = ['foo (bar.java)', 'oof (rab.java)', 'foo(Native Method)']
 
     assert utils.is_java(sgns)
 

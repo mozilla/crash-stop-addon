@@ -105,7 +105,7 @@ def update_params(params, extra):
 
 def is_java(signatures):
     for sgn in signatures:
-        if not sgn.endswith('.java)'):
+        if not sgn.endswith('.java)') and not sgn.endswith('(Native Method)'):
             return False
     return True
 
