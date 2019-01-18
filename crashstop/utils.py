@@ -116,7 +116,7 @@ def startup_crash_rate(data):
         res[int(d['term'] == 'T')] = d['count']
     if res == [0, 0]:
         return -1
-    return int(math.ceil(float(res[1]) / float(res[0] + res[1]) * 100.))
+    return int(math.ceil(float(res[1]) / float(res[0] + res[1]) * 100.0))
 
 
 def analyze_platforms(res, data):
@@ -139,5 +139,5 @@ def analyze_platforms(res, data):
 def percentage_platforms(data):
     total = float(sum(data.values()))
     for p, v in data.items():
-        data[p] = math.ceil(float(v) / total * 1000.) / 10.
+        data[p] = math.ceil(float(v) / total * 1000.0) / 10.0
     return data
