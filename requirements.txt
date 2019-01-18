@@ -1,5 +1,5 @@
 python-dateutil>=2.7.3
-libmozdata>=0.1.41
+libmozdata>=0.1.48
 jinja2>=2.10
 flask>=1.0.2
 flask_sqlalchemy>=2.3.2
