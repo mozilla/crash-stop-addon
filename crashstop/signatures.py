@@ -39,6 +39,9 @@ def init_platforms(signatures, channels, products):
 
 
 def get_for_urls_sgns(hg_urls, signatures, extra={}):
+    chan_rev = utils.get_channel_revision(hg_urls)
+    towait, pushdates = dc.get_pushdates(chan_rev)
+
     data = {}
     versions = {}
     res = {'data': data, 'versions': versions}
@@ -49,9 +52,6 @@ def get_for_urls_sgns(hg_urls, signatures, extra={}):
         products = ['FennecAndroid']
     else:
         products = config.get_products()
-
-    chan_rev = utils.get_channel_revision(hg_urls)
-    towait, pushdates = dc.get_pushdates(chan_rev)
 
     dates = {}
     channels = config.get_channels()
