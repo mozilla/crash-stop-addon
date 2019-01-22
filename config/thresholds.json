@@ -3,7 +3,7 @@
     {
         "nightly":
         {
-            "min_total_crashes": 500,
+            "min_total_crashes": 200,
             "versions": 14
         },
         "beta":
