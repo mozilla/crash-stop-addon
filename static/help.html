@@ -13,14 +13,14 @@
     <h1>What's crash-stop ?</h1>
     <p>Crash-stop is an addon for Bugzilla to display crash data and patch information in a bug report
       <ul>
-        <li>crash data are coming from <a href="https://crash-stats.mozilla.com">crash-stats</a></li>
+        <li>crash data are coming from <a href="https://crash-stats.mozilla.org">crash-stats</a></li>
         <li>patch info are coming from <a href="https://hg.mozilla.org">mercurial</a></li>
       </ul>
       The addon retrieves crash signatures from the field cf_crash_signature and the patch information are extracted by parsing the comments to retrieve the mercurial urls containing revision hash.<br>
       The only information sent to the server are signatures and pair channel/revisions.
     </p>
     <p>
-      The official builds are coming from <a href="https://mozilla-services.github.io/buildhub/">buildhub</a> and with a request on <a href="https://crash-stats.mozilla.com">crash-stats</a>. Builds are filtered to remove builds with a very low crash volume (sometimes a build is retriggered because errors and so the previous is almost useless/meaningless).
+      The official builds are coming from <a href="https://mozilla-services.github.io/buildhub/">buildhub</a> and with a request on <a href="https://crash-stats.mozilla.org">crash-stats</a>. Builds are filtered to remove builds with a very low crash volume (sometimes a build is retriggered because errors and so the previous is almost useless/meaningless).
     </p>
     <h1>How to read the data ?</h1>
     <p>
