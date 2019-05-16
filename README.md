@@ -19,7 +19,7 @@ Install docker and docker-compose and then:
 ```sh
 docker-compose up --build
 ```
-Then you can test in your browser: https://localhost:8080/sumup.html?s=OOM%20|%20small.
+Then you can test in your browser: https://localhost:8081/sumup.html?s=OOM%20|%20small.
 
 ## Running tests
 

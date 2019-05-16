@@ -181,9 +181,10 @@ def prepare_bug_for_html(data, extra={}):
                     params['build_id'] = '=' + bid
                     v = all_versions_pc[bid]
                     versions.append(v)
-                    if chan == 'release' and FIRST_RELEASE_PAT.match(v):
-                        params['version'] = [v, v + 'b99']
-                        params['release_channel'] = ['release', 'beta']
+                    if chan == 'release' and 'rc' in v:
+                        # Special case for release rc: it's released in the beta channel
+                        params['version'] = [v]
+                        params['release_channel'] = ['beta']
                         links.append(
                             socorro.SuperSearch.get_link(params) + '#crash-reports'
                         )

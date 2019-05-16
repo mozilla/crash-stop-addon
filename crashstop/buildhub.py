@@ -14,6 +14,7 @@ URL = (
     'https://buildhub.prod.mozaws.net/v1/buckets/build-hub/collections/releases/search'
 )
 VERSION_PAT = r'[0-9\.]+(([ab][0-9]+)|esr)?'
+VERSION_RC_PAT = r'[0-9\.]+rc[0-9]+'
 LEGAL_CHANNELS = ['nightly', 'beta', 'release', 'esr']
 CHANNELS = LEGAL_CHANNELS + ['aurora']
 PRODUCTS = ['firefox', 'devedition', 'fennec']
@@ -94,9 +95,28 @@ def get_bid_as_date(data):
                 e[0] = utils.get_build_date(e[0])
 
 
+def get_info_release_rc(data):
+    max_release_bid = {
+        prod: max(int(bid) for bid, _ in info['release']) for prod, info in data.items()
+    }
+    data_rc, _, _ = make_request(get_rc_query(), 1, 100, extract)
+    res = {
+        prod: [[b, v] for b, v in info['release'] if int(b) > max_release_bid[prod]]
+        for prod, info in data_rc.items()
+    }
+    return res
+
+
 def get_info(data):
     """Get info from Buildhub data"""
     data, buildids, buildids_per_prod = extract(data)
+    release_rc = get_info_release_rc(data)
+    for prod, info in release_rc.items():
+        data[prod]['release'] += info
+        for buildid, version in info:
+            buildids[buildid] = buildid not in buildids
+            buildids_per_prod[prod][buildid] = buildid not in buildids_per_prod[prod]
+
     improve(data, buildids, buildids_per_prod)
     return data
 
@@ -177,6 +197,49 @@ def get_query():
                 'filter': [
                     {'regexp': {'target.version': {'value': VERSION_PAT}}},
                     {'terms': {'target.channel': CHANNELS}},
+                    {'terms': {'source.product': PRODUCTS}},
+                ]
+            }
+        },
+        'size': 0,
+    }
+
+
+def get_rc_query():
+    return {
+        'aggs': {
+            'products': {
+                'terms': {'field': 'source.product', 'size': len(PRODUCTS)},
+                'aggs': {
+                    'channels': {
+                        'terms': {'field': 'target.channel', 'size': 1},
+                        'aggs': {
+                            'buildids': {
+                                'terms': {
+                                    'field': 'build.id',
+                                    'size': 10,
+                                    'order': {'_term': 'desc'},
+                                },
+                                'aggs': {
+                                    'versions': {
+                                        'terms': {
+                                            'field': 'target.version',
+                                            'size': 1,
+                                            'order': {'_term': 'desc'},
+                                        }
+                                    }
+                                },
+                            }
+                        },
+                    }
+                },
+            }
+        },
+        'query': {
+            'bool': {
+                'filter': [
+                    {'regexp': {'target.version': {'value': VERSION_RC_PAT}}},
+                    {'term': {'target.channel': 'release'}},
                     {'terms': {'source.product': PRODUCTS}},
                 ]
             }

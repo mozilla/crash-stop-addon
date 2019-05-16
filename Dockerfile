@@ -12,7 +12,7 @@ ENV DATABASE_URL=postgresql://crash:stop@postgres:5432/crashstop
 ENV MEMCACHEDCLOUD_SERVERS=memcached:11211
 ENV MEMCACHEDCLOUD_USERNAME=
 ENV MEMCACHEDCLOUD_PASSWORD=
-ENV PORT=8080
+ENV PORT=8081
 ENV PYTHONPATH=.
 ENV PYTHONUNBUFFERED=1
     
@@ -32,4 +32,4 @@ RUN sed -i 's/gunicorn/gunicorn --reload --reload-extra-file static --reload-ext
 
 WORKDIR /code
 
-EXPOSE 8080
+EXPOSE 8081

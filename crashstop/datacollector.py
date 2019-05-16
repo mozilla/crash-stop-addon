@@ -221,14 +221,18 @@ def get_unicity_stuff(versions):
         unique[prod] = unique_prod = {}
         for chan, j in i.items():
             allbids_prod[chan] = allbids_pc = []
-            for bid, _, u, u_prod in j:
+            for bid, version, u, u_prod in j:
                 if bid < min_buildid:
                     min_buildid = bid
                 allbids_pc.append(bid)
                 if u or u_prod:
                     unique_prod[bid] = chan
                 else:
-                    leftovers.append([bid, prod, chan])
+                    fake_chan = chan
+                    if 'rc' in version:
+                        # release rc are delivered in beta channel
+                        fake_chan = 'beta'
+                    leftovers.append([bid, prod, chan, fake_chan])
 
     # bids are sorted (because of models.get_versions)
     # so map bids on their index
@@ -257,7 +261,7 @@ def get_sgns_data(channels, versions, platforms, signatures, extra, products, to
 
     # handle the leftovers: normally they should be pretty rare
     # we've them when they're not unique within the same product (e.g. a nightly and a beta have the same buildid)
-    for bid, prod, chan in leftovers:
+    for bid, prod, chan, fake in leftovers:
         towait.append(
             get_sgns_data_helper(
                 data,
@@ -267,7 +271,7 @@ def get_sgns_data(channels, versions, platforms, signatures, extra, products, to
                 extra,
                 search_date,
                 prod,
-                channel=chan,
+                channel=fake,
             )
         )
 
