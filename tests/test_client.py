@@ -12,7 +12,7 @@ from .supersearch import MySuperSearch
 def test_root(client):
     res = client.get('/')
 
-    assert b'<title>Crash-stop addon &mdash; explanations</title>' in res.data
+    assert b'<title>Crash-Stop Help</title>' in res.data
 
 
 def test_wtf(client):

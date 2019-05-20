@@ -1529,8 +1529,8 @@
             "esr": {
                 "EMPTY: no crashing thread identified; ERROR_NO_MINIDUMP_HEADER": {
                     "buildid_classes": [
-                        "lavender buildid",
-                        "lavender buildid"
+                        "no-info buildid",
+                        "no-info buildid"
                     ],
                     "buildid_links": [
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180621064021&date=%3E%3D2018-06-21&product=Firefox&release_channel=esr&signature=%3DEMPTY%3A%20no%20crashing%20thread%20identified%3B%20ERROR_NO_MINIDUMP_HEADER&version=52.9.0esr#crash-reports",
@@ -1565,8 +1565,8 @@
                 },
                 "IPCError-browser | ShutDownKill": {
                     "buildid_classes": [
-                        "lavender buildid",
-                        "lavender buildid"
+                        "no-info buildid",
+                        "no-info buildid"
                     ],
                     "buildid_links": [
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180621064021&date=%3E%3D2018-06-21&product=Firefox&release_channel=esr&signature=%3DIPCError-browser%20%7C%20ShutDownKill&version=52.9.0esr#crash-reports",
@@ -1604,8 +1604,8 @@
                 },
                 "OOM | large | NS_ABORT_OOM | nsTSubstring<T>::SetLength": {
                     "buildid_classes": [
-                        "lavender buildid",
-                        "lavender buildid"
+                        "no-info buildid",
+                        "no-info buildid"
                     ],
                     "buildid_links": [
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180621064021&date=%3E%3D2018-06-21&product=Firefox&release_channel=esr&signature=%3DOOM%20%7C%20large%20%7C%20NS_ABORT_OOM%20%7C%20nsTSubstring%3CT%3E%3A%3ASetLength&version=52.9.0esr#crash-reports",
@@ -1640,8 +1640,8 @@
                 },
                 "OOM | small": {
                     "buildid_classes": [
-                        "lavender buildid",
-                        "lavender buildid"
+                        "no-info buildid",
+                        "no-info buildid"
                     ],
                     "buildid_links": [
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180621064021&date=%3E%3D2018-06-21&product=Firefox&release_channel=esr&signature=%3DOOM%20%7C%20small&version=52.9.0esr#crash-reports",
@@ -1679,8 +1679,8 @@
                 },
                 "js::ConstraintTypeSet::sweep": {
                     "buildid_classes": [
-                        "lavender buildid",
-                        "lavender buildid"
+                        "no-info buildid",
+                        "no-info buildid"
                     ],
                     "buildid_links": [
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180621064021&date=%3E%3D2018-06-21&product=Firefox&release_channel=esr&signature=%3Djs%3A%3AConstraintTypeSet%3A%3Asweep&version=52.9.0esr#crash-reports",
@@ -1717,8 +1717,8 @@
                 },
                 "shutdownhang | ntdll.dll@0x9d7a4": {
                     "buildid_classes": [
-                        "lavender buildid",
-                        "lavender buildid"
+                        "no-info buildid",
+                        "no-info buildid"
                     ],
                     "buildid_links": [
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180621064021&date=%3E%3D2018-06-21&product=Firefox&release_channel=esr&signature=%3Dshutdownhang%20%7C%20ntdll.dll%400x9d7a4&version=52.9.0esr#crash-reports",
