@@ -20,44 +20,77 @@
       });
     </script>
   </head>
-  <body style="width:100%;">
+  <body class="table">
     <!-- span style="background-color:orange;display:block"><img src="./warning-icon.png" style="vertical-align:middle;"/>&nbsp;Due to a bug on Buildhub, data for last builds are not available: I'm working to find a workaround.</span -->
     {% if data -%}
+    <header>
+      <h1>Crash-Stop</h1>
+      <div class="links">
+        <a href="https://github.com/mozilla/crash-stop-addon" title="File a bug" target="_blank">
+          <span class="icon github" aria-hidden="true"></span>
+        </a>
+        <a href="https://crash-stop-addon.herokuapp.com" title="Help" target="_blank">
+          <span class="icon help" aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="legend">
+        <span title="No patch information have been found in the comments" class="no-info">No Patch Info</span>
+        <span title="The build doesn't contain the patch" class="without">Without Patch</span>
+        <span title="The build contains the patch" class="with">With Patch</span>
+        <span title="More than 50% of the crashes have startup_crash flag set to true" class="startup">Startup Crash</span>
+      </div>
+    </header>
+    {% if has_extra %}
+    <div class="info">
+      <span>Socorro queries have been filtered in using terms from URL field.</span>
+    </div>
+    {% endif %}
     <table>
-      <caption>
-        <div class="legend">
-          <a href="https://github.com/mozilla/crash-stop-addon" title="File a bug" target="_blank"><span class="github"></span></a><span style="float:left;">&nbsp;</span><a href="https://crash-stop-addon.herokuapp.com" title="Help" target="_blank"><span class="help"></span></a><span>Crash-Stop</span>
-          <span title="No patch information have been found in the comments" class="lavender">No patch info</span>
-          <span title="The build doesn't contain the patch" class="without">Without patch</span>
-          <span title="The build contains the patch" class="with">With patch</span>
-          <span title="More than 50% of the crashes have startup_crash flag set to true" class="startup">Startup crash</span>
-        </div>
-        {% if has_extra %}
-        <div class="info">
-          <span>Socorro queries have been filtered in using terms from URL field.</span>
-        </div>
-        {% endif %}
-      </caption>
       {% for prod, i in data.items() -%}
       {% for chan, j in i.items() -%}
       {% for sgn, info in j.items() -%}
-      <tr>
-        <th colspan="100">
-          <a href="{{ info['socorro_url'] }}" target="_blank">{{ sgn|e }}</a> in {{ prod }} &mdash; {{ chan }} &nbsp; {% if prod != 'FennecAndroid' %}{% if 'Windows' in info['platforms'] -%}<span title="{{ info['platforms']['Windows'] }}%" class="windows"></span>{% endif -%}{% if 'OS X' in info['platforms'] -%}<span title="{{ info['platforms']['OS X'] }}%" class="osx"></span>{% endif -%}{% if 'Linux' in info['platforms'] -%}<span title="{{ info['platforms']['Linux'] }}%" class="linux"></span>{% endif -%}{% else -%}<span title="100%" class="android"></span>{% endif -%}
-        </th>
-      </tr>
-      <tr>
-        <th class="norm">Version</th>
-        {% for class, link, bid, version in zip(info['buildid_classes'], info['buildid_links'], info['buildids'], info['versions']) %}<td class="{{ class }}"><a title="{{ bid }}" href="{{ link }}" target="_blank">{{ version }}</a></td>{% endfor -%}
-      </tr>
-      <tr class="gray">
-        <th class="norm">Installs</th>
-        {% for n in info['installs'] %}<td class="num">{{ n }}</td>{% endfor -%}
-      </tr>
-      <tr>
-        <th class="norm">Crashes</th>
-        {% for n, s in zip(info['raw'], info['startup']) %}<td {% if s != -1 %}title="{{ s }}% of the crashes are startup ones"{% endif %} class="num{% if s > 50 %} startup{% endif -%}">{{ n }}</td>{% endfor -%}
-      </tr>
+      <thead>
+        <tr>
+          <th colspan="100">
+            <a href="{{ info['socorro_url'] }}" target="_blank">{{ sgn|e }}</a> in {{ prod }} &mdash; {{ chan }} &nbsp;
+            {%- if prod != 'FennecAndroid' -%}
+              {%- if 'Windows' in info['platforms'] -%}
+                <span title="Windows: {{ info['platforms']['Windows'] }}%" class="platform">
+                  <span class="icon windows" aria-hidden="true"></span>
+                </span>
+              {%- endif -%}
+              {%- if 'OS X' in info['platforms'] -%}
+                <span title="macOS: {{ info['platforms']['OS X'] }}%" class="platform">
+                  <span class="icon mac" aria-hidden="true"></span>
+                </span>
+              {%- endif -%}
+              {%- if 'Linux' in info['platforms'] -%}
+                <span title="Linux: {{ info['platforms']['Linux'] }}%" class="platform">
+                  <span class="icon linux" aria-hidden="true"></span>
+                </span>
+              {%- endif -%}
+            {%- else -%}
+              <span title="Android: 100%" class="platform">
+                <span class="icon android" aria-hidden="true"></span>
+              </span>
+            {%- endif -%}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th class="norm">Version</th>
+          {% for class, link, bid, version in zip(info['buildid_classes'], info['buildid_links'], info['buildids'], info['versions']) %}<td class="{{ class }}"><a title="{{ bid }}" href="{{ link }}" target="_blank">{{ version }}</a></td>{% endfor -%}
+        </tr>
+        <tr>
+          <th class="norm">Installs</th>
+          {% for n in info['installs'] %}<td class="num">{{ n }}</td>{% endfor -%}
+        </tr>
+        <tr>
+          <th class="norm">Crashes</th>
+          {% for n, s in zip(info['raw'], info['startup']) %}<td {% if s != -1 %}title="{{ s }}% of the crashes are startup ones"{% endif %} class="num{% if s > 50 %} startup{% endif -%}">{{ n }}</td>{% endfor -%}
+        </tr>
+      </tbody>
       {% endfor -%}
       {% endfor -%}
       {% endfor -%}

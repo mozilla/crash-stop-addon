@@ -1,156 +1,311 @@
-/* override default styles */
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+/**
+ * Fonts
+ */
+
+@font-face {
+  font-family: 'FiraGO';
+  font-style: normal;
+  font-weight: normal;
+  src: local('FiraGO Book'),
+    url('/fonts/FiraGO-Book-subset.woff2?v=1.001') format('woff2'),
+    url('/fonts/FiraGO-Book-subset.woff?v=1.001') format('woff');
+}
+
+@font-face {
+  font-family: 'FontAwesome';
+  font-style: normal;
+  font-weight: normal;
+  src:
+    url('/fonts/FontAwesome-subset.woff2?v=4.7.0') format('woff2'),
+    url('/fonts/FontAwesome-subset.woff?v=4.7.0') format('woff');
+}
+
+/**
+ * Variables
+ */
+
+@media all {
+  :root {
+    --font-size-h1: 32px;
+    --font-size-h2: 26px;
+    --font-size-x-large: 15px;
+    --font-size-medium: 13px;
+    --line-height-default: 1.25;
+    --line-height-comfortable: 1.5;
+    --font-family-sans-serif: 'FiraGO', sans-serif;
+    --control-border-radius: 4px;
+    --control-padding: 6px 8px;
+  }
+}
+
+/**
+ * Light Theme
+ */
+
+@media all {
+  :root {
+    --accent-color-red-1: 220, 40, 30;
+    --accent-color-red-2: 194, 35, 27;
+    --accent-color-pink-1: 250, 195, 195;
+    --accent-color-lightgreen-1: 195, 250, 195;
+    --accent-color-gray-1: 210, 211, 212;
+
+    --application-foreground-color: rgb(60, 61, 62);
+    --application-background-color: rgb(235, 236, 237);
+    --secondary-label-color: rgb(100, 101, 102);
+    --accent-label-color: rgb(50, 51, 52);
+    --link-text-color: rgb(0, 125, 210);
+    --link-text-hover-color: rgb(0, 103, 171);
+    --control-border-color: rgb(200, 201, 202);
+    --secondary-control-border-color: rgb(220, 221, 222);
+    --grid-background-color: rgb(250, 251, 252);
+    --grid-border-color: rgb(200, 201, 202);
+    --grid-header-background-color: rgb(230, 231, 232);
+    --grid-subheader-background-color: rgb(210, 211, 212);
+  }
+}
+
+/**
+ * Dark Theme
+ */
+
+@media screen and (prefers-color-scheme: dark) {
+  :root {
+    --accent-color-red-1: 255, 47, 36;
+    --accent-color-red-2: 220, 40, 30;
+    --accent-color-pink-1: 128, 64, 64;
+    --accent-color-lightgreen-1: 64, 128, 64;
+    --accent-color-gray-1: 60, 61, 62;
+
+    --application-foreground-color: rgb(200, 201, 202);
+    --application-background-color: rgb(30, 31, 32);
+    --secondary-label-color: rgb(160, 161, 162);
+    --accent-label-color: rgb(240, 241, 242);
+    --link-text-color: rgb(0, 148, 247);
+    --link-text-hover-color: rgb(0, 125, 210);
+    --control-border-color: rgb(60, 61, 62);
+    --secondary-control-border-color: rgb(30, 31, 32);
+    --grid-background-color: rgb(40, 41, 42);
+    --grid-border-color: rgb(60, 61, 62);
+    --grid-header-background-color: rgb(50, 51, 52);
+    --grid-subheader-background-color: rgb(70, 71, 72);
+  }
+}
+
+/**
+ * Global
+ */
+
 body {
-    font-family: "Fira Sans", "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
-    font-size: 12px;
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  color: var(--application-foreground-color);
+  background-color: var(--application-background-color);
+  font-size: var(--font-size-medium);
+  line-height: var(--line-height-default);
+  font-family: var(--font-family-sans-serif);
+  scrollbar-color: var(--control-border-color) var(--secondary-control-border-color);
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
 }
 
 a {
-    text-decoration: none;
-    color: #0095dd;
+  color: var(--link-text-color);
+  text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline;
-    color: #00539f;
+  color: var(--link-text-hover-color);
+  text-decoration: underline;
 }
 
-/* generic table styles */
+img {
+  vertical-align: top;
+}
+
 table {
-    border-collapse: collapse;
-    border: 1px solid #cbcbcb;
+  border-collapse: collapse;
+  border-top: 1px solid var(--grid-border-color);
+  background-color: var(--grid-background-color);
 }
 
-th {
-    border: 1px solid #cbcbcb;
-    background-color: #f0f0f0;
-    color: #666;
+thead {
+  background-color: var(--grid-header-background-color);
 }
 
-tr th[colspan="100"] {
-    border-spacing: 10px;
+tr {
+  border-bottom: 1px solid var(--grid-border-color);
 }
 
-td, th {
-    border-right: 1px solid #cbcbcb;
-    text-align: center;
-    padding: 4px 2px;
-    padding: 4px;
+thead th {
+  padding: 4px 8px;
+  font-size: var(--font-size-small);
+  text-align: center;
+  font-weight: normal;
 }
 
-tr:nth-child(odd) {
-    background-color: #EDF5FF;
+thead th .platform {
+  float: right;
+  margin-left: 8px;
 }
 
-td.with,
-td.without,
-td.buildid {
-    font-size: 90%;
+tbody th,
+tbody td {
+  padding: 8px;
+  text-align: center;
 }
 
-th.norm {
-    font-weight: normal;
-    text-align: left;
+tbody th {
+  color: var(--secondary-label-color);
+  background-color: var(--grid-header-background-color);
+  font-weight: normal;
 }
 
-/* captions and colors */
-.legend {
-    margin-bottom: 1em;
-    column-span: all;
-    column-count: 5;
-    column-gap: 0.5em;
-    color:#666;
+tbody a {
+  color: inherit !important;
 }
 
-.info {
-    columns: 1;
-    background-color: LightBlue;
-    margin-bottom: 1em;
-    margin-top: -0.5em;
-}
+/**
+ * Colors
+ */
 
-caption span {
-    text-align: center;
-    display:block;
+.no-info {
+  color: var(--accent-label-color);
+  background-color: rgba(var(--accent-color-gray-1), .8);
 }
 
 .with {
-    background-color: LightGreen;
+  color: var(--accent-label-color);
+  background-color: rgba(var(--accent-color-lightgreen-1), .8);
 }
 
 .without {
-    background-color: LightPink;
-}
-
-.gray {
-    background-color: #f0f0f0;
-}
-
-.lavender {
-    background-color: FloralWhite;
+  color: var(--accent-label-color);
+  background-color: rgba(var(--accent-color-pink-1), .8);
 }
 
 .startup {
-    background-color: red;
+  color: rgb(240, 241, 242);
+  background-color: rgb(var(--accent-color-red-1));
 }
 
-span.startup {
-    color: black;
+/**
+ * Icons
+ */
+
+.icon::before {
+  font-family: 'FontAwesome';
 }
 
-.windows {
-    background: url("/Windows_Logo.png");
-    background-repeat: no-repeat;
-    background-size: auto 1.3em;
-    width: 1.3em;
-    height: 1.3em;
-    float: right;
+.icon.github::before {
+  content: '\f09b';
 }
 
-.linux {
-    background: url("/Linux_Logo.png");
-    background-repeat: no-repeat;
-    background-size: auto 1.3em;
-    width: 1.3em;
-    height: 1.3em;
-    float: right;
+.icon.help::before {
+  content: '\f05a';
 }
 
-.osx {
-    background: url("/OSX_Logo.png");
-    background-repeat: no-repeat;
-    background-size: auto 1.3em;
-    width: 1.3em;
-    height: 1.3em;
-    float: right;
+.icon.windows::before {
+  content: '\f17a';
 }
 
-.android {
-    background: url("/Android_Logo.png");
-    background-repeat: no-repeat;
-    background-size: auto 1.3em;
-    width: 1.3em;
-    height: 1.3em;
-    float: right;
+.icon.mac::before {
+  content: '\f179';
 }
 
-.github {
-    background: url("/GitHub-Mark-120px-plus.png");
-    background-repeat: no-repeat;
-    background-size: auto 1em;
-    width: 1em;
-    height: 1em;
-    float: left;
-    display: inline-block;
+.icon.linux::before {
+  content: '\f17c';
 }
 
-.help {
-    background: url("/question.png");
-    background-repeat: no-repeat;
-    background-size: auto 1em;
-    width: 1em;
-    height: 1em;
-    float: left;
-    display: inline-block;
+.icon.android::before {
+  content: '\f17b';
+}
+
+/**
+ * Table page
+ */
+
+body.table {
+  background-color: transparent; /* Because it's in <iframe> */
+}
+
+body.table header {
+  display: flex;
+  align-items: center;
+  margin: 0 0 8px;
+}
+
+body.table header > * {
+  margin: 0 8px;
+}
+
+body.table h1 {
+  flex: none;
+  font-size: inherit;
+  font-weight: normal;
+}
+
+body.table .links {
+  flex: none;
+  display: flex;
+  align-items: center;
+}
+
+body.table .links a {
+  display: inline-block;
+  margin: 0 4px;
+  color: inherit;
+}
+
+body.table .legend {
+  flex: auto;
+  display: flex;
+  align-items: center;
+}
+
+body.table .legend span {
+  margin: 0 4px;
+  padding: 2px 16px;
+}
+
+body.table .info {
+  margin: 8px 0 0;
+}
+
+/**
+ * Help page
+ */
+
+body.help article {
+  margin: 48px;
+}
+
+body.help p,
+body.help ul {
+  margin: 8px 0;
+  font-size: var(--font-size-x-large);
+  line-height: var(--line-height-comfortable);
+}
+
+body.help picture {
+  display: block;
+  margin: 16px 0;
+  text-align: center;
+}
+
+img.github {
+  position: absolute;
+  top: 0;
+  right: 0;
 }

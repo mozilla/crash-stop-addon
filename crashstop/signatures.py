@@ -171,7 +171,7 @@ def prepare_bug_for_html(data, extra={}):
 
                 pos = info['position']
                 if pos == -2:
-                    info['buildid_classes'] = ['lavender buildid'] * len(buildids)
+                    info['buildid_classes'] = ['no-info buildid'] * len(buildids)
                 else:
                     info['buildid_classes'] = ['without'] * (pos + 1) + ['with'] * (
                         len(buildids) - pos

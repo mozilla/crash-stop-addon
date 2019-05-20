@@ -7,60 +7,62 @@
   <head>
     <link rel="stylesheet" href="/stop.css?v=1">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Crash-stop addon &mdash; explanations</title>
+    <title>Crash-Stop Help</title>
   </head>
-  <body>
-    <h1>What's crash-stop ?</h1>
-    <p>Crash-stop is an addon for Bugzilla to display crash data and patch information in a bug report
-      <ul>
-        <li>crash data are coming from <a href="https://crash-stats.mozilla.org">crash-stats</a></li>
-        <li>patch info are coming from <a href="https://hg.mozilla.org">mercurial</a></li>
-      </ul>
-      The addon retrieves crash signatures from the field cf_crash_signature and the patch information are extracted by parsing the comments to retrieve the mercurial urls containing revision hash.<br>
-      The only information sent to the server are signatures and pair channel/revisions.
-    </p>
-    <p>
-      The official builds are coming from <a href="https://mozilla-services.github.io/buildhub/">buildhub</a> and with a request on <a href="https://crash-stats.mozilla.org">crash-stats</a>. Builds are filtered to remove builds with a very low crash volume (sometimes a build is retriggered because errors and so the previous is almost useless/meaningless).
-    </p>
-    <h1>How to read the data ?</h1>
-    <p>
-      Example of what you can see with the addon on Bugzilla:
-      <img src="screenshot.png" style="display: block;margin-left: auto;margin-right: auto;"></img>
-      For each signature appearing in the bug, we've data for each affected products (Firefox/FennecAndroid) and release channels (nightly/beta/release/esr).
-    </p>
-    <p>
-      Several information can be found:
-      <ul>
-        <li>the total number of crashes (Crashes row)</li>
-        <li>the total number of crashes for different installs (Installs row). This number is useful to help to see the severity of crash:
-          <ul>
-            <li>1000 crashes for 1 install is not so important</li>
-            <li>1000 crashes for 100 installs is pretty bad because the number of affected users is not so high but it means that these users are crashing a lot</li>
-            <li>1000 crashes for 1000 installs is very bad...</li>
-          </ul>
-        </li>
-        <li>the affected platforms (Windows/OS X/Linux/Android) are shown with an icon on the right of the table (there is a tooltip on the icons to show the percentage)</li>
-        <li>for a given buildid, if more than 50% of all the crashes have the flag "startup_crash" set to true, the corresponding cell in the row Crashes are in red.</li>
-        <li>on the screenshot, some versions are colored in pink and others in green.<br>
-          With the revision urls found in comments, we can get the pushdate of the patch and so guess what are the builds containing the patch, so:
-          <ul>
-            <li>the versions in pink are the ones without the patch</li>
-            <li>the versions in green are the ones with the patch</li>
-          </ul>
-          so here we can see that the patch had a positive effect on the crash numbers and we can guess that it worked.<br>
-          If the volume would have been more important on release or esr then it'd be the occasion to request maybe an uplift.
-        </li>
-      </ul>
-    </p>
-    <h1>What's the button "Update status flags" ?</h1>
-    <p>
-      The addon reads all the status flags to check the ones which should be updated.<br>
-      So in this case, click on the button to see the changes (in red) proposed by the addon, and submit the changes.
-    </p>
-    <h1>Something wrong or something missing ?</h1>
-    <p>
-      In this case don't hesitate to file a bug: <a href="https://github.com/mozilla/crash-stop-addon">github</a>.
-    </p>
-    <a href="https://github.com/mozilla/crash-stop-addon"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+  <body class="help">
+    <article>
+      <h1>Crash-Stop Help</h1>
+      <section>
+        <h2>What’s Crash-Stop?</h2>
+        <p>Crash-Stop is an information provider (formerly a Firefox extension) for Bugzilla to display crash data and patch information in a bug report</p>
+        <ul>
+          <li>Crash data is coming from <a href="https://crash-stats.mozilla.org">crash-stats</a></li>
+          <li>Patch info is coming from <a href="https://hg.mozilla.org">mercurial</a></li>
+        </ul>
+        <p>Crash-Stop retrieves crash signatures from the field cf_crash_signature and the patch information are extracted by parsing the comments to retrieve the mercurial urls containing revision hash.</p>
+        <p>The only information sent to the server are signatures and pair channel/revisions.</p>
+        <p>The official builds are coming from <a href="https://mozilla-services.github.io/buildhub/">buildhub</a> and with a request on <a href="https://crash-stats.mozilla.org">crash-stats</a>. Builds are filtered to remove builds with a very low crash volume (sometimes a build is retriggered because errors and so the previous is almost useless/meaningless).</p>
+      </section>
+      <section>
+        <h2>How to read the data?</h2>
+        <p>Example of what you can see with Crash-Stop on Bugzilla:</p>
+        <picture>
+          <source srcset="screenshots/dark.png" media="(prefers-color-scheme: dark)">
+          <img src="screenshots/light.png" alt="" width="800" height="352">
+        </picture>
+        <p>For each signature appearing in the bug, we’ve data for each affected products (Firefox/FennecAndroid) and release channels (Nightly/Beta/Release/ESR).</p>
+        <p>Several information can be found:</p>
+        <ul>
+          <li>The total number of crashes (Crashes row)</li>
+          <li>The total number of crashes for different installs (Installs row). This number is useful to help to see the severity of crash:
+            <ul>
+              <li>1000 crashes for 1 install is not so important</li>
+              <li>1000 crashes for 100 installs is pretty bad because the number of affected users is not so high but it means that these users are crashing a lot</li>
+              <li>1000 crashes for 1000 installs is very bad...</li>
+            </ul>
+          </li>
+          <li>The affected platforms (Windows/OS X/Linux/Android) are shown with an icon on the right of the table (there is a tooltip on the icons to show the percentage)</li>
+          <li>For a given buildid, if more than 50% of all the crashes have the flag "startup_crash" set to true, the corresponding cell in the row Crashes are in red.</li>
+          <li>On the screenshot, some versions are colored in pink and others in green.<br>
+            With the revision urls found in comments, we can get the pushdate of the patch and so guess what are the builds containing the patch, so:
+            <ul>
+              <li>The versions in pink are the ones without the patch</li>
+              <li>The versions in green are the ones with the patch</li>
+            </ul>
+            So here we can see that the patch had a positive effect on the crash numbers and we can guess that it worked.<br>
+            If the volume would have been more important on Release or ESR then it’d be the occasion to request maybe an uplift.
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h2>What’s the button "Update status flags"?</h2>
+        <p>Crash-Stop reads all the status flags to check the ones which should be updated.<br>So in this case, click on the button to see the changes (in red) proposed by Crash-Stop, and submit the changes.</p>
+      </section>
+      <section>
+        <h2>Something wrong or something missing?</h2>
+        <p>In this case don’t hesitate to file a bug on <a href="https://github.com/mozilla/crash-stop-addon">GitHub</a>.</p>
+      </section>
+    </article>
+    <a href="https://github.com/mozilla/crash-stop-addon"><img src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" class="github"></a>
   </body>
 </html>
