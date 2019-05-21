@@ -18,6 +18,10 @@ def get_major(v):
     return -1
 
 
+def strip_rc(v):
+    return v.split('rc', 1)[0]
+
+
 def get_channel_revision(pairs):
     """Get a map channel->revision
     """

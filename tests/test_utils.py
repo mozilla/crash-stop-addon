@@ -13,6 +13,10 @@ def test_get_major():
     assert utils.get_major('12.0b1') == 12
 
 
+def test_strip_rc():
+    assert utils.strip_rc('65.0.1rc2') == '65.0.1'
+
+
 def test_get_channel_revision():
     chan_rev = utils.get_channel_revision(
         ['beta|1234', 'nightly|5678', '91012', 'beta|91011']

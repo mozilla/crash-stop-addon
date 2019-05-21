@@ -2,7 +2,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
-from collections import defaultdict
 import pytz
 import six
 from . import config
@@ -37,27 +36,12 @@ class Buildid(db.Model):
             return
 
         qs = db.session.query(Buildid)
-        here = defaultdict(lambda: defaultdict(lambda: set()))
-        for q in qs:
-            here[q.product][q.channel].add(q.buildid)
-        for prod, i in data.items():
-            here_p = here[prod]
-            for chan, j in i.items():
-                here_pc = here_p[chan]
-                for b, v, u, up in j:
-                    if b not in here_pc:
-                        db.session.add(Buildid(prod, chan, b, v, u, up))
-                    else:
-                        here_pc.remove(b)
+        qs.delete()
 
-                if here_pc:
-                    q = db.session.query(Buildid)
-                    q = q.filter(
-                        Buildid.product == prod,
-                        Buildid.channel == chan,
-                        Buildid.buildid.in_(list(here_pc)),
-                    )
-                    q.delete(synchronize_session='fetch')
+        for prod, i in data.items():
+            for chan, j in i.items():
+                for b, v, u, up in j:
+                    db.session.add(Buildid(prod, chan, b, v, u, up))
 
         db.session.commit()
 

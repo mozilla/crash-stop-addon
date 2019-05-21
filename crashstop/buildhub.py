@@ -104,6 +104,13 @@ def get_info_release_rc(data):
         prod: [[b, v] for b, v in info['release'] if int(b) > max_release_bid[prod]]
         for prod, info in data_rc.items()
     }
+    if 'FennecAndroid' in res:
+        fa = res['FennecAndroid']
+        if fa:
+            last = max(fa, key=lambda p: tuple(p))
+            last[1] = utils.strip_rc(last[1])
+            res['FennecAndroid'] = [last]
+
     return res
 
 
@@ -126,17 +133,28 @@ def extract(data):
     buildids = {}
     res = {p: {c: set() for c in LEGAL_CHANNELS} for p in SOCORRO_PRODUCTS}
     buildids_per_prod = {p: {} for p in SOCORRO_PRODUCTS}
+    release_versions = {p: set() for p in SOCORRO_PRODUCTS}
 
     for product in data['aggregations']['products']['buckets']:
         prod = RPRODS[product['key']]
         res_p = res[prod]
         buildids_p = buildids_per_prod[prod]
+        release_versions_p = release_versions[prod]
         for channel in product['channels']['buckets']:
             chan = channel['key']
             res_pc = res_p['beta'] if chan == 'aurora' else res_p[chan]
             for buildid in channel['buildids']['buckets']:
                 bid = buildid['key']
                 version = buildid['versions']['buckets'][0]['key']
+                if chan == 'release':
+                    # it may have confusion between official release and rc
+                    # so since buildids are in desc order then just keep the first one
+                    # for a given version
+                    if version in release_versions_p:
+                        continue
+                    else:
+                        release_versions_p.add(version)
+
                 if chan != 'aurora' or version.endswith('b1') or version.endswith('b2'):
                     res_pc.add((bid, version))
 
