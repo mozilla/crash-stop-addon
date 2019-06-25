@@ -31,12 +31,12 @@
         },
         "beta":
         {
-            "min_total_crashes": 1000,
+            "min_total_crashes": 500,
             "versions": 6
         },
         "release":
         {
-            "min_total_crashes": 10000,
+            "min_total_crashes": 5000,
             "versions": 3
         },
         "esr":

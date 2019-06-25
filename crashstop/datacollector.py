@@ -3,6 +3,7 @@
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
 from datetime import datetime
+from dateutil.relativedelta import relativedelta
 import functools
 from libmozdata import hgmozilla, socorro, utils as lmdutils
 from libmozdata.connection import Query
@@ -18,6 +19,7 @@ def get_useful_bids(buildhub_bids, socorro_bids):
     """
     res = []
     N = len(buildhub_bids)
+    n = -1
 
     # first we keep the last elements: it doesn't matter
     # if they have not enough crashes since at the beginning
@@ -38,7 +40,7 @@ def get_useful_bids(buildhub_bids, socorro_bids):
     return res[::-1]
 
 
-def filter_by_crashes_num(json, data):
+def filter_by_crashes_num(channel, json, data):
     """Keep the builds with a volume of crashes gt a threshold.
     """
     if not json['facets']['product']:
@@ -46,7 +48,7 @@ def filter_by_crashes_num(json, data):
     for facets in json['facets']['product']:
         prod = facets['term']
         data_prod = data[prod]
-        threshold = config.get_min_total(prod, 'nightly')
+        threshold = config.get_min_total(prod, channel)
         for facet in facets['facets']['build_id']:
             # keep only the builds where crashes # is gt threshold
             if facet['count'] >= threshold:
@@ -54,15 +56,22 @@ def filter_by_crashes_num(json, data):
                 data_prod.add(bid)
 
 
-def get_filter_query(fa_bids, fx_bids):
-    min_bid = min(fa_bids[0][0], fx_bids[0][0])
-    date = utils.get_build_date(min_bid).strftime('%Y-%m-%d')
+def get_filter_query(fa_bids, fx_bids, channel):
+    min_bid = fa_bids[0][0] if fa_bids else '30000101000000'
+    min_bid = min(min_bid, fx_bids[0][0]) if fx_bids else min_bid
+    date = max(
+        utils.get_build_date(min_bid),
+        lmdutils.get_date_ymd('today') - relativedelta(days=364),
+    )
+    date = date.strftime('%Y-%m-%d')
+    if channel == 'beta':
+        channel = ['beta', 'aurora']
 
     return {
         'product': ['FennecAndroid', 'Firefox'],
         'date': '>=' + date,
         'build_id': '>=' + min_bid,
-        'release_channel': 'nightly',
+        'release_channel': channel,
         '_aggs.product': 'build_id',
         '_results_number': 0,
         '_facets': 'release_channel',
@@ -70,13 +79,15 @@ def get_filter_query(fa_bids, fx_bids):
     }
 
 
-def filter_nightly_buildids_helper(fa_bids, fx_bids):
-    """Filter the nightly builds to keep only the relevant ones.
+def filter_buildids_helper(fa_bids, fx_bids, channel):
+    """Filter the builds to keep only the relevant ones.
     """
     data = {'Firefox': set(), 'FennecAndroid': set()}
-    params = get_filter_query(fa_bids, fx_bids)
+    params = get_filter_query(fa_bids, fx_bids, channel)
     socorro.SuperSearch(
-        params=params, handler=filter_by_crashes_num, handlerdata=data
+        params=params,
+        handler=functools.partial(filter_by_crashes_num, channel),
+        handlerdata=data,
     ).wait()
 
     fa_bids = get_useful_bids(fa_bids, data['FennecAndroid'])
@@ -85,16 +96,16 @@ def filter_nightly_buildids_helper(fa_bids, fx_bids):
     return fa_bids, fx_bids
 
 
-def filter_nightly_buildids(buildids):
-    """Filter the nightly builds to keep only the relevant ones.
+def filter_buildids(buildids, channel):
+    """Filter the builds to keep only the relevant ones.
     """
-    fa_bids = buildids['FennecAndroid']['nightly']
-    fx_bids = buildids['Firefox']['nightly']
+    fa_bids = buildids['FennecAndroid'][channel]
+    fx_bids = buildids['Firefox'][channel]
 
-    fa_bids, fx_bids = filter_nightly_buildids_helper(fa_bids, fx_bids)
+    fa_bids, fx_bids = filter_buildids_helper(fa_bids, fx_bids, channel)
 
-    buildids['FennecAndroid']['nightly'] = fa_bids
-    buildids['Firefox']['nightly'] = fx_bids
+    buildids['FennecAndroid'][channel] = fa_bids
+    buildids['Firefox'][channel] = fx_bids
 
 
 def get_data_for_stats(data, sgn):

@@ -91,7 +91,7 @@ def test_add_unicity(create_buildhub_data, get_result):
 
 
 @patch('requests.post', new=functools.partial(MyResponse.post, False))
-@patch('crashstop.datacollector.filter_nightly_buildids', new=lambda x: x)
+@patch('crashstop.datacollector.filter_buildids', new=lambda x, c: x)
 def test_get(create_buildhub_data, get_result):
     data = buildhub.get(bid_as_date=False)
     x = get_result('tests/data/buildhub/get.json', data)

@@ -10,8 +10,8 @@ from .logger import logger
 
 
 URL = (
-    # 'https://buildhub.moz.tools/api/search'
-    'https://buildhub.prod.mozaws.net/v1/buckets/build-hub/collections/releases/search'
+    'https://buildhub.moz.tools/api/search'
+    # 'https://buildhub.prod.mozaws.net/v1/buckets/build-hub/collections/releases/search'
 )
 VERSION_PAT = r'[0-9\.]+(([ab][0-9]+)|esr)?'
 VERSION_RC_PAT = r'[0-9\.]+rc[0-9]+'
@@ -173,7 +173,8 @@ def improve(data, buildids, buildids_per_prod):
     """Improve the data we've in removing useless builds in nightly (low volume crashes)"""
 
     # Filter nightly builds according to the number of crashes and the threshold
-    dc.filter_nightly_buildids(data)
+    for channel in LEGAL_CHANNELS:
+        dc.filter_buildids(data, channel)
 
     get_last_versions(data)
     add_unicity_info(data, buildids, buildids_per_prod)

@@ -28,10 +28,10 @@ def test_get_useful_bids():
 
 
 @patch('libmozdata.socorro.SuperSearch', MySuperSearch)
-def test_filter_nightly_buildids(get_result):
+def test_filter_buildids(get_result):
     with open('tests/data/buildhub/extract.json', 'r') as In:
         fa_fx_bids = json.load(In)['data']
-    dc.filter_nightly_buildids(fa_fx_bids)
+    dc.filter_buildids(fa_fx_bids, 'nightly')
 
     assert fa_fx_bids == get_result('tests/data/crashstop/fa_fx_bids.json', fa_fx_bids)
 
