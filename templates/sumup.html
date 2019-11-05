@@ -80,7 +80,7 @@
       <tbody>
         <tr>
           <th class="norm">Version</th>
-          {% for class, link, bid, version in zip(info['buildid_classes'], info['buildid_links'], info['buildids'], info['versions']) %}<td class="{{ class }}"><a title="{{ bid }}" href="{{ link }}" target="_blank">{{ version }}</a></td>{% endfor -%}
+          {% for class, link, tooltip, version in zip(info['buildid_classes'], info['buildid_links'], info['buildid_tooltip'], info['versions']) %}<td class="{{ class }}"><a title="{{ tooltip }}" href="{{ link }}" target="_blank">{{ version }}</a></td>{% endfor -%}
         </tr>
         <tr>
           <th class="norm">Installs</th>

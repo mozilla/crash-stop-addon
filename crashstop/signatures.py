@@ -174,11 +174,16 @@ def prepare_bug_for_html(data, extra={}):
 
                 pos = info['position']
                 if pos == -2:
-                    info['buildid_classes'] = ['no-info buildid'] * len(buildids)
+                    info['buildid_classes'] = ['no-info bu ildid'] * len(buildids)
+                    info['buildid_tooltip'] = buildids
                 else:
                     info['buildid_classes'] = ['without'] * (pos + 1) + ['with'] * (
                         len(buildids) - pos
                     )
+                    tooltips = ['Without Patch, '] * (pos + 1) + ['With Patch, '] * (
+                        len(buildids) - pos
+                    )
+                    info['buildid_tooltip'] = [prefix + bid for prefix, bid in zip(tooltips, buildids)]
 
                 for bid in buildids:
                     params['build_id'] = '=' + bid

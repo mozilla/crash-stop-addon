@@ -36,6 +36,14 @@
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180813190114&date=%3E%3D2018-07-13&product=FennecAndroid&release_channel=beta&release_channel=aurora&signature=%3DEMPTY%3A%20no%20crashing%20thread%20identified%3B%20ERROR_NO_MINIDUMP_HEADER&version=62.0b17#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180820172315&date=%3E%3D2018-07-13&product=FennecAndroid&release_channel=beta&release_channel=aurora&signature=%3DEMPTY%3A%20no%20crashing%20thread%20identified%3B%20ERROR_NO_MINIDUMP_HEADER&version=62.0b19#crash-reports"
                     ],
+                    "buildid_tooltip": [
+                        "Without Patch, 20180713213322",
+                        "Without Patch, 20180723144101",
+                        "Without Patch, 20180730180407",
+                        "Without Patch, 20180806191531",
+                        "Without Patch, 20180813190114",
+                        "Without Patch, 20180820172315"
+                    ],
                     "buildids": [
                         "20180713213322",
                         "20180723144101",
@@ -100,6 +108,14 @@
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180806191531&date=%3E%3D2018-07-13&product=FennecAndroid&release_channel=beta&release_channel=aurora&signature=%3DOOM%20%7C%20large%20%7C%20NS_ABORT_OOM%20%7C%20nsTSubstring%3CT%3E%3A%3ASetLength&version=62.0b15#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180813190114&date=%3E%3D2018-07-13&product=FennecAndroid&release_channel=beta&release_channel=aurora&signature=%3DOOM%20%7C%20large%20%7C%20NS_ABORT_OOM%20%7C%20nsTSubstring%3CT%3E%3A%3ASetLength&version=62.0b17#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180820172315&date=%3E%3D2018-07-13&product=FennecAndroid&release_channel=beta&release_channel=aurora&signature=%3DOOM%20%7C%20large%20%7C%20NS_ABORT_OOM%20%7C%20nsTSubstring%3CT%3E%3A%3ASetLength&version=62.0b19#crash-reports"
+                    ],
+                    "buildid_tooltip": [
+                        "Without Patch, 20180713213322",
+                        "Without Patch, 20180723144101",
+                        "Without Patch, 20180730180407",
+                        "Without Patch, 20180806191531",
+                        "Without Patch, 20180813190114",
+                        "Without Patch, 20180820172315"
                     ],
                     "buildids": [
                         "20180713213322",
@@ -166,6 +182,14 @@
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180813190114&date=%3E%3D2018-07-13&product=FennecAndroid&release_channel=beta&release_channel=aurora&signature=%3DOOM%20%7C%20small&version=62.0b17#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180820172315&date=%3E%3D2018-07-13&product=FennecAndroid&release_channel=beta&release_channel=aurora&signature=%3DOOM%20%7C%20small&version=62.0b19#crash-reports"
                     ],
+                    "buildid_tooltip": [
+                        "Without Patch, 20180713213322",
+                        "Without Patch, 20180723144101",
+                        "Without Patch, 20180730180407",
+                        "Without Patch, 20180806191531",
+                        "Without Patch, 20180813190114",
+                        "Without Patch, 20180820172315"
+                    ],
                     "buildids": [
                         "20180713213322",
                         "20180723144101",
@@ -230,6 +254,14 @@
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180806191531&date=%3E%3D2018-07-13&product=FennecAndroid&release_channel=beta&release_channel=aurora&signature=%3Dandroid.database.CursorWindowAllocationException%3A%20Cursor%20window%20allocation%20of%202048%20kb%20failed.%20%23%20Open%20Cursors%3D1%20%28%23%20cursors%20opened%20by%20this%20proc%3D1%29%20at%20android.database.CursorWindow.%3Cinit%3E%28CursorWindow.java%29&version=62.0b15#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180813190114&date=%3E%3D2018-07-13&product=FennecAndroid&release_channel=beta&release_channel=aurora&signature=%3Dandroid.database.CursorWindowAllocationException%3A%20Cursor%20window%20allocation%20of%202048%20kb%20failed.%20%23%20Open%20Cursors%3D1%20%28%23%20cursors%20opened%20by%20this%20proc%3D1%29%20at%20android.database.CursorWindow.%3Cinit%3E%28CursorWindow.java%29&version=62.0b17#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180820172315&date=%3E%3D2018-07-13&product=FennecAndroid&release_channel=beta&release_channel=aurora&signature=%3Dandroid.database.CursorWindowAllocationException%3A%20Cursor%20window%20allocation%20of%202048%20kb%20failed.%20%23%20Open%20Cursors%3D1%20%28%23%20cursors%20opened%20by%20this%20proc%3D1%29%20at%20android.database.CursorWindow.%3Cinit%3E%28CursorWindow.java%29&version=62.0b19#crash-reports"
+                    ],
+                    "buildid_tooltip": [
+                        "Without Patch, 20180713213322",
+                        "Without Patch, 20180723144101",
+                        "Without Patch, 20180730180407",
+                        "Without Patch, 20180806191531",
+                        "Without Patch, 20180813190114",
+                        "Without Patch, 20180820172315"
                     ],
                     "buildids": [
                         "20180713213322",
@@ -296,6 +328,14 @@
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180813190114&date=%3E%3D2018-07-13&product=FennecAndroid&release_channel=beta&release_channel=aurora&signature=%3Dandroid.database.CursorWindowAllocationException%3A%20Cursor%20window%20allocation%20of%202048%20kb%20failed.%20at%20android.database.CursorWindow.%3Cinit%3E%28CursorWindow.java%29&version=62.0b17#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180820172315&date=%3E%3D2018-07-13&product=FennecAndroid&release_channel=beta&release_channel=aurora&signature=%3Dandroid.database.CursorWindowAllocationException%3A%20Cursor%20window%20allocation%20of%202048%20kb%20failed.%20at%20android.database.CursorWindow.%3Cinit%3E%28CursorWindow.java%29&version=62.0b19#crash-reports"
                     ],
+                    "buildid_tooltip": [
+                        "Without Patch, 20180713213322",
+                        "Without Patch, 20180723144101",
+                        "Without Patch, 20180730180407",
+                        "Without Patch, 20180806191531",
+                        "Without Patch, 20180813190114",
+                        "Without Patch, 20180820172315"
+                    ],
                     "buildids": [
                         "20180713213322",
                         "20180723144101",
@@ -361,6 +401,14 @@
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180813190114&date=%3E%3D2018-07-13&product=FennecAndroid&release_channel=beta&release_channel=aurora&signature=%3Djs%3A%3AConstraintTypeSet%3A%3Asweep&version=62.0b17#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180820172315&date=%3E%3D2018-07-13&product=FennecAndroid&release_channel=beta&release_channel=aurora&signature=%3Djs%3A%3AConstraintTypeSet%3A%3Asweep&version=62.0b19#crash-reports"
                     ],
+                    "buildid_tooltip": [
+                        "Without Patch, 20180713213322",
+                        "Without Patch, 20180723144101",
+                        "Without Patch, 20180730180407",
+                        "Without Patch, 20180806191531",
+                        "Without Patch, 20180813190114",
+                        "Without Patch, 20180820172315"
+                    ],
                     "buildids": [
                         "20180713213322",
                         "20180723144101",
@@ -412,17 +460,16 @@
             "nightly": {
                 "OOM | small": {
                     "buildid_classes": [
-                        "without",
-                        "without",
-                        "without",
-                        "without",
-                        "with",
-                        "with",
-                        "with",
-                        "with",
-                        "with",
-                        "with",
-                        "with"
+                        "no-info bu ildid",
+                        "no-info bu ildid",
+                        "no-info bu ildid",
+                        "no-info bu ildid",
+                        "no-info bu ildid",
+                        "no-info bu ildid",
+                        "no-info bu ildid",
+                        "no-info bu ildid",
+                        "no-info bu ildid",
+                        "no-info bu ildid"
                     ],
                     "buildid_links": [
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180819100140&date=%3E%3D2018-08-19&product=FennecAndroid&release_channel=nightly&signature=%3DOOM%20%7C%20small&version=63.0a1#crash-reports",
@@ -435,6 +482,18 @@
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180824222429&date=%3E%3D2018-08-19&product=FennecAndroid&release_channel=nightly&signature=%3DOOM%20%7C%20small&version=63.0a1#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180825100332&date=%3E%3D2018-08-19&product=FennecAndroid&release_channel=nightly&signature=%3DOOM%20%7C%20small&version=63.0a1#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180826100146&date=%3E%3D2018-08-19&product=FennecAndroid&release_channel=nightly&signature=%3DOOM%20%7C%20small&version=63.0a1#crash-reports"
+                    ],
+                    "buildid_tooltip": [
+                        "20180819100140",
+                        "20180820100132",
+                        "20180821100049",
+                        "20180822100103",
+                        "20180822221046",
+                        "20180823100113",
+                        "20180824100111",
+                        "20180824222429",
+                        "20180825100332",
+                        "20180826100146"
                     ],
                     "buildids": [
                         "20180819100140",
@@ -464,7 +523,7 @@
                     "platforms": {
                         "others": 100.0
                     },
-                    "position": 3,
+                    "position": -2,
                     "raw": [
                         3,
                         2,
@@ -505,17 +564,16 @@
                 },
                 "android.database.CursorWindowAllocationException: Cursor window allocation of 2048 kb failed. # Open Cursors=1 (# cursors opened by this proc=1) at android.database.CursorWindow.<init>(CursorWindow.java)": {
                     "buildid_classes": [
-                        "without",
-                        "without",
-                        "without",
-                        "without",
-                        "with",
-                        "with",
-                        "with",
-                        "with",
-                        "with",
-                        "with",
-                        "with"
+                        "no-info bu ildid",
+                        "no-info bu ildid",
+                        "no-info bu ildid",
+                        "no-info bu ildid",
+                        "no-info bu ildid",
+                        "no-info bu ildid",
+                        "no-info bu ildid",
+                        "no-info bu ildid",
+                        "no-info bu ildid",
+                        "no-info bu ildid"
                     ],
                     "buildid_links": [
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180819100140&date=%3E%3D2018-08-19&product=FennecAndroid&release_channel=nightly&signature=%3Dandroid.database.CursorWindowAllocationException%3A%20Cursor%20window%20allocation%20of%202048%20kb%20failed.%20%23%20Open%20Cursors%3D1%20%28%23%20cursors%20opened%20by%20this%20proc%3D1%29%20at%20android.database.CursorWindow.%3Cinit%3E%28CursorWindow.java%29&version=63.0a1#crash-reports",
@@ -528,6 +586,18 @@
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180824222429&date=%3E%3D2018-08-19&product=FennecAndroid&release_channel=nightly&signature=%3Dandroid.database.CursorWindowAllocationException%3A%20Cursor%20window%20allocation%20of%202048%20kb%20failed.%20%23%20Open%20Cursors%3D1%20%28%23%20cursors%20opened%20by%20this%20proc%3D1%29%20at%20android.database.CursorWindow.%3Cinit%3E%28CursorWindow.java%29&version=63.0a1#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180825100332&date=%3E%3D2018-08-19&product=FennecAndroid&release_channel=nightly&signature=%3Dandroid.database.CursorWindowAllocationException%3A%20Cursor%20window%20allocation%20of%202048%20kb%20failed.%20%23%20Open%20Cursors%3D1%20%28%23%20cursors%20opened%20by%20this%20proc%3D1%29%20at%20android.database.CursorWindow.%3Cinit%3E%28CursorWindow.java%29&version=63.0a1#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180826100146&date=%3E%3D2018-08-19&product=FennecAndroid&release_channel=nightly&signature=%3Dandroid.database.CursorWindowAllocationException%3A%20Cursor%20window%20allocation%20of%202048%20kb%20failed.%20%23%20Open%20Cursors%3D1%20%28%23%20cursors%20opened%20by%20this%20proc%3D1%29%20at%20android.database.CursorWindow.%3Cinit%3E%28CursorWindow.java%29&version=63.0a1#crash-reports"
+                    ],
+                    "buildid_tooltip": [
+                        "20180819100140",
+                        "20180820100132",
+                        "20180821100049",
+                        "20180822100103",
+                        "20180822221046",
+                        "20180823100113",
+                        "20180824100111",
+                        "20180824222429",
+                        "20180825100332",
+                        "20180826100146"
                     ],
                     "buildids": [
                         "20180819100140",
@@ -557,7 +627,7 @@
                     "platforms": {
                         "others": 100.0
                     },
-                    "position": 3,
+                    "position": -2,
                     "raw": [
                         3,
                         4,
@@ -598,17 +668,16 @@
                 },
                 "android.database.CursorWindowAllocationException: Cursor window allocation of 2048 kb failed. at android.database.CursorWindow.<init>(CursorWindow.java)": {
                     "buildid_classes": [
-                        "without",
-                        "without",
-                        "without",
-                        "without",
-                        "with",
-                        "with",
-                        "with",
-                        "with",
-                        "with",
-                        "with",
-                        "with"
+                        "no-info bu ildid",
+                        "no-info bu ildid",
+                        "no-info bu ildid",
+                        "no-info bu ildid",
+                        "no-info bu ildid",
+                        "no-info bu ildid",
+                        "no-info bu ildid",
+                        "no-info bu ildid",
+                        "no-info bu ildid",
+                        "no-info bu ildid"
                     ],
                     "buildid_links": [
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180819100140&date=%3E%3D2018-08-19&product=FennecAndroid&release_channel=nightly&signature=%3Dandroid.database.CursorWindowAllocationException%3A%20Cursor%20window%20allocation%20of%202048%20kb%20failed.%20at%20android.database.CursorWindow.%3Cinit%3E%28CursorWindow.java%29&version=63.0a1#crash-reports",
@@ -621,6 +690,18 @@
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180824222429&date=%3E%3D2018-08-19&product=FennecAndroid&release_channel=nightly&signature=%3Dandroid.database.CursorWindowAllocationException%3A%20Cursor%20window%20allocation%20of%202048%20kb%20failed.%20at%20android.database.CursorWindow.%3Cinit%3E%28CursorWindow.java%29&version=63.0a1#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180825100332&date=%3E%3D2018-08-19&product=FennecAndroid&release_channel=nightly&signature=%3Dandroid.database.CursorWindowAllocationException%3A%20Cursor%20window%20allocation%20of%202048%20kb%20failed.%20at%20android.database.CursorWindow.%3Cinit%3E%28CursorWindow.java%29&version=63.0a1#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180826100146&date=%3E%3D2018-08-19&product=FennecAndroid&release_channel=nightly&signature=%3Dandroid.database.CursorWindowAllocationException%3A%20Cursor%20window%20allocation%20of%202048%20kb%20failed.%20at%20android.database.CursorWindow.%3Cinit%3E%28CursorWindow.java%29&version=63.0a1#crash-reports"
+                    ],
+                    "buildid_tooltip": [
+                        "20180819100140",
+                        "20180820100132",
+                        "20180821100049",
+                        "20180822100103",
+                        "20180822221046",
+                        "20180823100113",
+                        "20180824100111",
+                        "20180824222429",
+                        "20180825100332",
+                        "20180826100146"
                     ],
                     "buildids": [
                         "20180819100140",
@@ -650,7 +731,7 @@
                     "platforms": {
                         "others": 100.0
                     },
-                    "position": 3,
+                    "position": -2,
                     "raw": [
                         2,
                         5,
@@ -703,6 +784,11 @@
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180621125625&date=%3E%3D2018-06-05&product=FennecAndroid&release_channel=release&signature=%3DEMPTY%3A%20no%20crashing%20thread%20identified%3B%20ERROR_NO_MINIDUMP_HEADER&version=61.0#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180807170231&date=%3E%3D2018-06-05&product=FennecAndroid&release_channel=release&signature=%3DEMPTY%3A%20no%20crashing%20thread%20identified%3B%20ERROR_NO_MINIDUMP_HEADER&version=61.0.2#crash-reports"
                     ],
+                    "buildid_tooltip": [
+                        "Without Patch, 20180605171542",
+                        "Without Patch, 20180621125625",
+                        "With Patch, 20180807170231"
+                    ],
                     "buildids": [
                         "20180605171542",
                         "20180621125625",
@@ -746,6 +832,11 @@
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180605171542&date=%3E%3D2018-06-05&product=FennecAndroid&release_channel=release&signature=%3DOOM%20%7C%20large%20%7C%20NS_ABORT_OOM%20%7C%20nsTSubstring%3CT%3E%3A%3ASetLength&version=60.0.2#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180621125625&date=%3E%3D2018-06-05&product=FennecAndroid&release_channel=release&signature=%3DOOM%20%7C%20large%20%7C%20NS_ABORT_OOM%20%7C%20nsTSubstring%3CT%3E%3A%3ASetLength&version=61.0#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180807170231&date=%3E%3D2018-06-05&product=FennecAndroid&release_channel=release&signature=%3DOOM%20%7C%20large%20%7C%20NS_ABORT_OOM%20%7C%20nsTSubstring%3CT%3E%3A%3ASetLength&version=61.0.2#crash-reports"
+                    ],
+                    "buildid_tooltip": [
+                        "Without Patch, 20180605171542",
+                        "Without Patch, 20180621125625",
+                        "With Patch, 20180807170231"
                     ],
                     "buildids": [
                         "20180605171542",
@@ -791,6 +882,11 @@
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180621125625&date=%3E%3D2018-06-05&product=FennecAndroid&release_channel=release&signature=%3DOOM%20%7C%20small&version=61.0#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180807170231&date=%3E%3D2018-06-05&product=FennecAndroid&release_channel=release&signature=%3DOOM%20%7C%20small&version=61.0.2#crash-reports"
                     ],
+                    "buildid_tooltip": [
+                        "Without Patch, 20180605171542",
+                        "Without Patch, 20180621125625",
+                        "With Patch, 20180807170231"
+                    ],
                     "buildids": [
                         "20180605171542",
                         "20180621125625",
@@ -834,6 +930,11 @@
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180605171542&date=%3E%3D2018-06-05&product=FennecAndroid&release_channel=release&signature=%3Dandroid.database.CursorWindowAllocationException%3A%20Cursor%20window%20allocation%20of%202048%20kb%20failed.%20%23%20Open%20Cursors%3D1%20%28%23%20cursors%20opened%20by%20this%20proc%3D1%29%20at%20android.database.CursorWindow.%3Cinit%3E%28CursorWindow.java%29&version=60.0.2#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180621125625&date=%3E%3D2018-06-05&product=FennecAndroid&release_channel=release&signature=%3Dandroid.database.CursorWindowAllocationException%3A%20Cursor%20window%20allocation%20of%202048%20kb%20failed.%20%23%20Open%20Cursors%3D1%20%28%23%20cursors%20opened%20by%20this%20proc%3D1%29%20at%20android.database.CursorWindow.%3Cinit%3E%28CursorWindow.java%29&version=61.0#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180807170231&date=%3E%3D2018-06-05&product=FennecAndroid&release_channel=release&signature=%3Dandroid.database.CursorWindowAllocationException%3A%20Cursor%20window%20allocation%20of%202048%20kb%20failed.%20%23%20Open%20Cursors%3D1%20%28%23%20cursors%20opened%20by%20this%20proc%3D1%29%20at%20android.database.CursorWindow.%3Cinit%3E%28CursorWindow.java%29&version=61.0.2#crash-reports"
+                    ],
+                    "buildid_tooltip": [
+                        "Without Patch, 20180605171542",
+                        "Without Patch, 20180621125625",
+                        "With Patch, 20180807170231"
                     ],
                     "buildids": [
                         "20180605171542",
@@ -879,6 +980,11 @@
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180621125625&date=%3E%3D2018-06-05&product=FennecAndroid&release_channel=release&signature=%3Dandroid.database.CursorWindowAllocationException%3A%20Cursor%20window%20allocation%20of%202048%20kb%20failed.%20at%20android.database.CursorWindow.%3Cinit%3E%28CursorWindow.java%29&version=61.0#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180807170231&date=%3E%3D2018-06-05&product=FennecAndroid&release_channel=release&signature=%3Dandroid.database.CursorWindowAllocationException%3A%20Cursor%20window%20allocation%20of%202048%20kb%20failed.%20at%20android.database.CursorWindow.%3Cinit%3E%28CursorWindow.java%29&version=61.0.2#crash-reports"
                     ],
+                    "buildid_tooltip": [
+                        "Without Patch, 20180605171542",
+                        "Without Patch, 20180621125625",
+                        "With Patch, 20180807170231"
+                    ],
                     "buildids": [
                         "20180605171542",
                         "20180621125625",
@@ -922,6 +1028,11 @@
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180605171542&date=%3E%3D2018-06-05&product=FennecAndroid&release_channel=release&signature=%3Djs%3A%3AConstraintTypeSet%3A%3Asweep&version=60.0.2#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180621125625&date=%3E%3D2018-06-05&product=FennecAndroid&release_channel=release&signature=%3Djs%3A%3AConstraintTypeSet%3A%3Asweep&version=61.0#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180807170231&date=%3E%3D2018-06-05&product=FennecAndroid&release_channel=release&signature=%3Djs%3A%3AConstraintTypeSet%3A%3Asweep&version=61.0.2#crash-reports"
+                    ],
+                    "buildid_tooltip": [
+                        "Without Patch, 20180605171542",
+                        "Without Patch, 20180621125625",
+                        "With Patch, 20180807170231"
                     ],
                     "buildids": [
                         "20180605171542",
@@ -984,6 +1095,18 @@
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180816151750&date=%3E%3D2018-07-23&product=Firefox&release_channel=beta&release_channel=aurora&signature=%3DEMPTY%3A%20no%20crashing%20thread%20identified%3B%20ERROR_NO_MINIDUMP_HEADER&version=62.0b18#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180820172315&date=%3E%3D2018-07-23&product=Firefox&release_channel=beta&release_channel=aurora&signature=%3DEMPTY%3A%20no%20crashing%20thread%20identified%3B%20ERROR_NO_MINIDUMP_HEADER&version=62.0b19#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180823143155&date=%3E%3D2018-07-23&product=Firefox&release_channel=beta&release_channel=aurora&signature=%3DEMPTY%3A%20no%20crashing%20thread%20identified%3B%20ERROR_NO_MINIDUMP_HEADER&version=62.0b20#crash-reports"
+                    ],
+                    "buildid_tooltip": [
+                        "Without Patch, 20180723144101",
+                        "Without Patch, 20180726161819",
+                        "Without Patch, 20180730180407",
+                        "Without Patch, 20180802174131",
+                        "Without Patch, 20180806191531",
+                        "Without Patch, 20180809104529",
+                        "Without Patch, 20180813190114",
+                        "Without Patch, 20180816151750",
+                        "Without Patch, 20180820172315",
+                        "With Patch, 20180823143155"
                     ],
                     "buildids": [
                         "20180723144101",
@@ -1077,6 +1200,18 @@
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180816151750&date=%3E%3D2018-07-23&product=Firefox&release_channel=beta&release_channel=aurora&signature=%3DIPCError-browser%20%7C%20ShutDownKill&version=62.0b18#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180820172315&date=%3E%3D2018-07-23&product=Firefox&release_channel=beta&release_channel=aurora&signature=%3DIPCError-browser%20%7C%20ShutDownKill&version=62.0b19#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180823143155&date=%3E%3D2018-07-23&product=Firefox&release_channel=beta&release_channel=aurora&signature=%3DIPCError-browser%20%7C%20ShutDownKill&version=62.0b20#crash-reports"
+                    ],
+                    "buildid_tooltip": [
+                        "Without Patch, 20180723144101",
+                        "Without Patch, 20180726161819",
+                        "Without Patch, 20180730180407",
+                        "Without Patch, 20180802174131",
+                        "Without Patch, 20180806191531",
+                        "Without Patch, 20180809104529",
+                        "Without Patch, 20180813190114",
+                        "Without Patch, 20180816151750",
+                        "Without Patch, 20180820172315",
+                        "With Patch, 20180823143155"
                     ],
                     "buildids": [
                         "20180723144101",
@@ -1174,6 +1309,18 @@
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180820172315&date=%3E%3D2018-07-23&product=Firefox&release_channel=beta&release_channel=aurora&signature=%3DOOM%20%7C%20large%20%7C%20NS_ABORT_OOM%20%7C%20nsTSubstring%3CT%3E%3A%3ASetLength&version=62.0b19#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180823143155&date=%3E%3D2018-07-23&product=Firefox&release_channel=beta&release_channel=aurora&signature=%3DOOM%20%7C%20large%20%7C%20NS_ABORT_OOM%20%7C%20nsTSubstring%3CT%3E%3A%3ASetLength&version=62.0b20#crash-reports"
                     ],
+                    "buildid_tooltip": [
+                        "Without Patch, 20180723144101",
+                        "Without Patch, 20180726161819",
+                        "Without Patch, 20180730180407",
+                        "Without Patch, 20180802174131",
+                        "Without Patch, 20180806191531",
+                        "Without Patch, 20180809104529",
+                        "Without Patch, 20180813190114",
+                        "Without Patch, 20180816151750",
+                        "Without Patch, 20180820172315",
+                        "With Patch, 20180823143155"
+                    ],
                     "buildids": [
                         "20180723144101",
                         "20180726161819",
@@ -1266,6 +1413,18 @@
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180816151750&date=%3E%3D2018-07-23&product=Firefox&release_channel=beta&release_channel=aurora&signature=%3DOOM%20%7C%20small&version=62.0b18#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180820172315&date=%3E%3D2018-07-23&product=Firefox&release_channel=beta&release_channel=aurora&signature=%3DOOM%20%7C%20small&version=62.0b19#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180823143155&date=%3E%3D2018-07-23&product=Firefox&release_channel=beta&release_channel=aurora&signature=%3DOOM%20%7C%20small&version=62.0b20#crash-reports"
+                    ],
+                    "buildid_tooltip": [
+                        "Without Patch, 20180723144101",
+                        "Without Patch, 20180726161819",
+                        "Without Patch, 20180730180407",
+                        "Without Patch, 20180802174131",
+                        "Without Patch, 20180806191531",
+                        "Without Patch, 20180809104529",
+                        "Without Patch, 20180813190114",
+                        "Without Patch, 20180816151750",
+                        "Without Patch, 20180820172315",
+                        "With Patch, 20180823143155"
                     ],
                     "buildids": [
                         "20180723144101",
@@ -1363,6 +1522,18 @@
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180820172315&date=%3E%3D2018-07-23&product=Firefox&release_channel=beta&release_channel=aurora&signature=%3Djs%3A%3AConstraintTypeSet%3A%3Asweep&version=62.0b19#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180823143155&date=%3E%3D2018-07-23&product=Firefox&release_channel=beta&release_channel=aurora&signature=%3Djs%3A%3AConstraintTypeSet%3A%3Asweep&version=62.0b20#crash-reports"
                     ],
+                    "buildid_tooltip": [
+                        "Without Patch, 20180723144101",
+                        "Without Patch, 20180726161819",
+                        "Without Patch, 20180730180407",
+                        "Without Patch, 20180802174131",
+                        "Without Patch, 20180806191531",
+                        "Without Patch, 20180809104529",
+                        "Without Patch, 20180813190114",
+                        "Without Patch, 20180816151750",
+                        "Without Patch, 20180820172315",
+                        "With Patch, 20180823143155"
+                    ],
                     "buildids": [
                         "20180723144101",
                         "20180726161819",
@@ -1458,6 +1629,18 @@
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180820172315&date=%3E%3D2018-07-23&product=Firefox&release_channel=beta&release_channel=aurora&signature=%3Dshutdownhang%20%7C%20ntdll.dll%400x9d7a4&version=62.0b19#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180823143155&date=%3E%3D2018-07-23&product=Firefox&release_channel=beta&release_channel=aurora&signature=%3Dshutdownhang%20%7C%20ntdll.dll%400x9d7a4&version=62.0b20#crash-reports"
                     ],
+                    "buildid_tooltip": [
+                        "Without Patch, 20180723144101",
+                        "Without Patch, 20180726161819",
+                        "Without Patch, 20180730180407",
+                        "Without Patch, 20180802174131",
+                        "Without Patch, 20180806191531",
+                        "Without Patch, 20180809104529",
+                        "Without Patch, 20180813190114",
+                        "Without Patch, 20180816151750",
+                        "Without Patch, 20180820172315",
+                        "With Patch, 20180823143155"
+                    ],
                     "buildids": [
                         "20180723144101",
                         "20180726161819",
@@ -1529,12 +1712,16 @@
             "esr": {
                 "EMPTY: no crashing thread identified; ERROR_NO_MINIDUMP_HEADER": {
                     "buildid_classes": [
-                        "no-info buildid",
-                        "no-info buildid"
+                        "no-info bu ildid",
+                        "no-info bu ildid"
                     ],
                     "buildid_links": [
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180621064021&date=%3E%3D2018-06-21&product=Firefox&release_channel=esr&signature=%3DEMPTY%3A%20no%20crashing%20thread%20identified%3B%20ERROR_NO_MINIDUMP_HEADER&version=52.9.0esr#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180621121604&date=%3E%3D2018-06-21&product=Firefox&release_channel=esr&signature=%3DEMPTY%3A%20no%20crashing%20thread%20identified%3B%20ERROR_NO_MINIDUMP_HEADER&version=60.1.0esr#crash-reports"
+                    ],
+                    "buildid_tooltip": [
+                        "20180621064021",
+                        "20180621121604"
                     ],
                     "buildids": [
                         "20180621064021",
@@ -1565,12 +1752,16 @@
                 },
                 "IPCError-browser | ShutDownKill": {
                     "buildid_classes": [
-                        "no-info buildid",
-                        "no-info buildid"
+                        "no-info bu ildid",
+                        "no-info bu ildid"
                     ],
                     "buildid_links": [
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180621064021&date=%3E%3D2018-06-21&product=Firefox&release_channel=esr&signature=%3DIPCError-browser%20%7C%20ShutDownKill&version=52.9.0esr#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180621121604&date=%3E%3D2018-06-21&product=Firefox&release_channel=esr&signature=%3DIPCError-browser%20%7C%20ShutDownKill&version=60.1.0esr#crash-reports"
+                    ],
+                    "buildid_tooltip": [
+                        "20180621064021",
+                        "20180621121604"
                     ],
                     "buildids": [
                         "20180621064021",
@@ -1604,12 +1795,16 @@
                 },
                 "OOM | large | NS_ABORT_OOM | nsTSubstring<T>::SetLength": {
                     "buildid_classes": [
-                        "no-info buildid",
-                        "no-info buildid"
+                        "no-info bu ildid",
+                        "no-info bu ildid"
                     ],
                     "buildid_links": [
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180621064021&date=%3E%3D2018-06-21&product=Firefox&release_channel=esr&signature=%3DOOM%20%7C%20large%20%7C%20NS_ABORT_OOM%20%7C%20nsTSubstring%3CT%3E%3A%3ASetLength&version=52.9.0esr#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180621121604&date=%3E%3D2018-06-21&product=Firefox&release_channel=esr&signature=%3DOOM%20%7C%20large%20%7C%20NS_ABORT_OOM%20%7C%20nsTSubstring%3CT%3E%3A%3ASetLength&version=60.1.0esr#crash-reports"
+                    ],
+                    "buildid_tooltip": [
+                        "20180621064021",
+                        "20180621121604"
                     ],
                     "buildids": [
                         "20180621064021",
@@ -1640,12 +1835,16 @@
                 },
                 "OOM | small": {
                     "buildid_classes": [
-                        "no-info buildid",
-                        "no-info buildid"
+                        "no-info bu ildid",
+                        "no-info bu ildid"
                     ],
                     "buildid_links": [
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180621064021&date=%3E%3D2018-06-21&product=Firefox&release_channel=esr&signature=%3DOOM%20%7C%20small&version=52.9.0esr#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180621121604&date=%3E%3D2018-06-21&product=Firefox&release_channel=esr&signature=%3DOOM%20%7C%20small&version=60.1.0esr#crash-reports"
+                    ],
+                    "buildid_tooltip": [
+                        "20180621064021",
+                        "20180621121604"
                     ],
                     "buildids": [
                         "20180621064021",
@@ -1679,12 +1878,16 @@
                 },
                 "js::ConstraintTypeSet::sweep": {
                     "buildid_classes": [
-                        "no-info buildid",
-                        "no-info buildid"
+                        "no-info bu ildid",
+                        "no-info bu ildid"
                     ],
                     "buildid_links": [
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180621064021&date=%3E%3D2018-06-21&product=Firefox&release_channel=esr&signature=%3Djs%3A%3AConstraintTypeSet%3A%3Asweep&version=52.9.0esr#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180621121604&date=%3E%3D2018-06-21&product=Firefox&release_channel=esr&signature=%3Djs%3A%3AConstraintTypeSet%3A%3Asweep&version=60.1.0esr#crash-reports"
+                    ],
+                    "buildid_tooltip": [
+                        "20180621064021",
+                        "20180621121604"
                     ],
                     "buildids": [
                         "20180621064021",
@@ -1717,12 +1920,16 @@
                 },
                 "shutdownhang | ntdll.dll@0x9d7a4": {
                     "buildid_classes": [
-                        "no-info buildid",
-                        "no-info buildid"
+                        "no-info bu ildid",
+                        "no-info bu ildid"
                     ],
                     "buildid_links": [
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180621064021&date=%3E%3D2018-06-21&product=Firefox&release_channel=esr&signature=%3Dshutdownhang%20%7C%20ntdll.dll%400x9d7a4&version=52.9.0esr#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180621121604&date=%3E%3D2018-06-21&product=Firefox&release_channel=esr&signature=%3Dshutdownhang%20%7C%20ntdll.dll%400x9d7a4&version=60.1.0esr#crash-reports"
+                    ],
+                    "buildid_tooltip": [
+                        "20180621064021",
+                        "20180621121604"
                     ],
                     "buildids": [
                         "20180621064021",
@@ -1786,6 +1993,22 @@
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180825100331&date=%3E%3D2018-08-19&product=Firefox&release_channel=nightly&signature=%3DEMPTY%3A%20no%20crashing%20thread%20identified%3B%20ERROR_NO_MINIDUMP_HEADER&version=63.0a1#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180825220457&date=%3E%3D2018-08-19&product=Firefox&release_channel=nightly&signature=%3DEMPTY%3A%20no%20crashing%20thread%20identified%3B%20ERROR_NO_MINIDUMP_HEADER&version=63.0a1#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180826100553&date=%3E%3D2018-08-19&product=Firefox&release_channel=nightly&signature=%3DEMPTY%3A%20no%20crashing%20thread%20identified%3B%20ERROR_NO_MINIDUMP_HEADER&version=63.0a1#crash-reports"
+                    ],
+                    "buildid_tooltip": [
+                        "Without Patch, 20180819221915",
+                        "Without Patch, 20180820100129",
+                        "Without Patch, 20180820222055",
+                        "Without Patch, 20180821100053",
+                        "Without Patch, 20180821220101",
+                        "Without Patch, 20180822100104",
+                        "With Patch, 20180822221004",
+                        "With Patch, 20180823100106",
+                        "With Patch, 20180823220048",
+                        "With Patch, 20180824100112",
+                        "With Patch, 20180824222409",
+                        "With Patch, 20180825100331",
+                        "With Patch, 20180825220457",
+                        "With Patch, 20180826100553"
                     ],
                     "buildids": [
                         "20180819221915",
@@ -1907,6 +2130,22 @@
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180825100331&date=%3E%3D2018-08-19&product=Firefox&release_channel=nightly&signature=%3DIPCError-browser%20%7C%20ShutDownKill&version=63.0a1#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180825220457&date=%3E%3D2018-08-19&product=Firefox&release_channel=nightly&signature=%3DIPCError-browser%20%7C%20ShutDownKill&version=63.0a1#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180826100553&date=%3E%3D2018-08-19&product=Firefox&release_channel=nightly&signature=%3DIPCError-browser%20%7C%20ShutDownKill&version=63.0a1#crash-reports"
+                    ],
+                    "buildid_tooltip": [
+                        "Without Patch, 20180819221915",
+                        "Without Patch, 20180820100129",
+                        "Without Patch, 20180820222055",
+                        "Without Patch, 20180821100053",
+                        "Without Patch, 20180821220101",
+                        "Without Patch, 20180822100104",
+                        "With Patch, 20180822221004",
+                        "With Patch, 20180823100106",
+                        "With Patch, 20180823220048",
+                        "With Patch, 20180824100112",
+                        "With Patch, 20180824222409",
+                        "With Patch, 20180825100331",
+                        "With Patch, 20180825220457",
+                        "With Patch, 20180826100553"
                     ],
                     "buildids": [
                         "20180819221915",
@@ -2032,6 +2271,22 @@
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180825220457&date=%3E%3D2018-08-19&product=Firefox&release_channel=nightly&signature=%3DOOM%20%7C%20large%20%7C%20NS_ABORT_OOM%20%7C%20nsTSubstring%3CT%3E%3A%3ASetLength&version=63.0a1#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180826100553&date=%3E%3D2018-08-19&product=Firefox&release_channel=nightly&signature=%3DOOM%20%7C%20large%20%7C%20NS_ABORT_OOM%20%7C%20nsTSubstring%3CT%3E%3A%3ASetLength&version=63.0a1#crash-reports"
                     ],
+                    "buildid_tooltip": [
+                        "Without Patch, 20180819221915",
+                        "Without Patch, 20180820100129",
+                        "Without Patch, 20180820222055",
+                        "Without Patch, 20180821100053",
+                        "Without Patch, 20180821220101",
+                        "Without Patch, 20180822100104",
+                        "With Patch, 20180822221004",
+                        "With Patch, 20180823100106",
+                        "With Patch, 20180823220048",
+                        "With Patch, 20180824100112",
+                        "With Patch, 20180824222409",
+                        "With Patch, 20180825100331",
+                        "With Patch, 20180825220457",
+                        "With Patch, 20180826100553"
+                    ],
                     "buildids": [
                         "20180819221915",
                         "20180820100129",
@@ -2152,6 +2407,22 @@
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180825100331&date=%3E%3D2018-08-19&product=Firefox&release_channel=nightly&signature=%3DOOM%20%7C%20small&version=63.0a1#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180825220457&date=%3E%3D2018-08-19&product=Firefox&release_channel=nightly&signature=%3DOOM%20%7C%20small&version=63.0a1#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180826100553&date=%3E%3D2018-08-19&product=Firefox&release_channel=nightly&signature=%3DOOM%20%7C%20small&version=63.0a1#crash-reports"
+                    ],
+                    "buildid_tooltip": [
+                        "Without Patch, 20180819221915",
+                        "Without Patch, 20180820100129",
+                        "Without Patch, 20180820222055",
+                        "Without Patch, 20180821100053",
+                        "Without Patch, 20180821220101",
+                        "Without Patch, 20180822100104",
+                        "With Patch, 20180822221004",
+                        "With Patch, 20180823100106",
+                        "With Patch, 20180823220048",
+                        "With Patch, 20180824100112",
+                        "With Patch, 20180824222409",
+                        "With Patch, 20180825100331",
+                        "With Patch, 20180825220457",
+                        "With Patch, 20180826100553"
                     ],
                     "buildids": [
                         "20180819221915",
@@ -2274,6 +2545,22 @@
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180825100331&date=%3E%3D2018-08-19&product=Firefox&release_channel=nightly&signature=%3Djs%3A%3AConstraintTypeSet%3A%3Asweep&version=63.0a1#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180825220457&date=%3E%3D2018-08-19&product=Firefox&release_channel=nightly&signature=%3Djs%3A%3AConstraintTypeSet%3A%3Asweep&version=63.0a1#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180826100553&date=%3E%3D2018-08-19&product=Firefox&release_channel=nightly&signature=%3Djs%3A%3AConstraintTypeSet%3A%3Asweep&version=63.0a1#crash-reports"
+                    ],
+                    "buildid_tooltip": [
+                        "Without Patch, 20180819221915",
+                        "Without Patch, 20180820100129",
+                        "Without Patch, 20180820222055",
+                        "Without Patch, 20180821100053",
+                        "Without Patch, 20180821220101",
+                        "Without Patch, 20180822100104",
+                        "With Patch, 20180822221004",
+                        "With Patch, 20180823100106",
+                        "With Patch, 20180823220048",
+                        "With Patch, 20180824100112",
+                        "With Patch, 20180824222409",
+                        "With Patch, 20180825100331",
+                        "With Patch, 20180825220457",
+                        "With Patch, 20180826100553"
                     ],
                     "buildids": [
                         "20180819221915",
@@ -2398,6 +2685,22 @@
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180825220457&date=%3E%3D2018-08-19&product=Firefox&release_channel=nightly&signature=%3Dshutdownhang%20%7C%20ntdll.dll%400x9d7a4&version=63.0a1#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180826100553&date=%3E%3D2018-08-19&product=Firefox&release_channel=nightly&signature=%3Dshutdownhang%20%7C%20ntdll.dll%400x9d7a4&version=63.0a1#crash-reports"
                     ],
+                    "buildid_tooltip": [
+                        "Without Patch, 20180819221915",
+                        "Without Patch, 20180820100129",
+                        "Without Patch, 20180820222055",
+                        "Without Patch, 20180821100053",
+                        "Without Patch, 20180821220101",
+                        "Without Patch, 20180822100104",
+                        "With Patch, 20180822221004",
+                        "With Patch, 20180823100106",
+                        "With Patch, 20180823220048",
+                        "With Patch, 20180824100112",
+                        "With Patch, 20180824222409",
+                        "With Patch, 20180825100331",
+                        "With Patch, 20180825220457",
+                        "With Patch, 20180826100553"
+                    ],
                     "buildids": [
                         "20180819221915",
                         "20180820100129",
@@ -2501,6 +2804,12 @@
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180704003137&date=%3E%3D2018-06-05&product=Firefox&release_channel=release&signature=%3DEMPTY%3A%20no%20crashing%20thread%20identified%3B%20ERROR_NO_MINIDUMP_HEADER&version=61.0.1#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180807170231&date=%3E%3D2018-06-05&product=Firefox&release_channel=release&signature=%3DEMPTY%3A%20no%20crashing%20thread%20identified%3B%20ERROR_NO_MINIDUMP_HEADER&version=61.0.2#crash-reports"
                     ],
+                    "buildid_tooltip": [
+                        "Without Patch, 20180605171542",
+                        "Without Patch, 20180621125625",
+                        "Without Patch, 20180704003137",
+                        "With Patch, 20180807170231"
+                    ],
                     "buildids": [
                         "20180605171542",
                         "20180621125625",
@@ -2551,6 +2860,12 @@
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180621125625&date=%3E%3D2018-06-05&product=Firefox&release_channel=release&signature=%3DIPCError-browser%20%7C%20ShutDownKill&version=61.0#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180704003137&date=%3E%3D2018-06-05&product=Firefox&release_channel=release&signature=%3DIPCError-browser%20%7C%20ShutDownKill&version=61.0.1#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180807170231&date=%3E%3D2018-06-05&product=Firefox&release_channel=release&signature=%3DIPCError-browser%20%7C%20ShutDownKill&version=61.0.2#crash-reports"
+                    ],
+                    "buildid_tooltip": [
+                        "Without Patch, 20180605171542",
+                        "Without Patch, 20180621125625",
+                        "Without Patch, 20180704003137",
+                        "With Patch, 20180807170231"
                     ],
                     "buildids": [
                         "20180605171542",
@@ -2606,6 +2921,12 @@
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180704003137&date=%3E%3D2018-06-05&product=Firefox&release_channel=release&signature=%3DOOM%20%7C%20large%20%7C%20NS_ABORT_OOM%20%7C%20nsTSubstring%3CT%3E%3A%3ASetLength&version=61.0.1#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180807170231&date=%3E%3D2018-06-05&product=Firefox&release_channel=release&signature=%3DOOM%20%7C%20large%20%7C%20NS_ABORT_OOM%20%7C%20nsTSubstring%3CT%3E%3A%3ASetLength&version=61.0.2#crash-reports"
                     ],
+                    "buildid_tooltip": [
+                        "Without Patch, 20180605171542",
+                        "Without Patch, 20180621125625",
+                        "Without Patch, 20180704003137",
+                        "With Patch, 20180807170231"
+                    ],
                     "buildids": [
                         "20180605171542",
                         "20180621125625",
@@ -2657,6 +2978,12 @@
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180621125625&date=%3E%3D2018-06-05&product=Firefox&release_channel=release&signature=%3DOOM%20%7C%20small&version=61.0#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180704003137&date=%3E%3D2018-06-05&product=Firefox&release_channel=release&signature=%3DOOM%20%7C%20small&version=61.0.1#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180807170231&date=%3E%3D2018-06-05&product=Firefox&release_channel=release&signature=%3DOOM%20%7C%20small&version=61.0.2#crash-reports"
+                    ],
+                    "buildid_tooltip": [
+                        "Without Patch, 20180605171542",
+                        "Without Patch, 20180621125625",
+                        "Without Patch, 20180704003137",
+                        "With Patch, 20180807170231"
                     ],
                     "buildids": [
                         "20180605171542",
@@ -2712,6 +3039,12 @@
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180704003137&date=%3E%3D2018-06-05&product=Firefox&release_channel=release&signature=%3Djs%3A%3AConstraintTypeSet%3A%3Asweep&version=61.0.1#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180807170231&date=%3E%3D2018-06-05&product=Firefox&release_channel=release&signature=%3Djs%3A%3AConstraintTypeSet%3A%3Asweep&version=61.0.2#crash-reports"
                     ],
+                    "buildid_tooltip": [
+                        "Without Patch, 20180605171542",
+                        "Without Patch, 20180621125625",
+                        "Without Patch, 20180704003137",
+                        "With Patch, 20180807170231"
+                    ],
                     "buildids": [
                         "20180605171542",
                         "20180621125625",
@@ -2764,6 +3097,12 @@
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180621125625&date=%3E%3D2018-06-05&product=Firefox&release_channel=release&signature=%3Dshutdownhang%20%7C%20ntdll.dll%400x9d7a4&version=61.0#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180704003137&date=%3E%3D2018-06-05&product=Firefox&release_channel=release&signature=%3Dshutdownhang%20%7C%20ntdll.dll%400x9d7a4&version=61.0.1#crash-reports",
                         "https://crash-stats.mozilla.org/search/?_facets=url&_facets=user_comments&_facets=install_time&_facets=version&_facets=address&_facets=moz_crash_reason&_facets=reason&_facets=build_id&_facets=platform_pretty_version&_facets=signature&_facets=useragent_locale&build_id=%3D20180807170231&date=%3E%3D2018-06-05&product=Firefox&release_channel=release&signature=%3Dshutdownhang%20%7C%20ntdll.dll%400x9d7a4&version=61.0.2#crash-reports"
+                    ],
+                    "buildid_tooltip": [
+                        "Without Patch, 20180605171542",
+                        "Without Patch, 20180621125625",
+                        "Without Patch, 20180704003137",
+                        "With Patch, 20180807170231"
                     ],
                     "buildids": [
                         "20180605171542",
