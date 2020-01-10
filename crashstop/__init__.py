@@ -6,9 +6,7 @@ from flask import Flask, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 import os
 from . import config
-import tracemalloc
 
-tracemalloc.start()
 
 app = Flask(__name__, template_folder='../templates', static_folder='../static')
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
@@ -29,16 +27,7 @@ def setup():
 
 @app.route('/sumup.html')
 def sumup_html():
-    s1 = tracemalloc.take_snapshot()
-
-    r = html.sumup()
-
-    s2 = tracemalloc.take_snapshot()
-
-    for i in s2.compare_to(s1,'lineno')[:10]:
-        print(i)
-
-    return r
+    return html.sumup()
 
 
 @app.route('/')
