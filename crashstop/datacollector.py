@@ -84,11 +84,13 @@ def filter_buildids_helper(fa_bids, fx_bids, channel):
     """
     data = {'Firefox': set(), 'FennecAndroid': set()}
     params = get_filter_query(fa_bids, fx_bids, channel)
-    socorro.SuperSearch(
+    ss = socorro.SuperSearch(
         params=params,
         handler=functools.partial(filter_by_crashes_num, channel),
         handlerdata=data,
-    ).wait()
+    )
+    ss.wait()
+    ss.session.close()
 
     fa_bids = get_useful_bids(fa_bids, data['FennecAndroid'])
     fx_bids = get_useful_bids(fx_bids, data['Firefox'])
@@ -301,8 +303,8 @@ def get_pushdate(json, data):
 def get_pushdates(chan_rev):
     """Get the pushdates of the given channel/revision.
     """
-    res = []
     data = {}
+    queries = []
 
     for chan, revs in chan_rev.items():
         if chan.startswith('esr'):
@@ -314,13 +316,11 @@ def get_pushdates(chan_rev):
             data[chan] = pd = []
 
         for rev in revs:
-            res.append(
-                hgmozilla.Revision(
-                    channel=chan,
-                    params={'node': rev},
-                    handler=get_pushdate,
-                    handlerdata=pd,
-                )
-            )
+            queries.append(Query(
+                hgmozilla.Revision.get_url(chan),
+                {'node': rev},
+                get_pushdate,
+                pd
+            ))
 
-    return res, data
+    return hgmozilla.Revision(queries=queries), data

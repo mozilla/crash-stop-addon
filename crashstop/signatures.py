@@ -41,6 +41,7 @@ def init_platforms(signatures, channels, products):
 def get_for_urls_sgns(hg_urls, signatures, extra={}):
     chan_rev = utils.get_channel_revision(hg_urls)
     towait, pushdates = dc.get_pushdates(chan_rev)
+    towait = [towait]
 
     data = {}
     versions = {}
@@ -75,6 +76,7 @@ def get_for_urls_sgns(hg_urls, signatures, extra={}):
 
     for tw in towait:
         tw.wait()
+        tw.session.close()
 
     for chan, pds in pushdates.items():
         if pds:
