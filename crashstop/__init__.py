@@ -17,6 +17,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
+from . import html
 
 def setup():
     from . import models, signatures
@@ -29,7 +30,6 @@ def setup():
 @app.route('/sumup.html')
 def sumup_html():
     s1 = tracemalloc.take_snapshot()
-    from crashstop import html
 
     r = html.sumup()
 
