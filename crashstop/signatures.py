@@ -41,7 +41,10 @@ def init_platforms(signatures, channels, products):
 def get_for_urls_sgns(hg_urls, signatures, extra={}):
     chan_rev = utils.get_channel_revision(hg_urls)
     towait, pushdates = dc.get_pushdates(chan_rev)
-    towait = [towait]
+    if towait:
+        towait = [towait]
+    else:
+        towait = []
 
     data = {}
     versions = {}

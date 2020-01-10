@@ -323,4 +323,6 @@ def get_pushdates(chan_rev):
                 pd
             ))
 
-    return hgmozilla.Revision(queries=queries), data
+    if queries:
+        return hgmozilla.Revision(queries=queries), data
+    return None, data
