@@ -218,18 +218,22 @@ tbody a {
 
 .icon.windows::before {
   content: '\f17a';
+  color: #00a2ed;
 }
 
 .icon.mac::before {
   content: '\f179';
+  color: #000000;
 }
 
 .icon.linux::before {
   content: '\f17c';
+  color: #ee0000;
 }
 
 .icon.android::before {
   content: '\f17b';
+  color: #3ddc84;
 }
 
 /**
