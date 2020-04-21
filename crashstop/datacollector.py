@@ -148,6 +148,8 @@ def filter_signatures_data(limit, product, platforms, sgn, bids_chan, json, data
             raw[n] = facets['count']
             facets = facets['facets']
             N = len(facets['install_time'])
+            # no install_time means that these crashes are orphans
+            raw[n] = 0 if N == 0 else raw[n]
             installs[n] = (
                 max(limit, facets['cardinality_install_time']['value'])
                 if N == limit
