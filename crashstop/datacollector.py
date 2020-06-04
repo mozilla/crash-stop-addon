@@ -61,7 +61,7 @@ def get_filter_query(fa_bids, fx_bids, channel):
     min_bid = min(min_bid, fx_bids[0][0]) if fx_bids else min_bid
     date = max(
         utils.get_build_date(min_bid),
-        lmdutils.get_date_ymd('today') - relativedelta(days=364),
+        lmdutils.get_date_ymd('today') - relativedelta(days=180),
     )
     date = date.strftime('%Y-%m-%d')
     if channel == 'beta':
