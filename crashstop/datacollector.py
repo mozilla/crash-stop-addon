@@ -9,6 +9,56 @@ from libmozdata import hgmozilla, socorro, utils as lmdutils
 from libmozdata.connection import Query
 from . import config, utils
 
+def get_fenix_buildids(channels):
+    # We don't have build info for Fenix on buildhub
+    # so we get them from crash-stats
+    date = lmdutils.get_date_ymd('today') - relativedelta(months=3)
+    min_bid = date.strftime('%Y%m%d000000')
+    date = date.strftime('%Y-%m-%d')
+
+    params = {
+        'product': ['Fenix'],
+        'date': '>=' + date,
+        'build_id': '>=' + min_bid,
+        '_aggs.build_id': 'version',
+        '_results_number': 0,
+        '_facets': 'release_channel',
+        '_facets_size': 1000,
+    }
+
+    data = {}
+
+    def handler(chan, json, data):
+        if not json['facets']['build_id']:
+            return
+
+        info = {}
+        for facets in json['facets']['build_id']:
+            bid = facets['term']
+            versions = facets['facets']['version']
+            version = max(versions, key=lambda x: x['count'])['term']
+            info[str(bid)] = version
+
+        info= sorted(info.items())
+        data[chan] = [list(x) for x in info]
+
+    queries = []
+    for chan in channels:
+        params = params.copy()
+        params['release_channel'] = chan
+        hdler = functools.partial(handler, chan)
+        queries.append(
+            Query(
+                socorro.SuperSearch.URL, params=params, handler=hdler, handlerdata=data
+            )
+        )
+
+    ss = socorro.SuperSearch(queries=queries)
+    ss.wait()
+    ss.session.close()
+
+    return data
+
 
 def get_useful_bids(buildhub_bids, socorro_bids):
     """Get the useful nightly buildids.

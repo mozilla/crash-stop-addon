@@ -53,7 +53,7 @@ def get_for_urls_sgns(hg_urls, signatures, extra={}):
     if not signatures:
         return res
     if utils.is_java(signatures):
-        products = ['FennecAndroid']
+        products = ['FennecAndroid', 'Fenix']
     else:
         products = config.get_products()
 

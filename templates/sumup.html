@@ -53,7 +53,7 @@
         <tr>
           <th colspan="100">
             <a href="{{ info['socorro_url'] }}" target="_blank">{{ sgn|e }}</a> in {{ prod }} &mdash; {{ chan }} &nbsp;
-            {%- if prod != 'FennecAndroid' -%}
+            {%- if prod != 'FennecAndroid' and prod != 'Fenix' -%}
               {%- if 'Windows' in info['platforms'] -%}
                 <span title="Windows: {{ info['platforms']['Windows'] }}%" class="platform">
                   <span class="icon windows" aria-hidden="true"></span>

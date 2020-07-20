@@ -124,7 +124,17 @@ def get_info(data):
             buildids[buildid] = buildid not in buildids
             buildids_per_prod[prod][buildid] = buildid not in buildids_per_prod[prod]
 
+    # Add Fenix stuff
+    fn_data = dc.get_fenix_buildids(LEGAL_CHANNELS)
+    data['Fenix'] = fn_data
+    buildids_per_prod['Fenix'] = bpp = {}
+    for chan, info in fn_data.items():
+        for buildid, version in info:
+            buildids[buildid] = buildid not in buildids
+            bpp[buildid] = buildid not in bpp
+
     improve(data, buildids, buildids_per_prod)
+
     return data
 
 

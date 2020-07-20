@@ -6,7 +6,11 @@ from bisect import bisect_left
 from datetime import datetime
 import math
 import pytz
+import re
 import six
+
+
+KOTLIN_PAT = re.compile(r'.*\.kt:[0-9]+\)$')
 
 
 def get_major(v):
@@ -109,7 +113,7 @@ def update_params(params, extra):
 
 def is_java(signatures):
     for sgn in signatures:
-        if not sgn.endswith('.java)') and not sgn.endswith('(Native Method)'):
+        if not sgn.endswith('.java)') and not sgn.endswith('(Native Method)') and KOTLIN_PAT.match(sgn) is None:
             return False
     return True
 

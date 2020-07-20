@@ -18,7 +18,7 @@ class Buildid(db.Model):
     product = db.Column(PRODUCT_TYPE, primary_key=True)
     channel = db.Column(CHANNEL_TYPE, primary_key=True)
     buildid = db.Column(db.DateTime(timezone=True), primary_key=True)
-    version = db.Column(db.String(12))
+    version = db.Column(db.String(64))
     unique = db.Column(db.Boolean)
     unique_prod = db.Column(db.Boolean)
 

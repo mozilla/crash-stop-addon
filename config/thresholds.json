@@ -45,6 +45,29 @@
             "versions": 2
         }
     },
+    "Fenix":
+    {
+        "nightly":
+        {
+            "min_total_crashes": 0,
+            "versions": 10
+        },
+        "beta":
+        {
+            "min_total_crashes": 0,
+            "versions": 6
+        },
+        "release":
+        {
+            "min_total_crashes": 0,
+            "versions": 3
+        },
+        "esr":
+        {
+            "min_total_crashes": 0,
+            "versions": 2
+        }
+    },
     "Thunderbird":
     {
         "nightly":
