@@ -310,7 +310,8 @@ def get_sgns_data(channels, versions, platforms, signatures, extra, products, to
     """Get the crash stats from Socorro for the given signatures.
     """
     min_buildid, allbids, unique, leftovers = get_unicity_stuff(versions)
-    search_date = socorro.SuperSearch.get_search_date(min_buildid)
+    min_date = max(min_buildid, lmdutils.get_date_ymd('today') - relativedelta(months=6))
+    search_date = socorro.SuperSearch.get_search_date(min_date)
     data = get_sgns_data_structure(signatures, products, channels, allbids)
 
     # if a buildid is unique then it's unique for its product too.
