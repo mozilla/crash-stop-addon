@@ -9,9 +9,13 @@ from . import config
 
 
 app = Flask(__name__, template_folder='../templates', static_folder='../static')
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
-    'DATABASE_URL', config.get_database()
-)
+
+uri = os.getenv('DATABASE_URL', config.get_database())
+# Workaround for Heroku
+if uri.startswith('postgres://'):
+    uri = uri.replace('postgres://', 'postgresql://', 1)
+
+app.config['SQLALCHEMY_DATABASE_URI'] = uri
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
