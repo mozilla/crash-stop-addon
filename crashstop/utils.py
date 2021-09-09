@@ -132,9 +132,9 @@ def analyze_platforms(res, data):
         platform = i['term']
         if platform.startswith('Windows'):
             short = 'Windows'
-        elif platform.startswith('OS X'):
+        elif platform.startswith('OS X') or platform.startswith('macOS'):
             short = 'OS X'
-        elif platform.startswith('Linux'):
+        elif 'Linux' in platform or 'Ubuntu' in platform:
             short = 'Linux'
         else:
             short = 'others'
