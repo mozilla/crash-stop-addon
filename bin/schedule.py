@@ -6,7 +6,7 @@ from apscheduler.schedulers.blocking import BlockingScheduler
 from crashstop import signatures
 
 
-sched = BlockingScheduler()
+sched = BlockingScheduler(timezone="GMT")
 
 
 @sched.scheduled_job('cron', hour='0/2')
