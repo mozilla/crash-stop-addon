@@ -1,2 +1,2 @@
-web: /code/bin/run_web.sh
-clock: python /code/bin/schedule.py
+web: ./bin/run_web.sh
+clock: python ./bin/schedule.py
