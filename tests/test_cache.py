@@ -15,7 +15,7 @@ from .test_signatures import get_all_versions
 @patch('libmozdata.hgmozilla.Revision', MyRevision)
 def test_cache():
     sgns = MySuperSearch.get_signatures()
-    sgns = sgns['Firefox'][:5] + sgns['FennecAndroid'][:5]
+    sgns = sgns['Firefox'][:5]
 
     # random choices for the revs
     revs = [

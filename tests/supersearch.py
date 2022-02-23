@@ -91,7 +91,7 @@ class MySuperSearch:
             '_facets_size': 100,
         }
 
-        data = {'Firefox': [], 'FennecAndroid': []}
+        data = {'Firefox': []}
         queries = []
         for prod, hdata in data.items():
             pparams = params.copy()

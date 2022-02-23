@@ -29,31 +29,20 @@ def test_get_for_urls_sgns_empty():
 
 @patch('crashstop.signatures.get_all_versions', get_all_versions)
 @patch('libmozdata.socorro.SuperSearch', MySuperSearch)
-def test_get_for_urls_sgns_no_patch_fx_fa(get_result):
+def test_get_for_urls_sgns_no_patch_fx(get_result):
     sgns = MySuperSearch.get_signatures()
-    sgns = sgns['Firefox'][:5] + sgns['FennecAndroid'][:5]
+    sgns = sgns['Firefox'][:5]
     data = signatures.get_for_urls_sgns([], sgns)
 
-    assert data == get_result('tests/data/crashstop/signatures_nop_fx_fa.json', data)
-
-
-@patch('crashstop.signatures.get_all_versions', get_all_versions)
-@patch('libmozdata.socorro.SuperSearch', MySuperSearch)
-def test_get_for_urls_sgns_no_patch_fa(get_result):
-    sgns = MySuperSearch.get_signatures()
-    sgns = [s for s in sgns['FennecAndroid'] if s.endswith('.java)')]
-    sgns = sgns if len(sgns) < 10 else sgns[:10]
-    data = signatures.get_for_urls_sgns([], sgns)
-
-    assert data == get_result('tests/data/crashstop/signatures_nop_fa.json', data)
+    assert data == get_result('tests/data/crashstop/signatures_nop_fx.json', data)
 
 
 @patch('crashstop.signatures.get_all_versions', get_all_versions)
 @patch('libmozdata.socorro.SuperSearch', MySuperSearch)
 @patch('libmozdata.hgmozilla.Revision', MyRevision)
-def test_get_for_urls_sgns_patch_fx_fa(get_result):
+def test_get_for_urls_sgns_patch_fx(get_result):
     sgns = MySuperSearch.get_signatures()
-    sgns = sgns['Firefox'][:5] + sgns['FennecAndroid'][:5]
+    sgns = sgns['Firefox'][:5]
 
     # random choices for the revs
     revs = [
@@ -66,7 +55,7 @@ def test_get_for_urls_sgns_patch_fx_fa(get_result):
 
     data = signatures.get_for_urls_sgns(revs, sgns)
 
-    assert data == get_result('tests/data/crashstop/signatures_p_fx_fa.json', data)
+    assert data == get_result('tests/data/crashstop/signatures_p_fx.json', data)
 
 
 @patch('crashstop.signatures.get_all_versions', get_all_versions)
@@ -74,7 +63,7 @@ def test_get_for_urls_sgns_patch_fx_fa(get_result):
 @patch('libmozdata.hgmozilla.Revision', MyRevision)
 def test_prepare_bug_for_html(get_result):
     sgns = MySuperSearch.get_signatures()
-    sgns = sgns['Firefox'][:5] + sgns['FennecAndroid'][:5]
+    sgns = sgns['Firefox'][:5]
 
     # random choices for the revs
     revs = [

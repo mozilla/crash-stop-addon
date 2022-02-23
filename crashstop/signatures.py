@@ -53,7 +53,7 @@ def get_for_urls_sgns(hg_urls, signatures, extra={}):
     if not signatures:
         return res
     if utils.is_java(signatures):
-        products = ['FennecAndroid', 'Fenix']
+        products = ['Fenix']
     else:
         products = config.get_products()
 
@@ -97,10 +97,7 @@ def get_for_urls_sgns(hg_urls, signatures, extra={}):
 
             platforms_pc = platforms_prod[chan]
             data_prod[chan] = data_pc = {}
-            if product == 'FennecAndroid' and chan == 'nightly':
-                pushdate = pushdates.get('esr68')
-            else:
-                pushdate = pushdates.get(chan)
+            pushdate = pushdates.get(chan)
             buildids = [utils.get_buildid(d) for d in dates_pc]
             position = utils.get_position(pushdate, dates_pc)
             min_date = min(dates_pc).strftime('%Y-%m-%d')

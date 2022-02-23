@@ -97,18 +97,3 @@ def test_get(create_buildhub_data, get_result):
     x = get_result('tests/data/buildhub/get.json', data)
 
     assert x == data
-
-
-def test_get_bid_as_date():
-    data = {'FennecAndroid': {'beta': [['20180709172241'], ['20180713213322']]}}
-    x = {
-        'FennecAndroid': {
-            'beta': [
-                [datetime(2018, 7, 9, 17, 22, 41, 0, pytz.utc)],
-                [datetime(2018, 7, 13, 21, 33, 22, 0, pytz.utc)],
-            ]
-        }
-    }
-    buildhub.get_bid_as_date(data)
-
-    assert x == data

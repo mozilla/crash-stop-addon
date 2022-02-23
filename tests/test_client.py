@@ -32,7 +32,7 @@ def test_css(client):
 @patch('libmozdata.hgmozilla.Revision', MyRevision)
 def test_sumup(client):
     sgns = MySuperSearch.get_signatures()
-    sgns = sgns['Firefox'][:5] + sgns['FennecAndroid'][:5]
+    sgns = sgns['Firefox'][:5]
     query_sgns = '&'.join(['s=' + urlencode(sgn) for sgn in sgns])
 
     # random choices for the revs
@@ -61,7 +61,7 @@ def test_sumup(client):
 @patch('libmozdata.hgmozilla.Revision', MyRevision)
 def test_sumup_extra(client):
     sgns = MySuperSearch.get_signatures()
-    sgns = sgns['Firefox'][:5] + sgns['FennecAndroid'][:5]
+    sgns = sgns['Firefox'][:5]
     query_sgns = '&'.join(['s=' + urlencode(sgn) for sgn in sgns])
 
     # random choices for the revs

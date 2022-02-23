@@ -22,7 +22,7 @@
             "versions": 2
         }
     },
-    "FennecAndroid":
+    "Fenix":
     {
         "nightly":
         {
@@ -31,7 +31,7 @@
         },
         "beta":
         {
-            "min_total_crashes": 500,
+            "min_total_crashes": 100,
             "versions": 6
         },
         "release":
@@ -41,30 +41,7 @@
         },
         "esr":
         {
-            "min_total_crashes": 10000,
-            "versions": 2
-        }
-    },
-    "Fenix":
-    {
-        "nightly":
-        {
-            "min_total_crashes": 0,
-            "versions": 10
-        },
-        "beta":
-        {
-            "min_total_crashes": 0,
-            "versions": 6
-        },
-        "release":
-        {
-            "min_total_crashes": 0,
-            "versions": 3
-        },
-        "esr":
-        {
-            "min_total_crashes": 0,
+            "min_total_crashes": 5000,
             "versions": 2
         }
     },

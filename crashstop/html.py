@@ -8,7 +8,7 @@ from . import cache, config
 
 
 def sumup():
-    # cache.clear()
+    cache.clear()
     sgns = request.args.getlist('s')
     hgurls = request.args.getlist('h')
     addon_version = request.args.get('v', '')

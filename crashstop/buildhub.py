@@ -17,9 +17,9 @@ VERSION_PAT = r'[0-9\.]+(([ab][0-9]+)|esr)?'
 VERSION_RC_PAT = r'[0-9\.]+rc[0-9]+'
 LEGAL_CHANNELS = ['nightly', 'beta', 'release', 'esr']
 CHANNELS = LEGAL_CHANNELS + ['aurora']
-PRODUCTS = ['firefox', 'devedition', 'fennec']
-SOCORRO_PRODUCTS = ['Firefox', 'FennecAndroid']
-RPRODS = {'firefox': 'Firefox', 'devedition': 'Firefox', 'fennec': 'FennecAndroid'}
+PRODUCTS = ['firefox', 'devedition']
+SOCORRO_PRODUCTS = ['Firefox']
+RPRODS = {'firefox': 'Firefox', 'devedition': 'Firefox'}
 
 
 def make_request(params, sleep, retry, callback):
@@ -104,12 +104,6 @@ def get_info_release_rc(data):
         prod: [[b, v] for b, v in info['release'] if int(b) > max_release_bid[prod]]
         for prod, info in data_rc.items()
     }
-    if 'FennecAndroid' in res:
-        fa = res['FennecAndroid']
-        if fa:
-            last = max(fa, key=lambda p: tuple(p))
-            last[1] = utils.strip_rc(last[1])
-            res['FennecAndroid'] = [last]
 
     return res
 

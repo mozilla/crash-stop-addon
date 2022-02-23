@@ -30,10 +30,10 @@ def test_get_useful_bids():
 @patch('libmozdata.socorro.SuperSearch', MySuperSearch)
 def test_filter_buildids(get_result):
     with open('tests/data/buildhub/extract.json', 'r') as In:
-        fa_fx_bids = json.load(In)['data']
-    dc.filter_buildids(fa_fx_bids, 'nightly')
+        fx_bids = json.load(In)['data']
+    dc.filter_buildids(fx_bids, 'nightly')
 
-    assert fa_fx_bids == get_result('tests/data/crashstop/fa_fx_bids.json', fa_fx_bids)
+    assert fx_bids == get_result('tests/data/crashstop/fx_bids.json', fx_bids)
 
 
 def test_get_data_for_stats():
@@ -78,7 +78,7 @@ def test_get_unicity_stuff(get_result):
 @patch('libmozdata.socorro.SuperSearch', MySuperSearch)
 def test_get_sgns_data(get_result):
     sgns = MySuperSearch.get_signatures()
-    sgns = sgns['Firefox'][:5] + sgns['FennecAndroid'][:5]
+    sgns = sgns['Firefox'][:5]
     products = config.get_products()
     channels = config.get_channels()
     versions = get_all_versions()

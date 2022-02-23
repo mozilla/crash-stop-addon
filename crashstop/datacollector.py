@@ -67,6 +67,9 @@ def get_useful_bids(buildhub_bids, socorro_bids):
          - remove the builds with a low volume of crashes
            (they're erroneous or have been respined)
     """
+    if not buildhub_bids:
+        return None
+
     res = []
     N = len(buildhub_bids)
     n = -1
@@ -106,8 +109,8 @@ def filter_by_crashes_num(channel, json, data):
                 data_prod.add(bid)
 
 
-def get_filter_query(fa_bids, fx_bids, channel):
-    min_bid = fa_bids[0][0] if fa_bids else '30000101000000'
+def get_filter_query(fn_bids, fx_bids, channel):
+    min_bid = fn_bids[0][0] if fn_bids else '30000101000000'
     min_bid = min(min_bid, fx_bids[0][0]) if fx_bids else min_bid
     date = max(
         utils.get_build_date(min_bid),
@@ -118,7 +121,7 @@ def get_filter_query(fa_bids, fx_bids, channel):
         channel = ['beta', 'aurora']
 
     return {
-        'product': ['FennecAndroid', 'Firefox'],
+        'product': ['Fenix', 'Firefox'],
         'date': '>=' + date,
         'build_id': '>=' + min_bid,
         'release_channel': channel,
@@ -129,11 +132,11 @@ def get_filter_query(fa_bids, fx_bids, channel):
     }
 
 
-def filter_buildids_helper(fa_bids, fx_bids, channel):
+def filter_buildids_helper(fn_bids, fx_bids, channel):
     """Filter the builds to keep only the relevant ones.
     """
-    data = {'Firefox': set(), 'FennecAndroid': set()}
-    params = get_filter_query(fa_bids, fx_bids, channel)
+    data = {'Firefox': set(), 'Fenix': set()}
+    params = get_filter_query(fn_bids, fx_bids, channel)
     ss = socorro.SuperSearch(
         params=params,
         handler=functools.partial(filter_by_crashes_num, channel),
@@ -142,22 +145,26 @@ def filter_buildids_helper(fa_bids, fx_bids, channel):
     ss.wait()
     ss.session.close()
 
-    fa_bids = get_useful_bids(fa_bids, data['FennecAndroid'])
+    fn_bids = get_useful_bids(fn_bids, data['Fenix'])
     fx_bids = get_useful_bids(fx_bids, data['Firefox'])
 
-    return fa_bids, fx_bids
+    return fn_bids, fx_bids
 
 
 def filter_buildids(buildids, channel):
     """Filter the builds to keep only the relevant ones.
     """
-    fa_bids = buildids['FennecAndroid'][channel]
     fx_bids = buildids['Firefox'][channel]
 
-    fa_bids, fx_bids = filter_buildids_helper(fa_bids, fx_bids, channel)
+    # None is to handle the case of esr channel
+    fn_bids = buildids['Fenix'].get(channel, None)
 
-    buildids['FennecAndroid'][channel] = fa_bids
-    buildids['Firefox'][channel] = fx_bids
+    fn_bids, fx_bids = filter_buildids_helper(fn_bids, fx_bids, channel)
+
+    if fn_bids:
+        buildids['Fenix'][channel] = fn_bids
+    if fx_bids:
+        buildids['Firefox'][channel] = fx_bids
 
 
 def get_data_for_stats(data, sgn):
@@ -315,7 +322,7 @@ def get_sgns_data(channels, versions, platforms, signatures, extra, products, to
     data = get_sgns_data_structure(signatures, products, channels, allbids)
 
     # if a buildid is unique then it's unique for its product too.
-    # So we've only 2xN queries (2 == len(['Firefox', 'FennecAndroid']))
+    # So we've only N queries
     for prod, bids in unique.items():
         towait.append(
             get_sgns_data_helper(
