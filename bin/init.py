@@ -9,7 +9,8 @@ while True:
     try:
         models.create()
         break
-    except:  # NOQA
-        pass
+    except Exception as exc:
+        print(f"Something happened... {exc}")
 
 signatures.update()
+print("Done init")
