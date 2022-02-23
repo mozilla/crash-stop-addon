@@ -4,6 +4,7 @@
 
 import pytz
 import six
+from sqlalchemy import inspect
 from . import config
 from . import db, app
 
@@ -74,5 +75,5 @@ def clear():
 
 def create():
     engine = db.get_engine(app)
-    if not engine.dialect.has_table(engine, 'buildid'):
+    if not inspect(engine).has_table(engine, 'buildid'):
         db.create_all()
