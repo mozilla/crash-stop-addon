@@ -15,6 +15,7 @@ ENV MEMCACHEDCLOUD_PASSWORD=
 ENV PORT=8081
 ENV PYTHONPATH=.
 ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1
     
 WORKDIR /tmp
 
@@ -28,7 +29,6 @@ WORKDIR /
 
 COPY --from=0 server.* /
 ADD Procfile .
-RUN sed -i 's/gunicorn/gunicorn --reload --reload-extra-file static --reload-extra-file templates --certfile=\/server.crt --keyfile=\/server.key/g' Procfile
 
 WORKDIR /code
 

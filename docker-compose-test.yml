@@ -6,7 +6,7 @@ services:
       - .:/code
     command: >
       bash -c "python bin/init.py &&
-               PYTHONDONTWRITEBYTECODE=1 pytest -p no:cacheprovider -vv tests/"
+               pytest -p no:cacheprovider -vv tests/"
     depends_on:
       - postgres
       - memcached

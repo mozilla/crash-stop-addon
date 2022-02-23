@@ -7,8 +7,8 @@ services:
     volumes:
       - .:/code
     command: >
-      bash -c "python bin/init.py &&
-               honcho -d . -f /Procfile start"
+      bash -c "python /code/bin/init.py &&
+               honcho --app-root /code --procfile /Procfile start"
     depends_on:
       - postgres
       - memcached
