@@ -36,8 +36,13 @@ def get_fenix_buildids(channels):
         for facets in json['facets']['build_id']:
             bid = facets['term']
             versions = facets['facets']['version']
-            version = max(versions, key=lambda x: x['count'])['term']
-            info[str(bid)] = version
+            relevant = max(versions, key=lambda x: x['count'])
+            # Workaround to remove "noise" in release channel.
+            # Anyway all this stuff will be removed once we have
+            # build data on buildhub.
+            if chan != 'release' or relevant['count'] >= 200:
+                version = relevant['term']
+                info[str(bid)] = version
 
         info= sorted(info.items())
         data[chan] = [list(x) for x in info]
