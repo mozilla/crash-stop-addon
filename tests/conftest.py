@@ -26,9 +26,10 @@ def get_result():
 
 @pytest.fixture()
 def create_db():
-    models.create()
-    yield None
-    models.clear()
+    with app.app_context():
+        models.create()
+        yield None
+        models.clear()
 
 
 @pytest.fixture

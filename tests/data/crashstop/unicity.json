@@ -1,6 +1,6 @@
 {
     "allbids": {
-        "FennecAndroid": {
+        "Fenix": {
             "beta": {
                 "20180713213322": 0,
                 "20180723144101": 1,
@@ -72,7 +72,7 @@
     "leftovers": [],
     "min_buildid": "20180605171542",
     "unique": {
-        "FennecAndroid": {
+        "Fenix": {
             "20180605171542": "release",
             "20180621125625": "release",
             "20180713213322": "beta",

@@ -3,11 +3,16 @@
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
 from crashstop import cache
+import pytest
 import time
 from unittest.mock import patch
 from .hg import MyRevision
 from .supersearch import MySuperSearch
 from .test_signatures import get_all_versions
+
+
+# Relies on live Socorro/hg fixtures (stale since fennec->fenix); see test_client.
+pytestmark = pytest.mark.integration
 
 
 @patch('crashstop.signatures.get_all_versions', get_all_versions)

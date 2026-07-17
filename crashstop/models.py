@@ -3,10 +3,9 @@
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
 import pytz
-import six
 from sqlalchemy import inspect
 from . import config
-from . import db, app
+from . import db
 
 
 CHANNEL_TYPE = db.Enum(*config.get_channels(), name='CHANNEL_TYPE')
@@ -48,9 +47,9 @@ class Buildid(db.Model):
 
     @staticmethod
     def get_versions(products, channels):
-        if isinstance(products, six.string_types):
+        if isinstance(products, str):
             products = [products]
-        if isinstance(channels, six.string_types):
+        if isinstance(channels, str):
             channels = [channels]
 
         res = {p: {c: [] for c in channels} for p in products}
@@ -74,6 +73,5 @@ def clear():
 
 
 def create():
-    engine = db.get_engine(app)
-    if not inspect(engine).has_table(engine, 'buildid'):
+    if not inspect(db.engine).has_table('buildid'):
         db.create_all()

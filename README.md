@@ -1,8 +1,6 @@
 # crash-stop-addon
 
-[![Build Status](https://api.travis-ci.org/mozilla/crash-stop-addon.svg?branch=master)](https://travis-ci.org/mozilla/crash-stop-addon)
-[![Coverage Status](https://coveralls.io/repos/github/mozilla/crash-stop-addon/badge.svg?branch=master)](https://coveralls.io/r/mozilla/crash-stop-addon)
-[![Updates](https://pyup.io/repos/github/mozilla/crash-stop-addon/shield.svg)](https://pyup.io/repos/github/mozilla/crash-stop-addon/)
+[![CI](https://github.com/mozilla/crash-stop-addon/actions/workflows/ci.yml/badge.svg)](https://github.com/mozilla/crash-stop-addon/actions/workflows/ci.yml)
 
 
 crash-stop addon is used to display crash data and patch information in Bugzilla.

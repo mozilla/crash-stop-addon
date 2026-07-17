@@ -7,7 +7,6 @@ from datetime import datetime
 import math
 import pytz
 import re
-import six
 
 
 KOTLIN_PAT = re.compile(r'.*\.kt:[0-9]+\)$')
@@ -69,7 +68,7 @@ def get_params_for_link(query={}):
 
 
 def get_build_date(bid):
-    if isinstance(bid, six.string_types):
+    if isinstance(bid, str):
         Y = int(bid[0:4])
         m = int(bid[4:6])
         d = int(bid[6:8])

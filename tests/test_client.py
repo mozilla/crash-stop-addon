@@ -2,8 +2,9 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
-from flask import escape
-from jinja2.utils import unicode_urlencode as urlencode
+from markupsafe import escape
+from urllib.parse import quote as urlencode
+import pytest
 from unittest.mock import patch
 from .hg import MyRevision
 from .supersearch import MySuperSearch
@@ -28,6 +29,7 @@ def test_css(client):
     assert data == css
 
 
+@pytest.mark.integration
 @patch('libmozdata.socorro.SuperSearch', MySuperSearch)
 @patch('libmozdata.hgmozilla.Revision', MyRevision)
 def test_sumup(client):
@@ -57,6 +59,7 @@ def test_sumup(client):
         assert sgn in res.data
 
 
+@pytest.mark.integration
 @patch('libmozdata.socorro.SuperSearch', MySuperSearch)
 @patch('libmozdata.hgmozilla.Revision', MyRevision)
 def test_sumup_extra(client):

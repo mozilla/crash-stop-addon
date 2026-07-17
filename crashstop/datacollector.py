@@ -2,12 +2,13 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
-from datetime import datetime
+from datetime import datetime, timezone
 from dateutil.relativedelta import relativedelta
 import functools
 from libmozdata import hgmozilla, socorro, utils as lmdutils
 from libmozdata.connection import Query
 from . import config, utils
+
 
 def get_fenix_buildids(channels):
     # We don't have build info for Fenix on buildhub
@@ -44,7 +45,7 @@ def get_fenix_buildids(channels):
                 version = relevant['term']
                 info[str(bid)] = version
 
-        info= sorted(info.items())
+        info = sorted(info.items())
         data[chan] = [list(x) for x in info]
 
     queries = []
@@ -359,7 +360,7 @@ def get_pushdate(json, data):
     """
     if not json.get('backedoutby', False):
         pushdate = json['pushdate'][0]
-        pushdate = lmdutils.as_utc(datetime.utcfromtimestamp(pushdate))
+        pushdate = lmdutils.as_utc(datetime.fromtimestamp(pushdate, timezone.utc))
         data.append(pushdate)
 
 

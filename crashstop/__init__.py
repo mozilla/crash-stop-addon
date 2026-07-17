@@ -19,14 +19,16 @@ app.config['SQLALCHEMY_DATABASE_URI'] = uri
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-from . import html
+from . import html  # noqa: E402  (must import after db/app are defined)
+
 
 def setup():
     from . import models, signatures
 
-    models.clear()
-    models.create()
-    signatures.update()
+    with app.app_context():
+        models.clear()
+        models.create()
+        signatures.update()
 
 
 @app.route('/sumup.html')

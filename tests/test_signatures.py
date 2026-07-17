@@ -3,6 +3,7 @@
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
 from crashstop import signatures
+import pytest
 from unittest.mock import patch
 from . import common
 from .hg import MyRevision
@@ -27,6 +28,7 @@ def test_get_for_urls_sgns_empty():
     assert data == {'data': {}, 'versions': {}}
 
 
+@pytest.mark.integration
 @patch('crashstop.signatures.get_all_versions', get_all_versions)
 @patch('libmozdata.socorro.SuperSearch', MySuperSearch)
 def test_get_for_urls_sgns_no_patch_fx(get_result):
@@ -37,6 +39,7 @@ def test_get_for_urls_sgns_no_patch_fx(get_result):
     assert data == get_result('tests/data/crashstop/signatures_nop_fx.json', data)
 
 
+@pytest.mark.integration
 @patch('crashstop.signatures.get_all_versions', get_all_versions)
 @patch('libmozdata.socorro.SuperSearch', MySuperSearch)
 @patch('libmozdata.hgmozilla.Revision', MyRevision)
@@ -58,6 +61,7 @@ def test_get_for_urls_sgns_patch_fx(get_result):
     assert data == get_result('tests/data/crashstop/signatures_p_fx.json', data)
 
 
+@pytest.mark.integration
 @patch('crashstop.signatures.get_all_versions', get_all_versions)
 @patch('libmozdata.socorro.SuperSearch', MySuperSearch)
 @patch('libmozdata.hgmozilla.Revision', MyRevision)

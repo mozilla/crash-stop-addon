@@ -3,7 +3,7 @@
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
 from apscheduler.schedulers.blocking import BlockingScheduler
-from crashstop import signatures
+from crashstop import app, signatures
 
 
 sched = BlockingScheduler(timezone="GMT")
@@ -11,7 +11,8 @@ sched = BlockingScheduler(timezone="GMT")
 
 @sched.scheduled_job('cron', hour='0/2')
 def timed_job():
-    signatures.update()
+    with app.app_context():
+        signatures.update()
 
 
 sched.start()

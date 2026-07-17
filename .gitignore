@@ -10,3 +10,5 @@ server.key
 local.json
 .pytest_cache
 venv
+.venv
+__pycache__

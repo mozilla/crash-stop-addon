@@ -6,7 +6,10 @@ RUN openssl req \
     -x509 -days 365 -out server.crt \
     -subj "/C=FR/ST=Paris/L=Paris/O=Crash-Stop/OU=Crash/CN=crash-stop.org"
 
-FROM python:slim
+FROM python:3.14-slim
+
+# Bring in the uv binary (https://docs.astral.sh/uv/guides/integration/docker/).
+COPY --from=ghcr.io/astral-sh/uv:0.11.23 /uv /uvx /bin/
 
 ENV DATABASE_URL=postgresql://crash:stop@postgres:5432/crashstop
 ENV MEMCACHEDCLOUD_SERVERS=memcached:11211
@@ -16,14 +19,19 @@ ENV PORT=8081
 ENV PYTHONPATH=.
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONDONTWRITEBYTECODE=1
-    
+
+# Install the locked dependencies (plus the test extra) into a dedicated venv
+# and put it on PATH, so gunicorn/honcho/python/pytest resolve to it regardless
+# of the working directory (docker-compose mounts the source at /code).
+ENV UV_PROJECT_ENVIRONMENT=/opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+ENV UV_COMPILE_BYTECODE=1
+
 WORKDIR /tmp
 
-ADD requirements.txt /tmp/requirements.txt
-ADD test-requirements.txt /tmp/test-requirements.txt
+ADD pyproject.toml uv.lock .python-version /tmp/
 
-RUN pip install -r requirements.txt
-RUN pip install -r test-requirements.txt
+RUN uv sync --locked --no-install-project --extra test
 
 WORKDIR /
 

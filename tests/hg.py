@@ -19,7 +19,11 @@ class MyRevision:
         data.append(json)
 
     @staticmethod
-    def get_data(params, channel):
+    def get_url(channel):
+        return _Revision.get_url(channel)
+
+    @staticmethod
+    def get_data(url, params):
         if os.path.isfile(MyRevision.PATH):
             with open(MyRevision.PATH, 'r') as In:
                 data = json.load(In)
@@ -31,9 +35,7 @@ class MyRevision:
             hdata = []
             Connection(
                 Mercurial.HG_URL,
-                queries=Query(
-                    _Revision.get_url(channel), params, MyRevision.handler, hdata
-                ),
+                queries=Query(url, params, MyRevision.handler, hdata),
             ).wait()
             data[params_str] = hdata[0]
             dumpjson(MyRevision.PATH, data)
@@ -43,15 +45,21 @@ class MyRevision:
         return data[params_str]
 
     def __init__(self, *args, **kwargs):
+        # crashstop.datacollector.get_pushdates bakes the correct per-channel
+        # URL into each query and calls Revision(queries=...) with no channel
+        # kwarg. Fetch (on a cache miss) via the query's own URL rather than
+        # rebuilding it from a single/guessed channel, so mixed-channel queries
+        # (beta/release/esr) hit the right repository.
         if 'handler' in kwargs:
+            url = _Revision.get_url(kwargs.get('channel', 'nightly'))
             kwargs['handler'](
-                MyRevision.get_data(kwargs['params'], kwargs['channel']),
+                MyRevision.get_data(url, kwargs['params']),
                 kwargs['handlerdata'],
             )
         else:
             for query in kwargs['queries']:
                 query.handler(
-                    MyRevision.get_data(query.params, kwargs['channel']),
+                    MyRevision.get_data(query.url, query.params),
                     query.handlerdata,
                 )
 

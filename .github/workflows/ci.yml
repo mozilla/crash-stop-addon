@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - name: Sync dependencies
+        run: uv sync --locked --extra test
+      - name: flake8
+        run: uv run flake8 .
+
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: crash
+          POSTGRES_PASSWORD: stop
+          POSTGRES_DB: crashstop_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+      memcached:
+        image: memcached
+        ports:
+          - 11211:11211
+    env:
+      DATABASE_URL: postgresql://crash:stop@localhost:5432/crashstop_test
+      MEMCACHEDCLOUD_SERVERS: 127.0.0.1:11211
+      MEMCACHEDCLOUD_USERNAME: ""
+      MEMCACHEDCLOUD_PASSWORD: ""
+      PYTHONPATH: .
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - name: Sync dependencies
+        run: uv sync --locked --extra test
+      - name: pytest
+        # The `integration` tests hit live Mozilla APIs and have fixtures that
+        # are stale since the fennec->fenix rework; they are excluded until
+        # rehabilitated (see the `integration` marker in pyproject.toml).
+        run: uv run pytest -p no:cacheprovider -m "not integration" -vv tests/

@@ -3,12 +3,10 @@
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
 from crashstop import buildhub
-from datetime import datetime
 import functools
 import json
 import os.path
 import pytest
-import pytz
 from unittest.mock import patch
 from .common import dumpjson
 
@@ -58,6 +56,7 @@ def test_make_request(create_buildhub_data):
     assert d == MyResponse(False).json()
 
 
+@pytest.mark.integration
 @patch('requests.post', new=functools.partial(MyResponse.post, False))
 def test_extract(create_buildhub_data, get_result):
     data = buildhub.get_raw()
@@ -70,6 +69,7 @@ def test_extract(create_buildhub_data, get_result):
     assert x['buildids_per_prod'] == data['buildids_per_prod']
 
 
+@pytest.mark.integration
 @patch('requests.post', new=functools.partial(MyResponse.post, False))
 def test_get_last_versions(create_buildhub_data, get_result):
     data = buildhub.get_raw()
@@ -80,6 +80,7 @@ def test_get_last_versions(create_buildhub_data, get_result):
     assert x == data
 
 
+@pytest.mark.integration
 @patch('requests.post', new=functools.partial(MyResponse.post, False))
 def test_add_unicity(create_buildhub_data, get_result):
     data = buildhub.get_raw()
@@ -90,6 +91,7 @@ def test_add_unicity(create_buildhub_data, get_result):
     assert x == data
 
 
+@pytest.mark.integration
 @patch('requests.post', new=functools.partial(MyResponse.post, False))
 @patch('crashstop.datacollector.filter_buildids', new=lambda x, c: x)
 def test_get(create_buildhub_data, get_result):

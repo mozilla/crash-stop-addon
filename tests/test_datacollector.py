@@ -5,6 +5,7 @@
 from crashstop import datacollector as dc
 from crashstop import config, utils, signatures
 import json
+import pytest
 from unittest.mock import patch
 from .common import get_all_versions
 from .hg import MyRevision
@@ -27,6 +28,7 @@ def test_get_useful_bids():
     assert dc.get_useful_bids(buildhub_bids, socorro_bids) == expected
 
 
+@pytest.mark.integration
 @patch('libmozdata.socorro.SuperSearch', MySuperSearch)
 def test_filter_buildids(get_result):
     with open('tests/data/buildhub/extract.json', 'r') as In:
@@ -75,6 +77,7 @@ def test_get_unicity_stuff(get_result):
     assert res == get_result('tests/data/crashstop/unicity.json', res)
 
 
+@pytest.mark.integration
 @patch('libmozdata.socorro.SuperSearch', MySuperSearch)
 def test_get_sgns_data(get_result):
     sgns = MySuperSearch.get_signatures()
@@ -118,8 +121,8 @@ def test_pushdates(get_result):
     revs = utils.get_channel_revision(revs)
     res, data = dc.get_pushdates(revs)
 
-    for r in res:
-        r.wait()
+    if res:
+        res.wait()
 
     for chan, dates in data.items():
         data[chan] = [str(date) for date in dates]
