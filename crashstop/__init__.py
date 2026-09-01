@@ -4,7 +4,7 @@
 
 from flask import Flask, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
-from libmozdata import socorro
+from libmozdata import hgmozilla, socorro
 from libmozdata.connection import Connection
 import os
 from . import config
@@ -34,6 +34,13 @@ Connection.MAX_RETRIES = 0
 # fresh pool is created per SuperSearch instance (one per product, plus one
 # per leftover buildid).
 Connection.MAX_WORKERS = 8
+
+# hg.mozilla.org 302s to hg-edge.mozilla.org and each hop gets the full
+# timeout, so query the edge directly. `remote` has to be set alongside it:
+# libmozdata derives it from HG_URL == 'https://hg.mozilla.org' and, when it
+# comes out false, get_repo_url() returns the bare host without the repo path.
+hgmozilla.Mercurial.HG_URL = 'https://hg-edge.mozilla.org'
+hgmozilla.Mercurial.remote = True
 
 app = Flask(__name__, template_folder='../templates', static_folder='../static')
 
