@@ -4,9 +4,36 @@
 
 from flask import Flask, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
+from libmozdata import socorro
+from libmozdata.connection import Connection
 import os
 from . import config
 
+
+# Socorro throttles anonymous callers hard and libmozdata retries 429s, so
+# without a token a burst of SuperSearch queries ends up sleeping past the
+# Heroku router timeout.
+socorro.Socorro.TOKEN = os.getenv('SOCORRO_TOKEN', socorro.Socorro.TOKEN)
+
+# Keep a request within Heroku's 30s router timeout. libmozdata's defaults
+# (30s timeout, 256 retries with a 1s backoff factor) let a single throttled
+# query sleep for minutes. urllib3 counts read timeouts against the same retry
+# budget, and hg.mozilla.org 302s to hg-edge.mozilla.org so each hg query pays
+# the timeout twice -- which is 20s of the budget already. Retrying inside a
+# request is not where the remaining seconds are best spent: the value is
+# cached for 10min once it lands, so a failure is cheaper to retry on the next
+# request than to sit on here.
+#
+# These have to be set on the class rather than passed to the constructors:
+# Connection.__init__ builds the session and the Retry policy from the class
+# attributes *before* it reads the max_retries/max_workers kwargs, so those
+# kwargs are silently ignored.
+Connection.TIMEOUT = 10
+Connection.MAX_RETRIES = 0
+# The default is cpu_count(), which on a dyno reports the host's CPUs, and a
+# fresh pool is created per SuperSearch instance (one per product, plus one
+# per leftover buildid).
+Connection.MAX_WORKERS = 8
 
 app = Flask(__name__, template_folder='../templates', static_folder='../static')
 

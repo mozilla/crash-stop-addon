@@ -3,8 +3,15 @@
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
 from apscheduler.schedulers.blocking import BlockingScheduler
+from libmozdata.connection import Connection
 from crashstop import app, signatures
 
+
+# crashstop/__init__.py tightens these so a web request fits in the Heroku
+# router timeout. This job runs every two hours with no deadline and would
+# rather be slow than leave the build data stale, so be patient here.
+Connection.TIMEOUT = 60
+Connection.MAX_RETRIES = 5
 
 sched = BlockingScheduler(timezone="GMT")
 
