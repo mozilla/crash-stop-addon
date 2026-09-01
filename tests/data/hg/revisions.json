@@ -1,170 +1,884 @@
 {
-    "?node=0be81adef007": {
-        "backedoutby": "",
-        "bookmarks": [],
-        "branch": "default",
-        "date": [
-            1532611088.0,
-            -7200
-        ],
-        "desc": "Bug 1476605 - Fix Error rep failure when stacktrace is a longString. r=sole, a=RyanVM\n\nThe actual fix for this issue will come in a future\nreps bundle when https://github.com/devtools-html/debugger.html/pull/6705\ngets merged.\nBut, I do want this change to be uplifted to release, and it should be\neasier to only apply this simple change than the whole next release\nwhich would contain unrelated code changes.\nAlso, this patch introduces a test to make sure we don't ever regress\nthis.\n\nMozReview-Commit-ID: 3QPrx3TLln0",
-        "landingsystem": null,
-        "node": "0be81adef0075a692dab0cd707acbe0993c2a3c1",
-        "parents": [
-            "338feb0782ff509445eeed774e3ffe420b2dfcf2"
-        ],
-        "phase": "public",
-        "pushdate": [
-            1533661351,
-            0
-        ],
-        "pushid": 1751,
-        "pushuser": "ryanvm@gmail.com",
-        "tags": [],
-        "user": "Nicolas Chevobbe <nchevobbe@mozilla.com>"
+    "/mozilla-central/json-automationrelevance/5c44264ed1fe?backouts=1": {
+        "changesets": [
+            {
+                "backedoutby": "a92aacd177b541c80474ea95f50dbc3c3bd5d57e",
+                "node": "054c113b5cb18011f4a386bdeced1ff05aecbe0d",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "a92aacd177b541c80474ea95f50dbc3c3bd5d57e",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "c896958f358eb37982e325ab4ed8e1244320b0bc",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "e1296c1105fbf9f34a7b54018d1767d56a6d5847",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "6ff5e06dccdcf88c9673c5035bd8f86bf6974066",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "fd86a6388333a146b2ca7dcea00f3e3343aae139",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "c0f5b64fe563a74d5d23f5aa5199a437cb8fd745",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "4b7383b27f89dcb1732b27f6d68f1684f36ff377",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "53f23b446b29fd9dd32709be5c39b9eb3da9735e",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "4bb2acbf4eb0d386046945e52bdd546fc41ae8e5",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "e3e6a4d867a447d7c56827a491e6e2330838082b",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "ab61273bea17b941baca4f3f85b6ca0362d56e22",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "e5ac55ad643d95424b8891446a3743b53bcf6bfe",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "fb399f543ea6a888ac6d3f2ccec37bb067b9d601",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "3cc02142bee050b98b38fa0e6df8bb985e790021",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "7f2c542df6fd1e9e62d7f9d237b10e14f01619f3",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "bc455055ef6b1342f54bbc5aba42331349d37b61",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "c1df1c2e46f6f3273bce2407fef907a779d491cd",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "559f9bc81c99d8421a6fa75788f2ac55bcf7e3fa",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "2cc9cac00814fa52f5a75d01f7883e11450ebf1e",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "3de16fbc247bc1ca28ec12a776e468630407ea9e",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "d814396399b3dc90603e72b01d4c610228ec299e",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "9cf35b96d52478037f6b0da91a6df7f8476b736e",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "4c42ea4583b250aa78c491f30716a99d0629ebde",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "29f7da1bf5f766e074e3c5ae5b3c1a2fd35570fe",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "981a904be10351695c8282ab0cc7677715c4e607",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "bf68c78fb8597abea5a9c3583b840f7137194196",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "cf82ec49ee1a6a33e4a860f345b63a10c94a04b6",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "3db3f0761004289cef06241977003539e2abef62",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "389ffe7befeeee61318659e3c76b4ae2b93bb446",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "aebd6f51d2e5125b1a0be102a6f1c93fa377425f",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "b51573db388680bbbc18a7f31c0854065962f5e0",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "c0893e34dfcfaf1b7d7f131a35067346d0522927",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "backedoutby": "41ebcb085bb01e54c1a7eea9e794cde45afbe734",
+                "node": "1c9895ab06c6a1fa7799005bda10bc21d35c8a9b",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "backedoutby": "41ebcb085bb01e54c1a7eea9e794cde45afbe734",
+                "node": "babf6abc7f4cc189f17f73c7ddff8987da69a43a",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "backedoutby": "41ebcb085bb01e54c1a7eea9e794cde45afbe734",
+                "node": "d31e39a477046ed8a574e43dc6bbd4192829680d",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "backedoutby": "41ebcb085bb01e54c1a7eea9e794cde45afbe734",
+                "node": "cd2ced68989568aaadd21e09d7d68664cf43e91d",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "backedoutby": "41ebcb085bb01e54c1a7eea9e794cde45afbe734",
+                "node": "b1cb63d8c8bb98823dab57773d150178f19e694b",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "backedoutby": "41ebcb085bb01e54c1a7eea9e794cde45afbe734",
+                "node": "e80737d6af552187ffeb8099c8d6fd936febed5e",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "41ebcb085bb01e54c1a7eea9e794cde45afbe734",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "971943621f6e52daa0e94e48c3d846567978ff26",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "6cd69a56e853b2f2f3ef42e1ef406030cfbc9c1f",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "d49371d4563a373e0c701f385c59699f2f19dede",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "6bb8792d978ca0b0b84a0fd1218260392b897ed1",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "3f1d6721cab0d1668a2441f7b0b7d018f1ac6475",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "c9b2f96523b17a7da4a5827e350a11c2b049bbb7",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "9d0deb476c99a94b865b202c58c71ed4cf82caf0",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "0f87ab9fbddd9102e63c607bcce8cd8226808e49",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "80e54dbe8329644695c2fc786b8d62a133364eef",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "bcb838fd92f08e167ec87877904831a408fb0120",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "5c44264ed1fec9b4fad27c0c18de7d383597d847",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            }
+        ]
     },
-    "?node=4a5ae6a7911d": {
-        "backedoutby": "",
-        "bookmarks": [],
-        "branch": "default",
-        "date": [
-            1534217184.0,
-            0
-        ],
-        "desc": "Bug 1480934 - Saving Reader View page yields blank page fixed by removing inline style. r=jaws, r=ckerschb, a=RyanVM\n\nDifferential Revision: https://phabricator.services.mozilla.com/D2947",
-        "landingsystem": null,
-        "node": "4a5ae6a7911df036fcb8561e490f5f0a8fc2b256",
-        "parents": [
-            "bc6e295b9a0b2ec46e5dd05a0c3467a36bf3964f"
-        ],
-        "phase": "public",
-        "pushdate": [
-            1534952233,
-            0
-        ],
-        "pushid": 9707,
-        "pushuser": "ryanvm@gmail.com",
-        "tags": [],
-        "user": "vinoth <cegvinoth@gmail.com>"
+    "/mozilla-central/json-automationrelevance/9d0deb476c99?backouts=1": {
+        "changesets": [
+            {
+                "backedoutby": "a92aacd177b541c80474ea95f50dbc3c3bd5d57e",
+                "node": "054c113b5cb18011f4a386bdeced1ff05aecbe0d",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "a92aacd177b541c80474ea95f50dbc3c3bd5d57e",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "c896958f358eb37982e325ab4ed8e1244320b0bc",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "e1296c1105fbf9f34a7b54018d1767d56a6d5847",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "6ff5e06dccdcf88c9673c5035bd8f86bf6974066",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "fd86a6388333a146b2ca7dcea00f3e3343aae139",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "c0f5b64fe563a74d5d23f5aa5199a437cb8fd745",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "4b7383b27f89dcb1732b27f6d68f1684f36ff377",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "53f23b446b29fd9dd32709be5c39b9eb3da9735e",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "4bb2acbf4eb0d386046945e52bdd546fc41ae8e5",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "e3e6a4d867a447d7c56827a491e6e2330838082b",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "ab61273bea17b941baca4f3f85b6ca0362d56e22",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "e5ac55ad643d95424b8891446a3743b53bcf6bfe",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "fb399f543ea6a888ac6d3f2ccec37bb067b9d601",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "3cc02142bee050b98b38fa0e6df8bb985e790021",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "7f2c542df6fd1e9e62d7f9d237b10e14f01619f3",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "bc455055ef6b1342f54bbc5aba42331349d37b61",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "c1df1c2e46f6f3273bce2407fef907a779d491cd",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "559f9bc81c99d8421a6fa75788f2ac55bcf7e3fa",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "2cc9cac00814fa52f5a75d01f7883e11450ebf1e",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "3de16fbc247bc1ca28ec12a776e468630407ea9e",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "d814396399b3dc90603e72b01d4c610228ec299e",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "9cf35b96d52478037f6b0da91a6df7f8476b736e",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "4c42ea4583b250aa78c491f30716a99d0629ebde",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "29f7da1bf5f766e074e3c5ae5b3c1a2fd35570fe",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "981a904be10351695c8282ab0cc7677715c4e607",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "bf68c78fb8597abea5a9c3583b840f7137194196",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "cf82ec49ee1a6a33e4a860f345b63a10c94a04b6",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "3db3f0761004289cef06241977003539e2abef62",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "389ffe7befeeee61318659e3c76b4ae2b93bb446",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "aebd6f51d2e5125b1a0be102a6f1c93fa377425f",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "b51573db388680bbbc18a7f31c0854065962f5e0",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "c0893e34dfcfaf1b7d7f131a35067346d0522927",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "backedoutby": "41ebcb085bb01e54c1a7eea9e794cde45afbe734",
+                "node": "1c9895ab06c6a1fa7799005bda10bc21d35c8a9b",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "backedoutby": "41ebcb085bb01e54c1a7eea9e794cde45afbe734",
+                "node": "babf6abc7f4cc189f17f73c7ddff8987da69a43a",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "backedoutby": "41ebcb085bb01e54c1a7eea9e794cde45afbe734",
+                "node": "d31e39a477046ed8a574e43dc6bbd4192829680d",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "backedoutby": "41ebcb085bb01e54c1a7eea9e794cde45afbe734",
+                "node": "cd2ced68989568aaadd21e09d7d68664cf43e91d",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "backedoutby": "41ebcb085bb01e54c1a7eea9e794cde45afbe734",
+                "node": "b1cb63d8c8bb98823dab57773d150178f19e694b",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "backedoutby": "41ebcb085bb01e54c1a7eea9e794cde45afbe734",
+                "node": "e80737d6af552187ffeb8099c8d6fd936febed5e",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "41ebcb085bb01e54c1a7eea9e794cde45afbe734",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "971943621f6e52daa0e94e48c3d846567978ff26",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "6cd69a56e853b2f2f3ef42e1ef406030cfbc9c1f",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "d49371d4563a373e0c701f385c59699f2f19dede",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "6bb8792d978ca0b0b84a0fd1218260392b897ed1",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "3f1d6721cab0d1668a2441f7b0b7d018f1ac6475",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "c9b2f96523b17a7da4a5827e350a11c2b049bbb7",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            },
+            {
+                "node": "9d0deb476c99a94b865b202c58c71ed4cf82caf0",
+                "pushdate": [
+                    1534955334,
+                    0
+                ]
+            }
+        ]
     },
-    "?node=55fc535ff4ce": {
-        "backedoutby": "",
-        "bookmarks": [],
-        "branch": "default",
-        "date": [
-            1534924410.0,
-            -7200
-        ],
-        "desc": "Bug 1447449 - [marionette] Prevent hang in pause action. r=ato, a=test-only\n\nUnder some unknown circumstances an instance of nsITimer doesn't\ncall resolve(), and as such the pause action hangs forever.\n\nInjecting a custom handler which itself calls resolve, prevents\nthis hang.\n\nThis is a workaround for older branches while bug 1484161 fixed\nit for Firefox 63.",
-        "landingsystem": null,
-        "node": "55fc535ff4ceb31c76bc66c3ef777567754a4637",
-        "parents": [
-            "dd432f7b82d6e2d29e80d20f2a1a48f89d863d19"
-        ],
-        "phase": "public",
-        "pushdate": [
-            1534946655,
-            0
-        ],
-        "pushid": 9706,
-        "pushuser": "ryanvm@gmail.com",
-        "tags": [],
-        "user": "Henrik Skupin <mail@hskupin.info>"
+    "/releases/mozilla-beta/json-automationrelevance/4a5ae6a7911d?backouts=1": {
+        "changesets": [
+            {
+                "node": "809e1c8c76ab93bdd3d347133922c2070311fd37",
+                "pushdate": [
+                    1534952233,
+                    0
+                ]
+            },
+            {
+                "node": "bc6e295b9a0b2ec46e5dd05a0c3467a36bf3964f",
+                "pushdate": [
+                    1534952233,
+                    0
+                ]
+            },
+            {
+                "node": "4a5ae6a7911df036fcb8561e490f5f0a8fc2b256",
+                "pushdate": [
+                    1534952233,
+                    0
+                ]
+            }
+        ]
     },
-    "?node=5c3ef4992a63": {
-        "backedoutby": "",
-        "bookmarks": [],
-        "branch": "default",
-        "date": [
-            1534500079.0,
-            -7200
-        ],
-        "desc": "Bug 1481544 - Style the treecol with CSS on Windows Classic and HC themes. r=dao, a=RyanVM",
-        "landingsystem": null,
-        "node": "5c3ef4992a6367778c6960c6f55597b9ad2e8e05",
-        "parents": [
-            "c1c4fbe5d3b2b7ed5a8ab9d128c635b2ec07d0ea"
-        ],
-        "phase": "public",
-        "pushdate": [
-            1534888942,
-            0
-        ],
-        "pushid": 147,
-        "pushuser": "ryanvm@gmail.com",
-        "tags": [],
-        "user": "Richard Marti <richard.marti@gmail.com>"
+    "/releases/mozilla-beta/json-automationrelevance/55fc535ff4ce?backouts=1": {
+        "changesets": [
+            {
+                "node": "ff3e20090e9a6f2006879f27092d939349d2668d",
+                "pushdate": [
+                    1534946655,
+                    0
+                ]
+            },
+            {
+                "node": "bcd42552273d760ff3f53f4d05f603779d1e8fbf",
+                "pushdate": [
+                    1534946655,
+                    0
+                ]
+            },
+            {
+                "node": "e6990f9e4bed67db217a013c54a10e5e192735d0",
+                "pushdate": [
+                    1534946655,
+                    0
+                ]
+            },
+            {
+                "node": "dd432f7b82d6e2d29e80d20f2a1a48f89d863d19",
+                "pushdate": [
+                    1534946655,
+                    0
+                ]
+            },
+            {
+                "node": "55fc535ff4ceb31c76bc66c3ef777567754a4637",
+                "pushdate": [
+                    1534946655,
+                    0
+                ]
+            }
+        ]
     },
-    "?node=5c44264ed1fe": {
-        "backedoutby": "",
-        "bookmarks": [],
-        "branch": "default",
-        "date": [
-            1534790652.0,
-            14400
-        ],
-        "desc": "Bug 1482454 - add learn more links across accessibility panel. r=gl, flod\n\nMozReview-Commit-ID: GWrdjnzlS8b\n",
-        "landingsystem": null,
-        "node": "5c44264ed1fec9b4fad27c0c18de7d383597d847",
-        "parents": [
-            "bcb838fd92f08e167ec87877904831a408fb0120"
-        ],
-        "phase": "public",
-        "pushdate": [
-            1534955334,
-            0
-        ],
-        "pushid": 34488,
-        "pushuser": "nerli@mozilla.com",
-        "tags": [],
-        "user": "Yura Zenevich <yura.zenevich@gmail.com>"
+    "/releases/mozilla-esr60/json-automationrelevance/5c3ef4992a63?backouts=1": {
+        "changesets": [
+            {
+                "node": "d4e3a88eef06a4b712b0619c50538fb6973435d0",
+                "pushdate": [
+                    1534888942,
+                    0
+                ]
+            },
+            {
+                "node": "1973f8b39e0cfa9e277400f4b36332d77c5b4d0f",
+                "pushdate": [
+                    1534888942,
+                    0
+                ]
+            },
+            {
+                "node": "b68604c980e3413d57cd544ec1751668f1f02843",
+                "pushdate": [
+                    1534888942,
+                    0
+                ]
+            },
+            {
+                "node": "b6973124edaef8703e5b5b41299fa084858cbc9e",
+                "pushdate": [
+                    1534888942,
+                    0
+                ]
+            },
+            {
+                "node": "c1c4fbe5d3b2b7ed5a8ab9d128c635b2ec07d0ea",
+                "pushdate": [
+                    1534888942,
+                    0
+                ]
+            },
+            {
+                "node": "5c3ef4992a6367778c6960c6f55597b9ad2e8e05",
+                "pushdate": [
+                    1534888942,
+                    0
+                ]
+            }
+        ]
     },
-    "?node=9d0deb476c99": {
-        "backedoutby": "",
-        "bookmarks": [],
-        "branch": "default",
-        "date": [
-            1534902900.0,
-            -10800
-        ],
-        "desc": "Bug 1480314 - Disable browser_search_within_preferences_1.js on win for frequent failures. r=jmaher",
-        "landingsystem": null,
-        "node": "9d0deb476c99a94b865b202c58c71ed4cf82caf0",
-        "parents": [
-            "c9b2f96523b17a7da4a5827e350a11c2b049bbb7"
-        ],
-        "phase": "public",
-        "pushdate": [
-            1534955334,
-            0
-        ],
-        "pushid": 34488,
-        "pushuser": "nerli@mozilla.com",
-        "tags": [],
-        "user": "Eliza Balazs <ebalazs@mozilla.com>"
+    "/releases/mozilla-esr60/json-automationrelevance/bcb4837d51e8?backouts=1": {
+        "changesets": [
+            {
+                "node": "8857505321fd28e98a7a1e06178423b10ea6732b",
+                "pushdate": [
+                    1534406722,
+                    0
+                ]
+            },
+            {
+                "node": "bcb4837d51e803b8f14e8363227477ae383a60d7",
+                "pushdate": [
+                    1534406722,
+                    0
+                ]
+            }
+        ]
     },
-    "?node=bcb4837d51e8": {
-        "backedoutby": "",
-        "bookmarks": [],
-        "branch": "default",
-        "date": [
-            1530204734.0,
-            0
-        ],
-        "desc": "Bug 1471415 - Fix logic in nsXULPopupManager::ShouldConsumeOnMouseWheelEvent. r=smaug, a=RyanVM\n\nIt was accidentally toggled in bug 1423990.\n\nDifferential Revision: https://phabricator.services.mozilla.com/D1863",
-        "landingsystem": null,
-        "node": "bcb4837d51e803b8f14e8363227477ae383a60d7",
-        "parents": [
-            "8857505321fd28e98a7a1e06178423b10ea6732b"
-        ],
-        "phase": "public",
-        "pushdate": [
-            1534406722,
-            0
-        ],
-        "pushid": 142,
-        "pushuser": "archaeopteryx@coole-files.de",
-        "tags": [],
-        "user": "Emilio Cobos \u00c1lvarez <emilio@crisal.io>"
+    "/releases/mozilla-release/json-automationrelevance/0be81adef007?backouts=1": {
+        "changesets": [
+            {
+                "node": "dad476171a763a8b322a9dde064dc01123abc80f",
+                "pushdate": [
+                    1533661351,
+                    0
+                ]
+            },
+            {
+                "node": "e6b8ec3c45a40459171c6d89cb357aa0288b0b25",
+                "pushdate": [
+                    1533661351,
+                    0
+                ]
+            },
+            {
+                "node": "1b3c76905dab8d7b96ee4f704f67633f7a5e18a8",
+                "pushdate": [
+                    1533661351,
+                    0
+                ]
+            },
+            {
+                "node": "c7b8ddc5a878aab6d7b5fafc30c8ed07faf1aaed",
+                "pushdate": [
+                    1533661351,
+                    0
+                ]
+            },
+            {
+                "node": "338feb0782ff509445eeed774e3ffe420b2dfcf2",
+                "pushdate": [
+                    1533661351,
+                    0
+                ]
+            },
+            {
+                "node": "0be81adef0075a692dab0cd707acbe0993c2a3c1",
+                "pushdate": [
+                    1533661351,
+                    0
+                ]
+            }
+        ]
     }
 }

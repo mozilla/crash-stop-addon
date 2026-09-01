@@ -14,9 +14,29 @@ class MyRevision:
 
     PATH = 'tests/data/hg/revisions.json'
 
+    # all crashstop.datacollector reads out of a changeset. The rest of what
+    # json-automationrelevance answers is mostly file lists, and keeping them
+    # makes the recording 15x bigger for nothing.
+    KEEP = ('node', 'pushdate', 'backedoutby')
+
     @staticmethod
     def handler(json, data):
         data.append(json)
+
+    @staticmethod
+    def get_key(url, params):
+        # the revision is in the path and the params are the same for every
+        # query, so the url is what tells the recordings apart
+        return url[len(Mercurial.HG_URL):] + get_params_query(params)
+
+    @staticmethod
+    def trim(json):
+        return {
+            'changesets': [
+                {k: c[k] for k in MyRevision.KEEP if k in c}
+                for c in json.get('changesets') or []
+            ]
+        }
 
     @staticmethod
     def get_url(channel):
@@ -30,19 +50,17 @@ class MyRevision:
         else:
             data = {}
 
-        params_str = get_params_query(params)
-        if params_str not in data:
+        key = MyRevision.get_key(url, params)
+        if key not in data:
             hdata = []
             Connection(
                 Mercurial.HG_URL,
                 queries=Query(url, params, MyRevision.handler, hdata),
             ).wait()
-            data[params_str] = hdata[0]
+            data[key] = MyRevision.trim(hdata[0])
             dumpjson(MyRevision.PATH, data)
 
-            return hdata[0]
-
-        return data[params_str]
+        return data[key]
 
     def __init__(self, *args, **kwargs):
         # crashstop.datacollector.get_pushdates bakes the correct per-channel

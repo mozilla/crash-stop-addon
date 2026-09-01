@@ -8,6 +8,7 @@ import functools
 from libmozdata import hgmozilla, socorro, utils as lmdutils
 from libmozdata.connection import Query
 from . import config, utils
+from .logger import logger
 
 
 def get_fenix_buildids(channels):
@@ -355,20 +356,33 @@ def get_sgns_data(channels, versions, platforms, signatures, extra, products, to
     return data
 
 
-def get_pushdate(json, data):
-    """Get the pushdate from the json if the patch has not been backed out.
-    """
-    if not json.get('backedoutby', False):
-        pushdate = json['pushdate'][0]
-        pushdate = lmdutils.as_utc(datetime.fromtimestamp(pushdate, timezone.utc))
-        data.append(pushdate)
-
-
-# hg.mozilla.org answers json-rev from origin every time (Fastly sends
-# Cache-Control: no-cache for it) and is routinely slower than the rest of what
-# we query: ~5s is normal and spikes past 10s happen. It gets its own budget
-# rather than the global one, which is sized for Socorro.
+# hg answers from origin every time (Fastly sends Cache-Control: no-cache for
+# these) so it gets a budget of its own rather than the global one, which is
+# sized for Socorro. json-automationrelevance is what we ask for rather than
+# json-rev: the latter builds a diff and takes ~18s on an older revision,
+# where this one answers the same pushdate in ~2s.
 HG_TIMEOUT = 15
+
+
+def get_pushdate(rev, json, data):
+    """Get the pushdate of rev, if the patch has not been backed out.
+
+       json-automationrelevance answers with the whole push, so the changeset
+       we asked about has to be picked out of it. It leaves backedoutby out
+       when there is no backout, where json-rev set it to '': both are falsy.
+    """
+    for changeset in json.get('changesets') or []:
+        if not changeset.get('node', '').startswith(rev):
+            continue
+
+        if not changeset.get('backedoutby'):
+            pushdate = changeset['pushdate'][0]
+            data.append(
+                lmdutils.as_utc(datetime.fromtimestamp(pushdate, timezone.utc))
+            )
+        return
+
+    logger.warning('No changeset matching {}'.format(rev))
 
 
 def get_pushdates(chan_rev):
@@ -387,10 +401,13 @@ def get_pushdates(chan_rev):
             data[chan] = pd = []
 
         for rev in revs:
+            url = '{}/json-automationrelevance/{}'.format(
+                hgmozilla.Mercurial.get_repo_url(chan), rev
+            )
             queries.append(Query(
-                hgmozilla.Revision.get_url(chan),
-                {'node': rev},
-                get_pushdate,
+                url,
+                {'backouts': 1},
+                functools.partial(get_pushdate, rev),
                 pd
             ))
 
