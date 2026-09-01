@@ -11,6 +11,15 @@ from . import config, signatures
 from .logger import logger
 
 
+# How long the placeholder holds the key while its owner computes the value.
+LOCK_TIME = 30
+
+# How long another request waits on that placeholder. It has to give up well
+# before the router does: recomputing the value is wasteful, but cheaper than
+# spending the whole budget queueing and timing out anyway.
+MAX_WAIT = 15
+
+
 def _get_credentials():
     """Get the servers/username/password for the cache.
 
@@ -70,17 +79,28 @@ def get_sumup(hg_urls, signatures, extra):
     key = get_hash(key)
     bcache = get_client()
     for _ in [0, 1]:
-        if bcache.add(key, 0, time=30):
+        if bcache.add(key, 0, time=LOCK_TIME):
             try:
                 value = get_value(hg_urls, signatures, extra)
             except Exception:
                 bcache.delete(key)
                 raise
-            bcache.set(key, value, time=config.get_cache_time(), compress_level=9)
+            try:
+                bcache.set(
+                    key, value, time=config.get_cache_time(), compress_level=9
+                )
+            except Exception as e:
+                # Most likely the value is over the server's 1MB item limit.
+                # Serving it uncached is fine, but the placeholder has to go:
+                # anyone waiting on it is waiting for a value that will never
+                # show up.
+                logger.warning('Cannot cache the value: {}'.format(e))
+                bcache.delete(key)
             return value
         else:
             # since add returned False, it means that the key is already here
-            while True:
+            deadline = time.monotonic() + MAX_WAIT
+            while time.monotonic() < deadline:
                 value = bcache.get(key)
                 if value is None:
                     # key has expired
@@ -89,11 +109,13 @@ def get_sumup(hg_urls, signatures, extra):
                     # we've a correct value
                     return value
                 time.sleep(0.1)
+            else:
+                # whoever holds the key is taking longer than we can afford
+                logger.warning('Gave up waiting for the cached value.')
+                break
 
-    # if we're here then it means that value is two times None...
-    # so probably the memcached server is down
-    logger.warning('Issue with memcached...')
-
+    # if we're here then either the value was twice None (so the memcached
+    # server is probably down) or we stopped waiting for the key holder.
     return get_value(hg_urls, signatures, extra)
 
 
