@@ -364,6 +364,13 @@ def get_pushdate(json, data):
         data.append(pushdate)
 
 
+# hg.mozilla.org answers json-rev from origin every time (Fastly sends
+# Cache-Control: no-cache for it) and is routinely slower than the rest of what
+# we query: ~5s is normal and spikes past 10s happen. It gets its own budget
+# rather than the global one, which is sized for Socorro.
+HG_TIMEOUT = 15
+
+
 def get_pushdates(chan_rev):
     """Get the pushdates of the given channel/revision.
     """
@@ -388,5 +395,5 @@ def get_pushdates(chan_rev):
             ))
 
     if queries:
-        return hgmozilla.Revision(queries=queries), data
+        return hgmozilla.Revision(queries=queries, timeout=HG_TIMEOUT), data
     return None, data
