@@ -44,6 +44,17 @@ if uri.startswith('postgres://'):
 
 app.config['SQLALCHEMY_DATABASE_URI'] = uri
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+engine_options = {'pool_recycle': 300, 'pool_pre_ping': True}
+if uri.startswith('postgresql'):
+    # QueuePool-only knobs (sqlite gets a Static/SingletonThreadPool, which
+    # rejects them). essential-0 allows 20 connections and there are 6 web
+    # processes (2 dynos * 3 workers) plus the clock dyno, so cap each process
+    # at 2: 12 + clock leaves headroom. A request only needs the DB for one
+    # indexed select, so the threads barely contend -- and pool_timeout makes
+    # a saturated pool fail fast instead of blocking for the default 30s,
+    # which would be a router timeout.
+    engine_options.update({'pool_size': 1, 'max_overflow': 1, 'pool_timeout': 5})
+app.config['SQLALCHEMY_ENGINE_OPTIONS'] = engine_options
 db = SQLAlchemy(app)
 
 from . import html  # noqa: E402  (must import after db/app are defined)
