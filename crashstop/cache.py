@@ -11,13 +11,29 @@ from . import config, signatures
 from .logger import logger
 
 
-_CLIENT = Client(
-    os.environ.get('MEMCACHEDCLOUD_SERVERS', config.get_memcached('servers')).split(
-        ','
-    ),
-    os.environ.get('MEMCACHEDCLOUD_USERNAME', config.get_memcached('username')),
-    os.environ.get('MEMCACHEDCLOUD_PASSWORD', config.get_memcached('password')),
-)
+def _get_credentials():
+    """Get the servers/username/password for the cache.
+
+       MEMCACHIER_* is the Heroku addon, MEMCACHEDCLOUD_* is what
+       docker-compose sets (and the addon we used to be on).
+    """
+    for prefix in ['MEMCACHIER', 'MEMCACHEDCLOUD']:
+        servers = os.environ.get(prefix + '_SERVERS')
+        if servers:
+            return (
+                servers.split(','),
+                os.environ.get(prefix + '_USERNAME', ''),
+                os.environ.get(prefix + '_PASSWORD', ''),
+            )
+
+    return (
+        config.get_memcached('servers').split(','),
+        config.get_memcached('username'),
+        config.get_memcached('password'),
+    )
+
+
+_CLIENT = Client(*_get_credentials())
 
 
 def get_client():
