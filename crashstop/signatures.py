@@ -38,19 +38,37 @@ def init_platforms(signatures, channels, products):
     return {p: {c: {s: {} for s in signatures} for c in channels} for p in products}
 
 
+def wait_pushdates(hg_conn):
+    """Wait for the hg queries, tolerating a failure.
+
+       hg only gives us the pushdate, i.e. the with/without-patch markers.
+       get_position returns -2 when it's missing and the table renders that as
+       "no info", so a slow hg should degrade the markers rather than fail the
+       whole request. The Socorro queries are the actual payload and are still
+       allowed to raise.
+    """
+    if hg_conn is None:
+        return
+
+    try:
+        hg_conn.wait()
+    except Exception as e:
+        logger.warning('No pushdate, hg query failed: {}'.format(e))
+    finally:
+        hg_conn.session.close()
+
+
 def get_for_urls_sgns(hg_urls, signatures, extra={}):
     chan_rev = utils.get_channel_revision(hg_urls)
-    towait, pushdates = dc.get_pushdates(chan_rev)
-    if towait:
-        towait = [towait]
-    else:
-        towait = []
+    hg_conn, pushdates = dc.get_pushdates(chan_rev)
+    towait = []
 
     data = {}
     versions = {}
     res = {'data': data, 'versions': versions}
 
     if not signatures:
+        wait_pushdates(hg_conn)
         return res
     if utils.is_java(signatures):
         products = ['Fenix']
@@ -77,9 +95,13 @@ def get_for_urls_sgns(hg_urls, signatures, extra={}):
                 utils.get_buildid(b): ver for b, ver, _, _ in all_versions_pc
             }
 
+    wait_pushdates(hg_conn)
+
     for tw in towait:
-        tw.wait()
-        tw.session.close()
+        try:
+            tw.wait()
+        finally:
+            tw.session.close()
 
     for chan, pds in pushdates.items():
         if pds:
@@ -176,7 +198,7 @@ def prepare_bug_for_html(data, extra={}):
 
                 pos = info['position']
                 if pos == -2:
-                    info['buildid_classes'] = ['no-info bu ildid'] * len(buildids)
+                    info['buildid_classes'] = ['no-info buildid'] * len(buildids)
                     info['buildid_tooltip'] = buildids
                 else:
                     info['buildid_classes'] = ['without'] * (pos + 1) + ['with'] * (
