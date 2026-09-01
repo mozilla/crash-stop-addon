@@ -86,6 +86,28 @@ def help_html():
     return send_from_directory('../static', 'help.html')
 
 
+# Flask serves static files with Cache-Control: no-cache, so the browser
+# revalidates every asset on every iframe load, and the validators send_file
+# derives from the file mtime don't survive that: Heroku re-extracts the slug
+# on each dyno restart, which gives the files a fresh mtime -- a different one
+# on each web dyno -- so the conditional request comes back as a full 200
+# rather than a 304.
+#
+# The assets the templates and stop.css reference carry a ?v= in their URL, so
+# a new version ships under a new URL and the old one can be cached forever.
+# The flip side is that editing one of them without bumping its ?v= leaves the
+# clients that already have it on the old copy for good. Everything else
+# (help.html and its screenshots) is unversioned and only gets an hour.
+ONE_YEAR = 60 * 60 * 24 * 365
+ONE_HOUR = 60 * 60
+
+
 @app.route('/<path:filename>')
 def something(filename):
-    return send_from_directory(app.static_folder, filename)
+    versioned = filename == 'stop.css' or filename.startswith('fonts/')
+    res = send_from_directory(
+        app.static_folder, filename, max_age=ONE_YEAR if versioned else ONE_HOUR
+    )
+    if versioned:
+        res.cache_control.immutable = True
+    return res
