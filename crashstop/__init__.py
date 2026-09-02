@@ -97,7 +97,7 @@ def help_html():
 # a new version ships under a new URL and the old one can be cached forever.
 # The flip side is that editing one of them without bumping its ?v= leaves the
 # clients that already have it on the old copy for good. Everything else
-# (help.html and its screenshots) is unversioned and only gets an hour.
+# (help.html, its screenshots, robots.txt) is unversioned and only gets an hour.
 ONE_YEAR = 60 * 60 * 24 * 365
 ONE_HOUR = 60 * 60
 

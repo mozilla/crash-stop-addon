@@ -29,6 +29,14 @@ def test_css(client):
     assert data == css
 
 
+def test_robots(client):
+    res = client.get('/robots.txt')
+
+    assert res.status_code == 200
+    assert res.mimetype == 'text/plain'
+    assert b'Disallow: /' in res.data
+
+
 @pytest.mark.integration
 @patch('libmozdata.socorro.SuperSearch', MySuperSearch)
 @patch('libmozdata.hgmozilla.Revision', MyRevision)

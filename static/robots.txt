@@ -1,0 +1,7 @@
+# Nothing here is worth crawling: / is the help page, and everything else is
+# either a static asset or /sumup.html, which only makes sense inside the
+# Bugzilla iframe the extension injects -- and each uncached hit fans out into
+# a burst of Socorro and hg queries. Scanners probing for /wp-login.php and
+# friends ignore this file anyway; they get a cheap 404 from the catch-all.
+User-agent: *
+Disallow: /
