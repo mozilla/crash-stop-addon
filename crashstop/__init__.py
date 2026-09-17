@@ -41,6 +41,9 @@ Connection.MAX_WORKERS = 8
 # comes out false, get_repo_url() returns the bare host without the repo path.
 hgmozilla.Mercurial.HG_URL = 'https://hg-edge.mozilla.org'
 hgmozilla.Mercurial.remote = True
+# hg-edge's WAF (Fastly) sometimes 406s our default UA; send the one
+# crash-clouseau uses. Set on Mercurial so Socorro keeps mozdata.ini's.
+hgmozilla.Mercurial.USER_AGENT = 'crash-clouseau'
 
 app = Flask(__name__, template_folder='../templates', static_folder='../static')
 
