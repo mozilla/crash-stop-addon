@@ -10,6 +10,7 @@ from sqlalchemy.exc import OperationalError
 import time
 from . import datacollector as dc
 from . import buildhub, config, models, utils
+from .connections import managed_connections
 from .logger import logger
 
 
@@ -54,14 +55,18 @@ def wait_pushdates(hg_conn):
         hg_conn.wait()
     except Exception as e:
         logger.warning('No pushdate, hg query failed: {}'.format(e))
-    finally:
-        hg_conn.session.close()
 
 
 def get_for_urls_sgns(hg_urls, signatures, extra={}):
+    with managed_connections() as connections:
+        return _get_for_urls_sgns(hg_urls, signatures, extra, connections)
+
+
+def _get_for_urls_sgns(hg_urls, signatures, extra, connections):
     chan_rev = utils.get_channel_revision(hg_urls)
     hg_conn, pushdates = dc.get_pushdates(chan_rev)
-    towait = []
+    if hg_conn is not None:
+        connections.append(hg_conn)
 
     data = {}
     versions = {}
@@ -80,7 +85,7 @@ def get_for_urls_sgns(hg_urls, signatures, extra={}):
     all_versions = get_all_versions(products, channels)
     platforms = init_platforms(signatures, channels, products)
     sgns_data = dc.get_sgns_data(
-        channels, all_versions, platforms, signatures, extra, products, towait
+        channels, all_versions, platforms, signatures, extra, products, connections
     )
 
     for product in products:
@@ -97,11 +102,9 @@ def get_for_urls_sgns(hg_urls, signatures, extra={}):
 
     wait_pushdates(hg_conn)
 
-    for tw in towait:
-        try:
-            tw.wait()
-        finally:
-            tw.session.close()
+    for connection in connections:
+        if connection is not hg_conn:
+            connection.wait()
 
     for chan, pds in pushdates.items():
         if pds:

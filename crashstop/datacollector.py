@@ -8,6 +8,7 @@ import functools
 from libmozdata import hgmozilla, socorro, utils as lmdutils
 from libmozdata.connection import Query
 from . import config, utils
+from .connections import close_connection
 from .logger import logger
 
 
@@ -61,8 +62,10 @@ def get_fenix_buildids(channels):
         )
 
     ss = socorro.SuperSearch(queries=queries)
-    ss.wait()
-    ss.session.close()
+    try:
+        ss.wait()
+    finally:
+        close_connection(ss)
 
     return data
 
@@ -149,8 +152,10 @@ def filter_buildids_helper(fn_bids, fx_bids, channel):
         handler=functools.partial(filter_by_crashes_num, channel),
         handlerdata=data,
     )
-    ss.wait()
-    ss.session.close()
+    try:
+        ss.wait()
+    finally:
+        close_connection(ss)
 
     fn_bids = get_useful_bids(fn_bids, data['Fenix'])
     fx_bids = get_useful_bids(fx_bids, data['Firefox'])
