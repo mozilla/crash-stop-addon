@@ -16,7 +16,7 @@ set -euo pipefail
 # (bmemcached's Protocol is a threading.local), which the cache plan handles
 # comfortably; the limit on going higher is really Socorro, since every extra
 # in-flight request is another fan-out of SuperSearch queries.
-ARGS="-b 0.0.0.0:$PORT --limit-request-line 8190 \
+ARGS="--config gunicorn.conf.py -b 0.0.0.0:$PORT --limit-request-line 8190 \
       --worker-class gthread --workers 3 --threads 4 \
       --timeout 25 --graceful-timeout 5 \
       --max-requests 100 --max-requests-jitter 20 \

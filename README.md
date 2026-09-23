@@ -30,6 +30,25 @@ docker-compose -f docker-compose-test.yml run tests
 
 https://github.com/mozilla/crash-stop-addon/issues/new
 
+## Manual memory cleanup diagnostic
+
+Each web worker accepts `SIGURG` to run a full Python garbage collection,
+then glibc's `malloc_trim(0)`. This is manual; it does not run on requests or
+on a schedule. The `memory_cleanup` JSON log records the worker PID, dyno,
+current RSS/PSS/swap in KiB before cleanup, after GC, and after trimming.
+`trim_released_memory: null` means this platform does not support trimming.
+
+Use `heroku ps:exec --app crash-stop-addon --dyno web.1` to enter an existing
+dyno, identify the worker PIDs with `ps -eo pid,ppid,args`, and send
+`kill -URG <worker-pid>` to each worker to measure. Repeat on `web.2`.
+Choose the Gunicorn children, not the master. Startup logs also identify them
+with `memory_cleanup ready pid=...`. Read results with
+`heroku logs --app crash-stop-addon --source app --tail`.
+
+Run this during quiet traffic: other requests in the same worker can affect
+the measurements. An ordinary `heroku run` process has a separate heap and
+cannot clean up web workers. No HTTP endpoint exposes this diagnostic.
+
 ## Contact
 
 Email: calixte@mozilla.com
