@@ -4,10 +4,12 @@
 
 import gc
 import json
-from queue import SimpleQueue
+from queue import Empty, SimpleQueue
 from types import SimpleNamespace
 from unittest.mock import Mock
 import weakref
+
+import pytest
 
 from crashstop import memory
 
@@ -78,6 +80,61 @@ def test_cleanup_collects_cycles_without_malloc_trim(monkeypatch):
             gc.enable()
 
 
+def test_trim_without_forced_python_collection(monkeypatch):
+    collect = Mock()
+    monkeypatch.setattr(memory.gc, 'collect', collect)
+    monkeypatch.setattr(memory, 'read_memory', Mock(side_effect=[
+        {'rss_kib': 300}, {'rss_kib': 100},
+    ]))
+    result = memory.collect_memory(lambda pad: 1, collect_python=False)
+    collect.assert_not_called()
+    assert result['before']['rss_kib'] == 300
+    assert result['after_trim']['rss_kib'] == 100
+    assert result['after_gc'] is None
+    assert result['collected_objects'] is None
+
+
+def test_timer_runs_without_signal(monkeypatch, caplog):
+    requests = SimpleQueue()
+
+    def collect(trim, *, collect_python):
+        assert collect_python is False
+        requests.put(False)
+        return {'pid': 123}
+
+    monkeypatch.setattr(memory, 'collect_memory', collect)
+    memory.run_cleanups(requests, lambda pad: 1, interval=0.001)
+    assert '"trigger": "timer"' in caplog.text
+
+
+def test_timer_failure_keeps_manual_cleanup_working(monkeypatch, caplog):
+    requests = Mock()
+    requests.get.side_effect = [Empty, True, False]
+    cleanup = Mock(side_effect=[RuntimeError('failed'), {'pid': 123}])
+    monkeypatch.setattr(memory, 'collect_memory', cleanup)
+    trim = Mock()
+    memory.run_cleanups(requests, trim, interval=300)
+    assert cleanup.call_args_list[0].kwargs == {'collect_python': False}
+    assert cleanup.call_args_list[1].kwargs == {}
+    assert 'memory_cleanup failed' in caplog.text
+    assert '"trigger": "signal"' in caplog.text
+    assert all(0 < call.kwargs['timeout'] <= 360 for call in requests.get.call_args_list)
+
+
+@pytest.mark.parametrize('interval,trim', [(0, Mock()), (300, None)])
+def test_no_timer_when_disabled_or_unsupported(interval, trim):
+    requests = Mock()
+    requests.get.return_value = False
+    memory.run_cleanups(requests, trim, interval)
+    requests.get.assert_called_once_with(timeout=None)
+
+
+def test_negative_interval_rejected(monkeypatch):
+    monkeypatch.setenv('MEMORY_TRIM_INTERVAL_SECONDS', '-1')
+    with pytest.raises(ValueError, match='non-negative'):
+        memory.install_cleanup()
+
+
 class SimpleCycle:
     pass
 
@@ -107,6 +164,7 @@ def test_listener_survives_cleanup_failure(monkeypatch, caplog):
 
 
 def test_signal_only_queues_cleanup(monkeypatch):
+    monkeypatch.setenv('MEMORY_TRIM_INTERVAL_SECONDS', '300')
     thread = Mock()
     signals = Mock()
     cleanup = Mock()
@@ -120,8 +178,9 @@ def test_signal_only_queues_cleanup(monkeypatch):
     assert signal_number == memory.signal.SIGURG
     handler(signal_number, None)
     cleanup.assert_not_called()
-    requests, trim = thread.call_args.kwargs['args']
+    requests, trim, interval = thread.call_args.kwargs['args']
     assert requests.get_nowait() is True
     assert trim is None
+    assert interval == 300
     assert thread.call_args.kwargs['daemon'] is True
     thread.return_value.start.assert_called_once()

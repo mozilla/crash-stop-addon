@@ -2,14 +2,15 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
-"""Manually measure GC and heap trimming inside a running web worker."""
+"""Measure manual cleanup and optionally trim idle heap pages periodically."""
 
 import ctypes
 import gc
 import json
 import os
 from pathlib import Path
-from queue import SimpleQueue
+from queue import Empty, SimpleQueue
+import random
 import signal
 import threading
 import time
@@ -43,11 +44,11 @@ def load_malloc_trim():
     return trim
 
 
-def collect_memory(trim):
+def collect_memory(trim, *, collect_python=True):
     started = time.monotonic()
     before = read_memory()
-    collected = gc.collect()
-    after_gc = read_memory()
+    collected = gc.collect() if collect_python else None
+    after_gc = read_memory() if collect_python else None
     trimmed = bool(trim(0)) if trim is not None else None
     after_trim = read_memory()
     return {
@@ -62,17 +63,41 @@ def collect_memory(trim):
     }
 
 
-def run_cleanups(requests, trim):
-    while requests.get():
+def run_cleanups(requests, trim, interval=0):
+    def next_deadline():
+        if interval > 0 and trim is not None:
+            # Workers boot together; spread their allocator work over time.
+            return time.monotonic() + random.uniform(0.8, 1.2) * interval
+        return None
+
+    deadline = next_deadline()
+    while True:
+        automatic = False
+        timeout = max(0, deadline - time.monotonic()) if deadline is not None else None
         try:
-            result = collect_memory(trim)
+            if not requests.get(timeout=timeout):
+                return
+        except Empty:
+            automatic = True
+        try:
+            # Automatic trimming releases free libc pages. Keep Python's GC on
+            # its normal schedule; a full collection remains a manual diagnostic.
+            if automatic:
+                result = collect_memory(trim, collect_python=False)
+            else:
+                result = collect_memory(trim)
+            result['trigger'] = 'timer' if automatic else 'signal'
             logger.info('memory_cleanup %s', json.dumps(result, sort_keys=True))
         except Exception:
             # A failed diagnostic must not terminate the worker or listener.
             logger.exception('memory_cleanup failed pid=%s', os.getpid())
+        deadline = next_deadline()
 
 
 def install_cleanup():
+    interval = int(os.getenv('MEMORY_TRIM_INTERVAL_SECONDS', '0'))
+    if interval < 0:
+        raise ValueError('MEMORY_TRIM_INTERVAL_SECONDS must be non-negative')
     requests = SimpleQueue()
     # Resolve libc before taking measurements, so loading it does not skew them.
     trim = load_malloc_trim()
@@ -88,8 +113,11 @@ def install_cleanup():
     signal.siginterrupt(signal.SIGURG, False)
     threading.Thread(
         target=run_cleanups,
-        args=(requests, trim),
+        args=(requests, trim, interval),
         name='memory-cleanup',
         daemon=True,
     ).start()
-    logger.info('memory_cleanup ready pid=%s signal=SIGURG', os.getpid())
+    logger.info(
+        'memory_cleanup ready pid=%s signal=SIGURG trim_interval_seconds=%s',
+        os.getpid(), interval if trim is not None else 0,
+    )

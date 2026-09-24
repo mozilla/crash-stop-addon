@@ -2,6 +2,10 @@
 
 set -euo pipefail
 
+# Periodically return free libc pages to the OS. The worker adds 20% jitter;
+# set this to 0 to disable automatic trimming while retaining manual SIGURG.
+export MEMORY_TRIM_INTERVAL_SECONDS="${MEMORY_TRIM_INTERVAL_SECONDS:-300}"
+
 # gthread rather than the default sync worker: a /sumup.html miss is almost
 # entirely spent waiting on crash-stats, so 3 sync workers meant only 3
 # requests in flight and the rest queueing at the router until it gave up.

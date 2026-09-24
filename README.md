@@ -30,11 +30,24 @@ docker-compose -f docker-compose-test.yml run tests
 
 https://github.com/mozilla/crash-stop-addon/issues/new
 
-## Manual memory cleanup diagnostic
+## Memory cleanup
+
+Web workers return free glibc heap pages to the OS approximately every five
+minutes, with 20% jitter to spread work across workers. This calls
+`malloc_trim(0)` in a background thread and leaves Python's normal GC schedule
+unchanged. Configure `MEMORY_TRIM_INTERVAL_SECONDS` to change the interval;
+set it to `0` to disable automatic trimming. Automatic trimming is disabled
+when `malloc_trim` is unavailable, including on macOS.
+
+The `memory_cleanup` JSON logs include `trigger: "timer"`, memory before and
+after trimming, and elapsed time. `after_gc` and `collected_objects` are null
+when the cleanup skipped a forced Python collection.
+
+### Manual diagnostic
 
 Each web worker accepts `SIGURG` to run a full Python garbage collection,
-then glibc's `malloc_trim(0)`. This is manual; it does not run on requests or
-on a schedule. The `memory_cleanup` JSON log records the worker PID, dyno,
+then glibc's `malloc_trim(0)`. The `memory_cleanup` JSON log records
+`trigger: "signal"`, the worker PID, dyno,
 current RSS/PSS/swap in KiB before cleanup, after GC, and after trimming.
 `trim_released_memory: null` means this platform does not support trimming.
 
