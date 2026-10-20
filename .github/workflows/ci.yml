@@ -9,9 +9,10 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Install uv
-        uses: astral-sh/setup-uv@v6
+        # setup-uv requires full version tags since v8.
+        uses: astral-sh/setup-uv@v10.3.0
         with:
           enable-cache: true
       - name: Sync dependencies
@@ -23,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     services:
       postgres:
-        image: postgres:16
+        image: postgres:17
         env:
           POSTGRES_USER: crash
           POSTGRES_PASSWORD: stop
@@ -46,9 +47,9 @@ jobs:
       MEMCACHEDCLOUD_PASSWORD: ""
       PYTHONPATH: .
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Install uv
-        uses: astral-sh/setup-uv@v6
+        uses: astral-sh/setup-uv@v10.3.0
         with:
           enable-cache: true
       - name: Sync dependencies
