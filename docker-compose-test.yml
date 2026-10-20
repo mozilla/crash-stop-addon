@@ -1,4 +1,3 @@
-version: "3"
 services:
   tests:
     build: .
@@ -10,11 +9,8 @@ services:
     depends_on:
       - postgres
       - memcached
-    links:
-      - postgres
-      - memcached
   postgres:
-    image: postgres
+    image: postgres:17
     environment:
       - POSTGRES_USER=crash
       - POSTGRES_PASSWORD=stop
