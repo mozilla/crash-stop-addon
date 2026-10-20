@@ -9,7 +9,7 @@ RUN openssl req \
 FROM python:3.14-slim
 
 # Bring in the uv binary (https://docs.astral.sh/uv/guides/integration/docker/).
-COPY --from=ghcr.io/astral-sh/uv:0.11.23 /uv /uvx /bin/
+COPY --from=ghcr.io/astral-sh/uv:0.13.3 /uv /uvx /bin/
 
 ENV DATABASE_URL=postgresql://crash:stop@postgres:5432/crashstop
 ENV MEMCACHEDCLOUD_SERVERS=memcached:11211

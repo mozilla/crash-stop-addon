@@ -47,11 +47,19 @@ hgmozilla.Mercurial.USER_AGENT = 'crash-clouseau'
 
 app = Flask(__name__, template_folder='../templates', static_folder='../static')
 
-uri = os.getenv('DATABASE_URL', config.get_database())
-# Workaround for Heroku
-if uri.startswith('postgres://'):
-    uri = uri.replace('postgres://', 'postgresql://', 1)
 
+def normalize_database_uri(uri):
+    """Normalize Postgres URLs to use the installed psycopg2 driver.
+
+    SQLAlchemy 2.1 defaults to psycopg 3 for postgresql:// URLs.
+    """
+    for prefix in ['postgres://', 'postgresql://']:
+        if uri.startswith(prefix):
+            return 'postgresql+psycopg2://' + uri[len(prefix):]
+    return uri
+
+
+uri = normalize_database_uri(os.getenv('DATABASE_URL', config.get_database()))
 app.config['SQLALCHEMY_DATABASE_URI'] = uri
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 engine_options = {'pool_recycle': 300, 'pool_pre_ping': True}
