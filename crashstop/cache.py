@@ -3,6 +3,7 @@
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
 from bmemcached import Client
+from concurrent.futures import ThreadPoolExecutor
 import hashlib
 from itertools import chain
 import os
@@ -42,7 +43,71 @@ def _get_credentials():
     )
 
 
-_CLIENT = Client(*_get_credentials())
+# Timeout for socket operations, separate from the request wait limit.
+SOCKET_TIMEOUT = 0.5
+
+# Maximum wait per cache call, including queueing.
+CALL_TIMEOUT = 1
+
+# Skip cache calls for this many seconds after a call times out.
+SKIP_TIME = 10
+
+
+class OneThreadClient:
+    """Reuse bmemcached's thread-local connections by calling from one thread.
+
+       Limit request waits, including queueing. After a timeout, skip cache
+       calls for SKIP_TIME and return cache-unavailable results.
+    """
+
+    def __init__(self, client):
+        self._client = client
+        self._executor = ThreadPoolExecutor(
+            max_workers=1, thread_name_prefix='memcached'
+        )
+        self._skip_until = 0
+
+    def _call(self, unreachable, name, *args, **kwargs):
+        if time.monotonic() < self._skip_until:
+            return unreachable
+
+        method = getattr(self._client, name)
+        try:
+            future = self._executor.submit(method, *args, **kwargs)
+        except RuntimeError:
+            # Treat executor shutdown during worker exit as cache unavailability.
+            return unreachable
+
+        try:
+            return future.result(timeout=CALL_TIMEOUT)
+        except TimeoutError:
+            # Cancel queued work; running calls may still complete.
+            future.cancel()
+            self._skip_until = time.monotonic() + SKIP_TIME
+            logger.warning(
+                'Memcached is not answering, skipping it for {}s.'.format(SKIP_TIME)
+            )
+            return unreachable
+
+    def add(self, *args, **kwargs):
+        return self._call(False, 'add', *args, **kwargs)
+
+    def get(self, *args, **kwargs):
+        return self._call(None, 'get', *args, **kwargs)
+
+    def set(self, *args, **kwargs):
+        return self._call(False, 'set', *args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        return self._call(False, 'delete', *args, **kwargs)
+
+    def flush_all(self, *args, **kwargs):
+        return self._call(False, 'flush_all', *args, **kwargs)
+
+
+_CLIENT = OneThreadClient(
+    Client(*_get_credentials(), socket_timeout=SOCKET_TIMEOUT)
+)
 
 
 def get_client():
@@ -98,7 +163,7 @@ def get_sumup(hg_urls, signatures, extra):
                 bcache.delete(key)
             return value
         else:
-            # since add returned False, it means that the key is already here
+            # The key may already exist, or the cache may be unavailable.
             deadline = time.monotonic() + MAX_WAIT
             while time.monotonic() < deadline:
                 value = bcache.get(key)
