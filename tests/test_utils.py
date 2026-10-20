@@ -2,8 +2,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
-from datetime import datetime
-import pytz
+from datetime import datetime, timezone
 from crashstop import utils
 
 
@@ -26,32 +25,32 @@ def test_get_channel_revision():
 
 def test_get_build_date():
     assert utils.get_build_date('20180102123456') == datetime(
-        2018, 1, 2, 12, 34, 56, 0, pytz.utc
+        2018, 1, 2, 12, 34, 56, 0, timezone.utc
     )
     assert utils.get_build_date(20180102123456) == datetime(
-        2018, 1, 2, 12, 34, 56, 0, pytz.utc
+        2018, 1, 2, 12, 34, 56, 0, timezone.utc
     )
 
 
 def test_get_buildid():
-    date = datetime(2018, 1, 2, 12, 34, 56, 0, pytz.utc)
+    date = datetime(2018, 1, 2, 12, 34, 56, 0, timezone.utc)
     assert utils.get_buildid(date) == '20180102123456'
 
 
 def test_get_position():
     dates = [
-        datetime(2018, 1, 2, 12, 34, 56, 0, pytz.utc),
-        datetime(2018, 1, 4, 12, 34, 56, 0, pytz.utc),
-        datetime(2018, 1, 6, 12, 34, 56, 0, pytz.utc),
-        datetime(2018, 1, 8, 12, 34, 56, 0, pytz.utc),
+        datetime(2018, 1, 2, 12, 34, 56, 0, timezone.utc),
+        datetime(2018, 1, 4, 12, 34, 56, 0, timezone.utc),
+        datetime(2018, 1, 6, 12, 34, 56, 0, timezone.utc),
+        datetime(2018, 1, 8, 12, 34, 56, 0, timezone.utc),
     ]
 
     assert utils.get_position(None, dates) == -2
-    assert utils.get_position(datetime(2018, 1, 5, 12, 34, 56, 0, pytz.utc), dates) == 1
+    assert utils.get_position(datetime(2018, 1, 5, 12, 34, 56, 0, timezone.utc), dates) == 1
     assert (
-        utils.get_position(datetime(2018, 1, 1, 12, 34, 56, 0, pytz.utc), dates) == -1
+        utils.get_position(datetime(2018, 1, 1, 12, 34, 56, 0, timezone.utc), dates) == -1
     )
-    assert utils.get_position(datetime(2018, 1, 9, 12, 34, 56, 0, pytz.utc), dates) == 3
+    assert utils.get_position(datetime(2018, 1, 9, 12, 34, 56, 0, timezone.utc), dates) == 3
 
 
 def test_update_params():

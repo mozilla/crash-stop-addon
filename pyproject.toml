@@ -18,7 +18,6 @@ dependencies = [
     "apscheduler>=3.11,<4",
     "python-binary-memcached>=0.32.0",
     "requests>=2.34.2",
-    "pytz>=2024.1",
 ]
 
 [project.optional-dependencies]

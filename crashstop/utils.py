@@ -3,9 +3,8 @@
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
 from bisect import bisect_left
-from datetime import datetime
+from datetime import datetime, timezone
 import math
-import pytz
 import re
 
 
@@ -84,10 +83,7 @@ def get_build_date(bid):
             bid //= 100
         Y = bid
         S, M, H, d, m = r
-    d = datetime(Y, m, d, H, M, S)
-    dutc = pytz.utc.localize(d)
-
-    return dutc
+    return datetime(Y, m, d, H, M, S, tzinfo=timezone.utc)
 
 
 def get_buildid(date):

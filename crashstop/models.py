@@ -2,7 +2,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
-import pytz
+from datetime import timezone
 from sqlalchemy import inspect
 from . import config
 from . import db
@@ -60,7 +60,7 @@ class Buildid(db.Model):
         )
         for bid in bids:
             d = res[bid.product][bid.channel]
-            buildid = bid.buildid.astimezone(pytz.utc)
+            buildid = bid.buildid.astimezone(timezone.utc)
             d.append([buildid, bid.version, bid.unique, bid.unique_prod])
 
         return res
