@@ -8,17 +8,19 @@ import hashlib
 from itertools import chain
 import os
 import time
+import uuid
 from . import config, signatures
 from .logger import logger
 
 
-# How long the placeholder holds the key while its owner computes the value.
+# Placeholder TTL; cleanup must preserve any replacement entry.
 LOCK_TIME = 30
 
-# How long another request waits on that placeholder. It has to give up well
-# before the router does: recomputing the value is wasteful, but cheaper than
-# spending the whole budget queueing and timing out anyway.
-MAX_WAIT = 15
+# Polling budget before computing independently.
+MAX_WAIT = 25
+
+# Isolate token placeholders from older workers that expect 0.
+KEY_VERSION = 2
 
 
 def _get_credentials():
@@ -58,6 +60,7 @@ class OneThreadClient:
 
        Limit request waits, including queueing. After a timeout, skip cache
        calls for SKIP_TIME and return cache-unavailable results.
+       Cleanup bypasses the skip period and runs after earlier calls.
     """
 
     def __init__(self, client):
@@ -104,6 +107,23 @@ class OneThreadClient:
     def flush_all(self, *args, **kwargs):
         return self._call(False, 'flush_all', *args, **kwargs)
 
+    def _delete_if(self, key, value):
+        try:
+            found, cas = self._client.gets(key)
+            if found == value:
+                # Reject the delete if the entry changed after gets().
+                self._client.delete(key, cas)
+        except Exception as e:
+            logger.warning('Cannot delete the key: {}'.format(e))
+
+    def delete_if_later(self, key, value):
+        """Queue a conditional delete after earlier calls, bypassing the skip period."""
+        try:
+            self._executor.submit(self._delete_if, key, value)
+        except RuntimeError:
+            # During shutdown, leave the placeholder to expire.
+            pass
+
 
 _CLIENT = OneThreadClient(
     Client(*_get_credentials(), socket_timeout=SOCKET_TIMEOUT)
@@ -139,48 +159,70 @@ def get_extra_as_list(extra):
     return res
 
 
-def get_sumup(hg_urls, signatures, extra):
+def get_key(hg_urls, signatures, extra):
     key = '\n'.join(chain(signatures, hg_urls, get_extra_as_list(extra)))
-    key = get_hash(key)
+    return 'v{}:{}'.format(KEY_VERSION, get_hash(key))
+
+
+def release(key, token):
+    """Queue removal of our token, including a late successful add."""
+    get_client().delete_if_later(key, token)
+
+
+def store(key, token, value):
+    """Cache the result; release our token if the write fails."""
+    try:
+        if get_client().set(
+            key, value, time=config.get_cache_time(), compress_level=9
+        ):
+            return
+        reason = 'memcached is unreachable'
+    except Exception as e:
+        reason = e
+
+    logger.warning('Cannot cache the value: {}'.format(reason))
+    # Stop waiters polling our token after a failed write.
+    release(key, token)
+
+
+def compute(key, token, hg_urls, signatures, extra):
+    try:
+        value = get_value(hg_urls, signatures, extra)
+    except Exception:
+        release(key, token)
+        raise
+    store(key, token, value)
+    return value
+
+
+def get_sumup(hg_urls, signatures, extra):
+    key = get_key(hg_urls, signatures, extra)
     bcache = get_client()
+    token = uuid.uuid4().hex
+    deadline = time.monotonic() + MAX_WAIT
     for _ in [0, 1]:
-        if bcache.add(key, 0, time=LOCK_TIME):
-            try:
-                value = get_value(hg_urls, signatures, extra)
-            except Exception:
-                bcache.delete(key)
-                raise
-            try:
-                bcache.set(
-                    key, value, time=config.get_cache_time(), compress_level=9
-                )
-            except Exception as e:
-                # Most likely the value is over the server's 1MB item limit.
-                # Serving it uncached is fine, but the placeholder has to go:
-                # anyone waiting on it is waiting for a value that will never
-                # show up.
-                logger.warning('Cannot cache the value: {}'.format(e))
-                bcache.delete(key)
-            return value
+        if bcache.add(key, token, time=LOCK_TIME):
+            return compute(key, token, hg_urls, signatures, extra)
         else:
             # The key may already exist, or the cache may be unavailable.
-            deadline = time.monotonic() + MAX_WAIT
             while time.monotonic() < deadline:
                 value = bcache.get(key)
                 if value is None:
-                    # key has expired
                     break
-                if value != 0:
-                    # we've a correct value
+                if value == token:
+                    # Recover an add whose acknowledgement was lost.
+                    return compute(key, token, hg_urls, signatures, extra)
+                if not isinstance(value, str):
+                    # Cached results are tuples; placeholders are strings.
                     return value
                 time.sleep(0.1)
             else:
-                # whoever holds the key is taking longer than we can afford
                 logger.warning('Gave up waiting for the cached value.')
-                break
+                return compute(key, token, hg_urls, signatures, extra)
 
-    # if we're here then either the value was twice None (so the memcached
-    # server is probably down) or we stopped waiting for the key holder.
+    # A timed-out add may still succeed; queue cleanup before computing uncached.
+    logger.warning('Memcached is unreachable, computing without the cache.')
+    release(key, token)
     return get_value(hg_urls, signatures, extra)
 
 
